@@ -15,10 +15,10 @@ const Hero = () => {
         />
       </div>
       <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight drop-shadow-lg">
+        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
           Experience the Soul of Rural India
         </h1>
-        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-200 drop-shadow-md">
+        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
           Traditions, Culture, Lifestyle, and Stories from the Heart of the Village
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
