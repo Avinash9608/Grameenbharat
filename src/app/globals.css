@@ -8,11 +8,11 @@ html {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 120 60% 97%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
+    --card: 120 60% 97%;
     --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
+    --popover: 120 60% 97%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 142.1 76.2% 36.3%;
     --primary-foreground: 355.7 100% 97.3%;
@@ -43,11 +43,11 @@ html {
     --sidebar-ring: 142.1 76.2% 36.3%;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 142.1 76.2% 5.3%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 142.1 76.2% 5.3%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 142.1 76.2% 5.3%;
     --popover-foreground: 210 40% 98%;
     --primary: 142.1 70.6% 45.3%;
     --primary-foreground: 144.9 80.4% 10%;
@@ -83,6 +83,9 @@ html {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-green-50 to-emerald-100 text-foreground;
+  }
+  .dark body {
+    @apply bg-gradient-to-br from-gray-900 via-gray-900 to-green-950 text-foreground;
   }
 }
