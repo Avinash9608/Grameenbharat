@@ -106,6 +106,7 @@ const Folklore = () => {
                       <SelectItem value="Haryanvi">Haryanvi</SelectItem>
                       <SelectItem value="Marwari">Marwari</SelectItem>
                       <SelectItem value="Awadhi">Awadhi</SelectItem>
+                      <SelectItem value="Hindi">Hindi</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
