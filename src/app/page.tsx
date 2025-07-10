@@ -1,3 +1,27 @@
+import Header from '@/components/header';
+import Hero from '@/components/sections/hero';
+import Culture from '@/components/sections/culture';
+import Gallery from '@/components/sections/gallery';
+import VideoStories from '@/components/sections/video-stories';
+import ExploreVillages from '@/components/sections/explore-villages';
+import ArtsCrafts from '@/components/sections/arts-crafts';
+import Folklore from '@/components/sections/folklore';
+import Footer from '@/components/footer';
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <Culture />
+        <Gallery />
+        <VideoStories />
+        <ExploreVillages />
+        <ArtsCrafts />
+        <Folklore />
+      </main>
+      <Footer />
+    </div>
+  );
 }
