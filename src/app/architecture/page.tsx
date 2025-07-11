@@ -51,7 +51,7 @@ const regionalHomesData = {
             materials: ['Clay', 'Cow Dung', 'Hay'],
             adaptation: 'Thick walls and small windows maintain a cool temperature indoors.',
             culture: 'Homes are decorated with intricate white paint patterns after monsoons.',
-            image: 'https://i.pinimg.com/originals/9a/36/f1/9a36f1c435553e1a14bec938c558c44c.jpg',
+            image: 'https://media.istockphoto.com/id/1424805896/photo/broken-ruined-abandoned-damaged-old-hut-cottage-in-indian-village-rural-countryside-area.webp?a=1&b=1&s=612x612&w=0&k=20&c=NmN6EIdELGaLf7NDVtavIAp_VzDex078S646nDvtCcE=',
             hint: 'bihar village house' 
         },
     ],
@@ -62,7 +62,7 @@ const regionalHomesData = {
             materials: ['Mud', 'Bamboo', 'Mirrors'],
             adaptation: 'The circular structure is inherently stable and resistant to earthquakes.',
             culture: 'Famous for Lippan Kaam (mud and mirror work) on the interior walls.',
-            image: 'https://images.unsplash.com/photo-1609692813904-a169b1586563?w=600&auto=format&fit=crop',
+            image: 'https://media.istockphoto.com/id/1139219602/photo/natural-mud-hut-or-bunga.webp?a=1&b=1&s=612x612&w=0&k=20&c=HVT8wisdtZO9PcRMMtZQQymo71xcnQ2rArIOsysQB5U=',
             hint: 'kutch bhunga hut' 
         },
     ]
