@@ -437,22 +437,22 @@ const FestivalsPage = () => {
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
             
-            <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+            <section className="relative h-[50vh] w-full flex items-center justify-center text-center overflow-hidden">
                 <div className="absolute inset-0 z-[-1]">
                     <Image
                     src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
                     alt="Indian festival celebration"
                     fill
-                    className="object-cover brightness-50"
+                    className="object-cover"
                     priority
                     data-ai-hint="indian festival"
                     />
                 </div>
                 <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
+                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground drop-shadow-lg">
                     Festivals of India
                     </h1>
-                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
+                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-foreground/80 drop-shadow-md">
                     Explore the vibrant tapestry of rituals and celebrations from across the states of India.
                     </p>
                 </div>
