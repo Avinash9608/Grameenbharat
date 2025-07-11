@@ -1,12 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Leaf } from 'lucide-react';
+import { Leaf, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import Link from 'next/link';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +26,13 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Culture', href: '#culture' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Stories', href: '#stories' },
-    { name: 'Villages', href: '#villages' },
-    { name: 'Arts', href: '#arts' },
-    { name: 'Folklore', href: '#folklore' },
+    { name: 'Culture', href: '/#culture' },
+    { name: 'Gallery', href: '/#gallery' },
+    { name: 'Stories', href: '/#stories' },
+    { name: 'Villages', href: '/#villages' },
+    { name: 'Arts', href: '/#arts' },
+    { name: 'Folklore', href: '/#folklore' },
+    { name: 'Festivals', href: '/festivals' },
   ];
 
   return (
@@ -33,28 +41,61 @@ const Header = () => {
       isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <a href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Leaf className="h-8 w-8 text-primary" />
           <span className={cn(
-            "font-headline text-2xl font-bold transition-colors",
-            isScrolled ? "text-foreground" : "text-white"
+            "font-headline text-2xl font-bold transition-colors text-foreground"
           )}>
             Grameen Bharat
           </span>
-        </a>
+        </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                isScrolled ? "text-foreground/80 hover:text-foreground" : "text-stone-100 hover:text-white"
+            <Link key={link.name} href={link.href} className={cn(
+                "text-sm font-medium transition-colors hover:text-primary text-foreground/80 hover:text-foreground"
             )}>
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
-        <Button variant="secondary" className="hidden md:inline-flex">
-          Contact Us
-        </Button>
+        <div className="flex items-center gap-2">
+            <Button variant="secondary" className="hidden md:inline-flex">
+                Contact Us
+            </Button>
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="flex flex-col gap-6 p-6">
+                    <Link href="/" className="flex items-center gap-2 mb-4" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Leaf className="h-8 w-8 text-primary" />
+                        <span className="font-headline text-2xl font-bold text-foreground">
+                            Grameen Bharat
+                        </span>
+                    </Link>
+                    <nav className="flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-lg font-medium text-foreground/80 hover:text-primary"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {link.name}
+                        </Link>
+                        ))}
+                    </nav>
+                    <Button variant="secondary" className="mt-4">
+                        Contact Us
+                    </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
+        </div>
       </div>
     </header>
   );
