@@ -147,7 +147,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Punjab": [
         {
             name: "Baisakhi",
-            image: "https://media.istockphoto.com/id/1500853989/photo/happy-senior-punjabi-sikh-couple-wearing-colorful-cloths-standing-together-at-agriculture.webp?a=1&b=1&s=612x612",
+            image: "https://imgk.timesnownews.com/story/1555092708-baisakhi_final.jpg?tr=w-1200,h-900",
             hint: "baisakhi festival",
             details: {
                 description: "Baisakhi is the Sikh New Year and a spring harvest festival. It holds immense religious significance for Sikhs as the day the Khalsa was founded.",
@@ -157,7 +157,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Lohri",
-            image: "https://c.ndtvimg.com/2025-01/iojkrvu_lohri-celebrations_625x300_08_January_25.jpeg",
+            image: "https://i.ndtvimg.com/i/2018-01/lohri_650x400_51515671621.jpg",
             hint: "lohri festival",
             details: {
                 description: "Lohri is a popular winter folk festival, celebrated primarily by Sikhs and Hindus from the Punjab region. It marks the end of winter and the passing of the winter solstice.",
@@ -184,7 +184,7 @@ const festivalData: { [state: string]: Festival[] } = {
             details: {
                 description: "Vallam Kali, the traditional snake boat race of Kerala, is a thrilling event held on the backwaters during the harvest season.",
                 significance: "It is a celebration of teamwork, community spirit, and the rich maritime heritage of Kerala. Each boat represents a village, and the race is a matter of immense pride.",
-                celebration: "Long canoes, resembling snakes and rowed by dozens of men, compete fiercely to the rhythm of traditional boat songs (vanchipattu)."
+                celebration: "Long canoes, resembling snakes, and rowed by dozens of men, compete fiercely to the rhythm of traditional boat songs (vanchipattu)."
             }
         },
         {
