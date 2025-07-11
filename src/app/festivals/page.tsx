@@ -53,7 +53,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Karam Festival",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo64UuS3E89Ejw9kuY1EuU1M1Y5S2C_dCtHw&usqp=CAU",
+            image: "https://utsav.gov.in/public/uploads/event_cover_image/event_683/166115539381102155.jpg",
             hint: "karam festival",
             details: {
                 description: "Karam is a tribal harvest festival celebrated with immense devotion to nature and youth energy. The central ritual revolves around the Karam tree, whose branch is worshipped by unmarried girls and village youth as a symbol of prosperity and protection. The festival is deeply rooted in tribal identity, respect for nature, and belief in community harmony.",
@@ -537,5 +537,3 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
-
-    
