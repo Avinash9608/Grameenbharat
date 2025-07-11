@@ -196,9 +196,17 @@ const nextConfig: NextConfig = {
         hostname: 'www.jiomart.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'resize.indiatvnews.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
 };
 
 export default nextConfig;
+
+    

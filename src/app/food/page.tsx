@@ -26,7 +26,7 @@ const regionalFoodData = {
     ],
     East: [
         { name: 'Panta Bhaat', localName: 'West Bengal', taste: ['Fermented', 'Cooling'], image: 'https://media.istockphoto.com/id/2209475313/photo/panta-ilish-a-bengali-new-year-festive-dish-panta-bhat-served-with-aloo-bharta-green-chili.webp?a=1&b=1&s=612x612&w=0&k=20&c=x4_BN7oSXpDFk-zm2SdIC7laRaJBZkHkM8oukT1spao=', hint: 'bengali food' },
-        { name: 'Thekua', localName: 'Bihar', taste: ['Sweet', 'Crunchy'], image: 'https://c.ndtvimg.com/2018-11/1ivb9hq_thekua_625x300_13_November_18.jpg', hint: 'thekua' },
+        { name: 'Thekua', localName: 'Bihar', taste: ['Sweet', 'Crunchy'], image: 'https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2020/11/thekua-1605597157.jpg', hint: 'thekua' },
         { name: 'Shorshe Ilish', localName: 'West Bengal', taste: ['Pungent', 'Spicy'], image: 'https://media.istockphoto.com/id/2209475301/photo/delicious-shorshe-ilish-on-silverware-on-a-light-wooden-surface-this-popular-bengali-dish.webp?a=1&b=1&s=612x612&w=0&k=20&c=oh8S4OklY-3ecAy3IwogsJ0i-vY6ROf-EtOkFQxM_s4=', hint: 'ilish fish' },
     ],
     West: [
@@ -312,3 +312,5 @@ const FoodPage = () => {
 };
 
 export default FoodPage;
+
+    
