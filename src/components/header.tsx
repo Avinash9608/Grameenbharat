@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -38,6 +39,7 @@ const Header = () => {
     { name: 'Festivals', href: '/festivals' },
     { name: 'Occupations', href: '/occupations'},
     { name: 'Clothing', href: '/clothing'},
+    { name: 'Food', href: '/food' },
   ];
 
   const headerTextColor = isHomePage && !isScrolled ? 'text-white' : 'text-foreground';
@@ -111,5 +113,3 @@ const Header = () => {
 };
 
 export default Header;
-
-    
