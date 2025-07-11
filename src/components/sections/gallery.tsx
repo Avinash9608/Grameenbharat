@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Image from 'next/image';
 import { PlayCircle } from 'lucide-react';
@@ -49,6 +50,12 @@ const galleryItems = {
 };
 
 const Gallery = () => {
+  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
+
+  const handleTabChange = () => {
+    setPlayingVideoId(null);
+  };
+
   return (
     <section id="gallery" className="py-16 md:py-24 bg-background/70">
       <div className="container mx-auto px-4 md:px-6">
@@ -58,7 +65,7 @@ const Gallery = () => {
             A visual journey through the heart of rural India.
           </p>
         </div>
-        <Tabs defaultValue="Images" className="w-full">
+        <Tabs defaultValue="Images" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 mb-8">
             {Object.keys(galleryItems).map((category) => (
               <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
@@ -66,30 +73,40 @@ const Gallery = () => {
           </TabsList>
           {Object.entries(galleryItems).map(([category, items]) => (
             <TabsContent key={category} value={category}>
-              <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+              <div className="columns-2 md:columns-3 gap-4 space-y-4">
                 {items.map((item: any, index: number) => (
-                  <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative">
+                  <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative aspect-video bg-black">
                     {category === 'Videos' ? (
-                       <a href={`https://www.youtube.com/watch?v=${item.videoId}`} target="_blank" rel="noopener noreferrer" className="block">
-                         <Image
-                           src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
-                           alt={item.alt}
-                           width={600}
-                           height={400}
-                           className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                           data-ai-hint={item.hint}
-                         />
-                         <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
-                           <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300 cursor-pointer" />
-                         </div>
-                       </a>
+                      playingVideoId === item.videoId ? (
+                        <iframe
+                          src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0`}
+                          title={item.alt}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          className="w-full h-full"
+                        ></iframe>
+                      ) : (
+                        <div className="w-full h-full cursor-pointer" onClick={() => setPlayingVideoId(item.videoId)}>
+                           <Image
+                             src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+                             alt={item.alt}
+                             fill
+                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                             data-ai-hint={item.hint}
+                           />
+                           <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
+                             <PlayCircle className="h-16 w-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                           </div>
+                        </div>
+                      )
                     ) : (
                       <Image
                         src={item.src}
                         alt={item.alt}
                         width={600}
-                        height={item.src.includes('800') ? 800 : 400}
-                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                        height={400}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         data-ai-hint={item.hint}
                       />
                     )}
