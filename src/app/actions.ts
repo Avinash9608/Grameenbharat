@@ -14,6 +14,7 @@ export async function handleTranslateFolklore(input: TranslateFolkloreInput): Pr
     }
 }
 
+// This function is no longer needed as festival data is hardcoded, but we'll keep it to avoid breaking imports if it's referenced elsewhere.
 export async function handleFetchFestivalInfo(input: FestivalInfoInput): Promise<FestivalInfoOutput> {
     try {
         const output = await fetchFestivalInfo(input);
@@ -23,5 +24,4 @@ export async function handleFetchFestivalInfo(input: FestivalInfoInput): Promise
         throw new Error("Failed to fetch festival information. Please try again.");
     }
 }
-
     
