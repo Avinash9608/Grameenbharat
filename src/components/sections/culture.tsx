@@ -1,9 +1,10 @@
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { CookingPot, Utensils, Shirt, Tent, Building2 } from 'lucide-react';
+import Link from 'next/link';
 
 const cultureItems = [
-  { title: 'Local Festivals & Rituals', icon: <Tent className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1597131267491-b28fc433ea3c?q=80&w=1100&auto=format&fit=crop', hint: 'indian festival' },
+  { title: 'Local Festivals & Rituals', icon: <Tent className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1597131267491-b28fc433ea3c?q=80&w=1100&auto=format&fit=crop', hint: 'indian festival', href: '/festivals' },
   { title: 'Village Occupations', icon: <CookingPot className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1623211270166-bc232d744d6a?q=80&w=1170&auto=format&fit=crop', hint: 'village pottery' },
   { title: 'Clothing and Jewelry', icon: <Shirt className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1679004633953-2af98ed7eaf9?q=80&w=685&auto=format&fit=crop', hint: 'traditional clothing' },
   { title: 'Village Food & Recipes', icon: <Utensils className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1680359873864-43e89bf248ac?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', hint: 'indian food' },
@@ -22,22 +23,30 @@ const Culture = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cultureItems.map((item) => (
-            <Card key={item.title} className="overflow-hidden border-0 shadow-lg group">
-              <CardHeader className="p-0">
-                <div className="relative h-64 w-full">
-                  <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={item.hint} />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                    <div className="mb-4 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-300">
-                      {item.icon}
+          {cultureItems.map((item) => {
+            const cardContent = (
+              <Card className="overflow-hidden border-0 shadow-lg group h-full">
+                <CardHeader className="p-0">
+                  <div className="relative h-64 w-full">
+                    <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={item.hint} />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                      <div className="mb-4 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-300">
+                        {item.icon}
+                      </div>
+                      <CardTitle className="font-headline text-2xl text-white drop-shadow-md">{item.title}</CardTitle>
                     </div>
-                    <CardTitle className="font-headline text-2xl text-white drop-shadow-md">{item.title}</CardTitle>
                   </div>
-                </div>
-              </CardHeader>
-            </Card>
-          ))}
+                </CardHeader>
+              </Card>
+            );
+            
+            return item.href ? (
+                <Link key={item.title} href={item.href} className="block h-full">{cardContent}</Link>
+            ) : (
+                <div key={item.title}>{cardContent}</div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -45,3 +54,5 @@ const Culture = () => {
 };
 
 export default Culture;
+
+    
