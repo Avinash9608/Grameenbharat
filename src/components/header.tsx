@@ -18,7 +18,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
-  const pagesWithDarkHero = ['/', '/food', '/occupations'];
+  const pagesWithDarkHero = ['/', '/food', '/occupations', '/architecture', '/farming'];
   const hasDarkHero = pagesWithDarkHero.includes(pathname);
 
   useEffect(() => {
