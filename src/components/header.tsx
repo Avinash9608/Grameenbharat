@@ -36,6 +36,8 @@ const Header = () => {
     { name: 'Arts', href: '/#arts' },
     { name: 'Folklore', href: '/#folklore' },
     { name: 'Festivals', href: '/festivals' },
+    { name: 'Occupations', href: '/occupations'},
+    { name: 'Clothing', href: '/clothing'},
   ];
 
   const headerTextColor = isHomePage && !isScrolled ? 'text-white' : 'text-foreground';
@@ -47,7 +49,7 @@ const Header = () => {
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Leaf className={cn("h-8 w-8 transition-colors", isHomePage && !isScrolled ? 'text-primary' : 'text-primary')} />
+          <Leaf className={cn("h-8 w-8 transition-colors", 'text-primary')} />
           <span className={cn(
             "font-headline text-2xl font-bold transition-colors",
              headerTextColor
@@ -109,3 +111,5 @@ const Header = () => {
 };
 
 export default Header;
+
+    

@@ -6,7 +6,7 @@ import Link from 'next/link';
 const cultureItems = [
   { title: 'Local Festivals & Rituals', icon: <Tent className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1597131267491-b28fc433ea3c?q=80&w=1100&auto=format&fit=crop', hint: 'indian festival', href: '/festivals' },
   { title: 'Village Occupations', icon: <CookingPot className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1623211270166-bc232d744d6a?q=80&w=1170&auto=format&fit=crop', hint: 'village pottery', href: '/occupations' },
-  { title: 'Clothing and Jewelry', icon: <Shirt className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1679004633953-2af98ed7eaf9?q=80&w=685&auto=format&fit=crop', hint: 'traditional clothing' },
+  { title: 'Clothing and Jewelry', icon: <Shirt className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1679004633953-2af98ed7eaf9?q=80&w=685&auto=format&fit=crop', hint: 'traditional clothing', href: '/clothing' },
   { title: 'Village Food & Recipes', icon: <Utensils className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1680359873864-43e89bf248ac?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', hint: 'indian food' },
   { title: 'Homes and Architecture', icon: <Building2 className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1736914319111-d54ada582633?q=80&w=1332&auto=format&fit=crop', hint: 'village house' },
   { title: 'Farming Lifestyle', icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 text-white"><path d="M3 4h9l1 5"/><path d="M4 11V4"/><path d="M8 11V4"/><path d="m10 11 11 5.5"/><circle cx="7" cy="15" r="4"/><circle cx="18" cy="18" r="3"/></svg>, image: 'https://images.unsplash.com/photo-1662815094316-917f52876324?w=600&auto=format&fit=crop', hint: 'indian farmer' },
@@ -54,3 +54,5 @@ const Culture = () => {
 };
 
 export default Culture;
+
+    
