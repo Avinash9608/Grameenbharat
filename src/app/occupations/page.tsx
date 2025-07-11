@@ -67,7 +67,7 @@ const occupationsData: Occupation[] = [
     {
         name: 'Carpentry & Bamboo Craft',
         description: 'Skilled artisans crafting furniture, tools, and decorative items from wood and versatile bamboo.',
-        image: 'https://media.istockphoto.com/id/121260897/photo/asian-market-of-bamboo-crafts.webp?b=1&s=170667a&w=0&k=20&c=L28BCz_2Y-9aZk1cE-VT3LgKGl_j1XkGkBHu6u2d3aU=',
+        image: 'https://images.unsplash.com/photo-1614081781513-d0c6f10b0366?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         hint: 'bamboo craft',
         region: 'Assam, Tripura',
         icon: <Hammer className="h-8 w-8 text-primary" />,
@@ -105,7 +105,7 @@ const occupationsData: Occupation[] = [
     {
         name: 'Pottery & Terracotta',
         description: 'The timeless craft of shaping clay into pots, lamps, and decorative items, baked for durability.',
-        image: 'https://images.unsplash.com/photo-1557996552-873f22f7b168?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1604464543433-149fe779b779?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         hint: 'pottery wheel',
         region: 'West Bengal, Rajasthan',
         icon: <Sprout className="h-8 w-8 text-primary" />,
@@ -124,7 +124,7 @@ const occupationsData: Occupation[] = [
     {
         name: 'Fishing & Poultry',
         description: 'A primary livelihood for coastal and riverside communities, depending on nets, boats, and traditional knowledge.',
-        image: 'https://images.unsplash.com/photo-1541552382-9a3976345999?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1624668431028-75dfeafd9b83?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8RmlzaGluZyUyMCUyNiUyMFBvdWx0cnl8ZW58MHx8MHx8fDA%3D',
         hint: 'indian fisherman',
         region: 'Kerala, West Bengal',
         icon: <Fish className="h-8 w-8 text-primary" />,
@@ -143,7 +143,7 @@ const occupationsData: Occupation[] = [
      {
         name: 'Masonry & Construction',
         description: 'Building homes and community structures using traditional techniques and locally sourced materials.',
-        image: 'https://images.unsplash.com/photo-1581094376366-3d22e0399333?w=600&auto=format&fit=crop',
+        image: 'https://plus.unsplash.com/premium_photo-1682366278685-73513e8be5cb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         hint: 'construction worker',
         region: 'Nationwide',
         icon: <Construction className="h-8 w-8 text-primary" />,
@@ -181,7 +181,7 @@ const occupationsData: Occupation[] = [
     {
         name: 'Honey Collection & Forest Produce',
         description: 'Gathering wild honey and other natural products from forests, a practice that requires deep ecological knowledge.',
-        image: 'https://images.unsplash.com/photo-1587325483484-8250b7348e35?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1652340183977-9e22fe41870c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         hint: 'honey collection',
         region: 'Sundarbans, Western Ghats',
         icon: <Hexagon className="h-8 w-8 text-primary" />,
