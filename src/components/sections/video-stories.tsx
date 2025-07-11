@@ -8,11 +8,11 @@ import Image from "next/image";
 import { PlayCircle } from "lucide-react";
 
 const videoItems = [
-    { title: "A Day in a Farmer's Life", src: "https://placehold.co/1600x900.png", hint: "farmer working", videoId: "Bhs7yXhJBdo" },
-    { title: "Celebrating Holi in Villages", src: "https://placehold.co/1600x900.png", hint: "holi festival", videoId: "AbFIkJ8KFZ8" },
-    { title: "Folk Songs &amp; Dance", src: "https://placehold.co/1600x900.png", hint: "folk dance", videoId: "w0gamtoWxnE" },
-    { title: "The Art of Pottery", src: "https://placehold.co/1600x900.png", hint: "pottery making", videoId: "ErSL2EkQocs" },
-    { title: "Monsoon Arrival", src: "https://placehold.co/1600x900.png", hint: "monsoon rain", videoId: "RPassbDKT4s" },
+    { title: "A Day in a Farmer's Life", src: "https://img.youtube.com/vi/Bhs7yXhJBdo/hqdefault.jpg", hint: "farmer working", videoId: "Bhs7yXhJBdo" },
+    { title: "Celebrating Holi in Villages", src: "https://img.youtube.com/vi/AbFIkJ8KFZ8/hqdefault.jpg", hint: "holi festival", videoId: "AbFIkJ8KFZ8" },
+    { title: "Folk Songs &amp; Dance", src: "https://img.youtube.com/vi/w0gamtoWxnE/hqdefault.jpg", hint: "folk dance", videoId: "w0gamtoWxnE" },
+    { title: "The Art of Pottery", src: "https://img.youtube.com/vi/ErSL2EkQocs/hqdefault.jpg", hint: "pottery making", videoId: "ErSL2EkQocs" },
+    { title: "Monsoon Arrival", src: "https://img.youtube.com/vi/RPassbDKT4s/hqdefault.jpg", hint: "monsoon rain", videoId: "RPassbDKT4s" },
 ];
 
 const VideoStories = () => {
@@ -27,8 +27,8 @@ const VideoStories = () => {
             Watch captivating short films that bring the village stories to life.
           </p>
         </div>
-        <Carousel 
-          opts={{ align: "start", loop: true }} 
+        <Carousel
+          opts={{ align: "start", loop: true }}
           className="w-full"
           onSelect={() => setPlayingVideoId(null)} // Stop video when sliding
         >
