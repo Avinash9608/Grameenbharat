@@ -260,43 +260,44 @@ const OccupationsPage = () => {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {videoTestimonials.map((video) => (
-                                    <Card key={video.videoId} className="overflow-hidden group border-none shadow-lg">
-                                        <CardContent className="relative aspect-video p-0 bg-black">
-                                            {playingVideoId === video.videoId ? (
-                                                <iframe
-                                                    src={`https://www.youtube.com/embed/${video.videoId}?autoplay=1&rel=0`}
-                                                    title={video.title}
-                                                    frameBorder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                    allowFullScreen
-                                                    className="w-full h-full"
-                                                ></iframe>
-                                            ) : (
-                                                <div className="w-full h-full cursor-pointer" onClick={() => setPlayingVideoId(video.videoId)}>
-                                                    <Image
-                                                        src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
-                                                        alt={video.title}
-                                                        fill
-                                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                                        data-ai-hint={video.hint}
-                                                    />
-                                                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300 group-hover:bg-black/50">
-                                                        <PlayCircle className="h-16 w-16 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                                    <div key={video.videoId}>
+                                        <Card className="overflow-hidden group border-none shadow-lg">
+                                            <CardContent className="relative aspect-video p-0 bg-black">
+                                                {playingVideoId === video.videoId ? (
+                                                    <iframe
+                                                        src={`https://www.youtube.com/embed/${video.videoId}?autoplay=1&rel=0`}
+                                                        title={video.title}
+                                                        frameBorder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                        allowFullScreen
+                                                        className="w-full h-full"
+                                                    ></iframe>
+                                                ) : (
+                                                    <div className="w-full h-full cursor-pointer" onClick={() => setPlayingVideoId(video.videoId)}>
+                                                        <Image
+                                                            src={`https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`}
+                                                            alt={video.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                                            data-ai-hint={video.hint}
+                                                        />
+                                                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300 group-hover:bg-black/50">
+                                                            <PlayCircle className="h-16 w-16 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                                                        </div>
+                                                        <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
+                                                            <h3 className="font-headline text-xl text-white font-semibold">{video.title}</h3>
+                                                        </div>
                                                     </div>
-                                                    <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 to-transparent w-full">
-                                                        <h3 className="font-headline text-xl text-white font-semibold">{video.title}</h3>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </CardContent>
-                                    </Card>
-                                </Card>
-                            ))}
-                        </div>
-                    </section>
-                </div>
-            </main>
-            <Footer />
+                                                )}
+                                            </CardContent>
+                                        </Card>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
+                </main>
+                <Footer />
             </div>
             
             <Dialog open={!!selectedOccupation} onOpenChange={(isOpen) => !isOpen && setSelectedOccupation(null)}>
@@ -329,5 +330,3 @@ const OccupationsPage = () => {
 };
 
 export default OccupationsPage;
-
-    
