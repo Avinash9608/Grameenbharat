@@ -78,19 +78,19 @@ const farmerVoicesData = [
 const FarmingLifestylePage = () => {
 
     return (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen">
             <Header />
 
             <main className="flex-1">
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
-                            src="https://images.unsplash.com/photo-1605272058466-5988743ff1db?w=600&auto=format&fit=crop"
+                            src="https://media.istockphoto.com/id/506164764/photo/tractor-spraying-soybean-field.webp?a=1&b=1&s=612x612&w=0&k=20&c=FziHcky7PA62LyCW15cUEva70DhfXUbdeNIZBi_zQlk="
                             alt="A farmer plowing a field with oxen"
                             fill
                             className="object-cover brightness-75"
                             priority
-                            data-ai-hint="farmer plowing"
+                            data-ai-hint="tractor spraying field"
                         />
                     </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white">
