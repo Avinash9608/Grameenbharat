@@ -15,24 +15,24 @@ import { Flame, CookingPot, Leaf, Sun, Wind, Droplets, UtensilsCrossed, PlayCirc
 
 const regionalFoodData = {
     North: [
-        { name: 'Makki di Roti & Sarson da Saag', localName: 'Punjab', taste: ['Earthy', 'Spicy'], image: 'https://plus.unsplash.com/premium_photo-1669680785169-d95f2e604732?w=600&auto=format&fit=crop', hint: 'sarson da saag' },
-        { name: 'Litti Chokha', localName: 'Bihar', taste: ['Smoky', 'Tangy'], image: 'https://media.istockphoto.com/id/1305459336/photo/litti-chokha-or-bati-chokha.webp?s=612x612&w=is&k=20&c=i3HkG3TCDLqgVn2w0BS3pEwOYq0ANIVKj23z-szq9V0=', hint: 'litti chokha' },
-        { name: 'Bajra Roti & Ker Sangri', localName: 'Rajasthan', taste: ['Nutty', 'Spicy'], image: 'https://media.istockphoto.com/id/1323363353/photo/ker-sangri-popular-rajasthani-vegetable-served-in-a-bowl.webp?s=612x612&w=is&k=20&c=g-w6hU19a-9k-e2T9fL10915lFw6bLhZ3s01o8l2W8g=', hint: 'rajasthani food' },
+        { name: 'Makki di Roti & Sarson da Saag', localName: 'Punjab', taste: ['Earthy', 'Spicy'], image: 'https://media.istockphoto.com/id/1193080110/photo/makki-ki-roti-sarson-ka-saag.webp?a=1&b=1&s=612x612&w=0&k=20&c=_LURo_jD2MzlSO-u-DzO2Yp_ISt_qmNAO7R7rnK37GY=', hint: 'sarson da saag' },
+        { name: 'Litti Chokha', localName: 'Bihar', taste: ['Smoky', 'Tangy'], image: 'https://media.istockphoto.com/id/2189780938/photo/litti-chokha-with-raita-and-chutney.webp?a=1&b=1&s=612x612&w=0&k=20&c=e5n65xLN3dkwTZa9FH7JLtyMsGM_5QKIQcSSDvDOSWo=', hint: 'litti chokha' },
+        { name: 'Bajra Roti & Ker Sangri', localName: 'Rajasthan', taste: ['Nutty', 'Spicy'], image: 'https://media.istockphoto.com/id/2201659127/photo/roti-and-sabzi-indian-vegetarian-thali-includes-bhindi-fry-yellow-daal-tadka-cucumber-raita.webp?a=1&b=1&s=612x612&w=0&k=20&c=QwIdA3ViJuxPslpCFFVs9SvThXXC8w1ivxZclnqWqGY=', hint: 'rajasthani food' },
     ],
     South: [
-        { name: 'Ragi Kali', localName: 'Tamil Nadu', taste: ['Healthy', 'Mild'], image: 'https://media.istockphoto.com/id/1441604230/photo/ragi-mudde-or-ragi-sankati-and-sambar-close-up-selective-focus.webp?s=612x612&w=is&k=20&c=F-h-vN7lV3J-PmVUu2Qj3n0vN51cZ3_13_S8B8C_U0I=', hint: 'ragi kali' },
-        { name: 'Tapioca with Fish Curry', localName: 'Kerala', taste: ['Spicy', 'Tangy'], image: 'https://media.istockphoto.com/id/1399318999/photo/kappa-and-meen-curry-or-tapioca-with-fish-curry-which-is-a-popular-and-traditional-food-in.webp?s=612x612&w=is&k=20&c=uT6XFfXjbf6P7_41YcM-j2-L09gL1lJgqX_t41-y2Y4=', hint: 'kerala food' },
-        { name: 'Payasam', localName: 'Kerala', taste: ['Sweet', 'Creamy'], image: 'https://media.istockphoto.com/id/1183182104/photo/rice-payasam-or-kheer-pudding-in-a-golden-bowl.webp?s=612x612&w=is&k=20&c=q4M37BqA7p33hYyqQ8I8r1k3Y5b-YdOqWzP4w7Z_J5Y=', hint: 'payasam' },
+        { name: 'Ragi Kali', localName: 'Tamil Nadu', taste: ['Healthy', 'Mild'], image: 'https://media.istockphoto.com/id/1547633628/photo/poongar-rice-vattayappam-steamed-rice-cake-made-with-a-fermented-batter-of-poongar-rice-and.webp?a=1&b=1&s=612x612&w=0&k=20&c=9_KNk05ecS8Iq3yYVXKir4lKdDgbdmukgF_YXN5YmUI=', hint: 'ragi kali' },
+        { name: 'Tapioca with Fish Curry', localName: 'Kerala', taste: ['Spicy', 'Tangy'], image: 'https://media.istockphoto.com/id/2208406913/photo/boiled-and-mashed-tapioca-served-with-spicy-chicken-curry-and-crispy-fried-fish.webp?a=1&b=1&s=612x612&w=0&k=20&c=LmM_VhyA8RiMSRsZXm48gR-By6-zCjrq36wGTXEYtiM=', hint: 'kerala food' },
+        { name: 'Payasam', localName: 'Kerala', taste: ['Sweet', 'Creamy'], image: 'https://media.istockphoto.com/id/980089086/photo/rice-pudding-or-kheer-from-india-called-also-called-firnee-served-in-a-bowl-selective-focus.webp?a=1&b=1&s=612x612&w=0&k=20&c=Rw_oIvR4K1lu_m81T5UlZ38YnrhbvNB3R4GCCKTU78M=', hint: 'payasam' },
     ],
     East: [
-        { name: 'Panta Bhaat', localName: 'West Bengal', taste: ['Fermented', 'Cooling'], image: 'https://media.istockphoto.com/id/1494548480/photo/panta-bhat-is-a-bengali-comfort-food-it-is-a-fermented-rice-gruel-and-is-eaten-with-fried.webp?s=612x612&w=is&k=20&c=1m1dY4Q8_A0jX8z1Q8jZ3l4a2-Z8a3wJ9f-l4iY6q5Y=', hint: 'bengali food' },
-        { name: 'Thekua', localName: 'Bihar', taste: ['Sweet', 'Crunchy'], image: 'https://media.istockphoto.com/id/1435222533/photo/thekua.webp?s=612x612&w=is&k=20&c=7Y12_hP_9rT5a3dG6rK1bFwW8_k6l8B8q-8wX-u3l6g=', hint: 'thekua' },
-        { name: 'Shorshe Ilish', localName: 'West Bengal', taste: ['Pungent', 'Spicy'], image: 'https://media.istockphoto.com/id/1324749323/photo/shorshe-ilish-hilsa-herring-fish-curry-with-mustard-seeds.webp?s=612x612&w=is&k=20&c=V6CqYf-M7z9g_fE8s_G4h5D8_Y-n9b-L8x7l0-j8r7o=', hint: 'ilish fish' },
+        { name: 'Panta Bhaat', localName: 'West Bengal', taste: ['Fermented', 'Cooling'], image: 'https://media.istockphoto.com/id/2209475313/photo/panta-ilish-a-bengali-new-year-festive-dish-panta-bhat-served-with-aloo-bharta-green-chili.webp?a=1&b=1&s=612x612&w=0&k=20&c=x4_BN7oSXpDFk-zm2SdIC7laRaJBZkHkM8oukT1spao=', hint: 'bengali food' },
+        { name: 'Thekua', localName: 'Bihar', taste: ['Sweet', 'Crunchy'], image: 'https://c.ndtvimg.com/2018-11/1ivb9hq_thekua_625x300_13_November_18.jpg', hint: 'thekua' },
+        { name: 'Shorshe Ilish', localName: 'West Bengal', taste: ['Pungent', 'Spicy'], image: 'https://media.istockphoto.com/id/2209475301/photo/delicious-shorshe-ilish-on-silverware-on-a-light-wooden-surface-this-popular-bengali-dish.webp?a=1&b=1&s=612x612&w=0&k=20&c=oh8S4OklY-3ecAy3IwogsJ0i-vY6ROf-EtOkFQxM_s4=', hint: 'ilish fish' },
     ],
     West: [
-        { name: 'Gatte ki Sabzi', localName: 'Rajasthan', taste: ['Savory', 'Spicy'], image: 'https://media.istockphoto.com/id/1282121658/photo/gatte-ki-sabji-or-gatta-curry-is-a-yogurt-based-curry-from-the-indian-state-of-rajasthan-and.webp?s=612x612&w=is&k=20&c=QoG3A52o_B0wA62g29E4lY8b-jL5U3-y_B2z5V7v8c4=', hint: 'rajasthani curry' },
-        { name: 'Chousela Roti', localName: 'Chhattisgarh', taste: ['Soft', 'Savory'], image: 'https://media.istockphoto.com/id/1451528620/photo/chhattisgarh-special-thali.webp?s=612x612&w=is&k=20&c=XU7d6u6Z-3r9Z-r0j0p_x4q_Z8m6Q_r2Z-Q8r7ZlX-k=', hint: 'chhattisgarh food' },
-        { name: 'Smoked Pork with Bamboo Shoot', localName: 'Nagaland', taste: ['Smoky', 'Pungent'], image: 'https://media.istockphoto.com/id/1324143455/photo/smoked-pork-curry-with-bamboo-shoots-and-vegetables.webp?s=612x612&w=is&k=20&c=mC2n6i_p8m9Q-r9-g5_f9wZ-z5B_c3l8l1i8o5I7j0Q=', hint: 'naga food' },
+        { name: 'Gatte ki Sabzi', localName: 'Rajasthan', taste: ['Savory', 'Spicy'], image: 'https://media.istockphoto.com/id/1513582138/photo/rajasthani-gatta-curry-or-besan-ke-gatte-ki-sabzi-gatte-are-gram-flour-roundels-or-chickpea.webp?a=1&b=1&s=612x612&w=0&k=20&c=vCYSMkz3ytMkbvGX5Od_C4dv4BHrXA5sNezEPD0tJV4=', hint: 'rajasthani curry' },
+        { name: 'Chousela Roti', localName: 'Chhattisgarh', taste: ['Soft', 'Savory'], image: 'https://media.istockphoto.com/id/1002051148/photo/yozgat-turkey-fat-bread-on-a-black-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=cySKkD_2-sj9m-ARxTGQ3OpyTbWIz44l0saFdXMCS5E=', hint: 'chhattisgarh food' },
+        { name: 'Smoked Pork with Bamboo Shoot', localName: 'Nagaland', taste: ['Smoky', 'Pungent'], image: 'https://media.istockphoto.com/id/884274458/photo/chinese-food.webp?a=1&b=1&s=612x612&w=0&k=20&c=i5jAVdEu853MUOBiMhS1TBuOqgezT4PhZ3tvsy_9hbk=', hint: 'naga food' },
     ],
 };
 
@@ -64,7 +64,7 @@ const FoodPage = () => {
             <main className="flex-1">
                 {/* 1. Hero Banner */}
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
-                    <div className="absolute inset-0 -z-10">
+                    <div className="absolute inset-0 z-[-1]">
                         <Image
                             src="https://images.unsplash.com/photo-1742281257707-0c7f7e5ca9c6?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="A spread of delicious Indian food"
@@ -74,11 +74,11 @@ const FoodPage = () => {
                             data-ai-hint="indian food"
                         />
                     </div>
-                    <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-                        <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
+                    <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white">
+                        <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight drop-shadow-lg">
                            From Chulhas to Charcoal
                         </h1>
-                        <p className="max-w-2xl text-lg md:text-xl text-stone-100 drop-shadow-md">
+                        <p className="max-w-2xl text-lg md:text-xl drop-shadow-md">
                            Discover India’s Rustic Flavours
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 mt-4">
