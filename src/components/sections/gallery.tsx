@@ -1,7 +1,9 @@
-"use client";
+
+'use client';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Image from 'next/image';
+import { PlayCircle } from 'lucide-react';
 
 const galleryItems = {
   Images: [
@@ -13,8 +15,10 @@ const galleryItems = {
     { src: 'https://images.unsplash.com/photo-1605272058466-5988743ff1db?w=600&auto=format&fit=crop', alt: 'Farmlands', hint: 'indian fields' },
   ],
   Videos: [
-    { src: 'https://placehold.co/600x400.png', alt: 'Festival video still', hint: 'holi festival' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Artisan at work video still', hint: 'artisan working' },
+    { videoId: 'oc_o5DZM3qc', alt: 'Village life in India', hint: 'village life' },
+    { videoId: 'CsBmy8oJiLM', alt: 'Rural India documentary', hint: 'rural documentary' },
+    { videoId: 'J_EukFvY3nw', alt: 'Indian village story', hint: 'village story' },
+    { videoId: 'F83stxxjnIw', alt: 'A day in a village', hint: 'village day' },
   ],
   Festivals: [
     { src: 'https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=600&auto=format&fit=crop', alt: 'Indian festival', hint: 'indian festival' },
@@ -63,16 +67,32 @@ const Gallery = () => {
           {Object.entries(galleryItems).map(([category, items]) => (
             <TabsContent key={category} value={category}>
               <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-                {items.map((item, index) => (
-                  <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid">
-                     <Image
-                      src={item.src}
-                      alt={item.alt}
-                      width={600}
-                      height={item.src.includes('800') ? 800 : 400}
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-                      data-ai-hint={item.hint}
-                    />
+                {items.map((item: any, index: number) => (
+                  <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative">
+                    {category === 'Videos' ? (
+                       <a href={`https://www.youtube.com/watch?v=${item.videoId}`} target="_blank" rel="noopener noreferrer" className="block">
+                         <Image
+                           src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+                           alt={item.alt}
+                           width={600}
+                           height={400}
+                           className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                           data-ai-hint={item.hint}
+                         />
+                         <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
+                           <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300 cursor-pointer" />
+                         </div>
+                       </a>
+                    ) : (
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        width={600}
+                        height={item.src.includes('800') ? 800 : 400}
+                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={item.hint}
+                      />
+                    )}
                   </div>
                 ))}
               </div>
