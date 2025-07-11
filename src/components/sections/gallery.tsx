@@ -26,8 +26,12 @@ const galleryItems = {
     { src: 'https://plus.unsplash.com/premium_photo-1697729460658-6a831a518d2a?w=600&auto=format&fit=crop', alt: 'Pushkar Camel Fair', hint: 'pushkar fair' },
   ],
   People: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Farmer smiling', hint: 'smiling farmer' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Group of women', hint: 'indian women' },
+    { src: 'https://plus.unsplash.com/premium_photo-1682092121090-5f3e89c7aa3c?w=600&auto=format&fit=crop', alt: 'Smiling man', hint: 'indian man' },
+    { src: 'https://plus.unsplash.com/premium_photo-1682090811844-e0a89fb2c780?w=600&auto=format&fit=crop', alt: 'Woman in traditional dress', hint: 'indian woman' },
+    { src: 'https://plus.unsplash.com/premium_photo-1682089846950-974c7c7d5e91?w=600&auto=format&fit=crop', alt: 'Portrait of a woman', hint: 'woman portrait' },
+    { src: 'https://images.unsplash.com/photo-1646801696575-488269802fca?w=600&auto=format&fit=crop', alt: 'Elderly man', hint: 'elderly man' },
+    { src: 'https://images.unsplash.com/photo-1711446731860-bf565f08e1d3?w=600&auto=format&fit=crop', alt: 'Woman in a field', hint: 'woman field' },
+    { src: 'https://images.unsplash.com/photo-1631513497662-ea3733fda344?w=600&auto=format&fit=crop', alt: 'Group of people', hint: 'indian people' },
   ],
   Lifestyle: [
     { src: 'https://placehold.co/600x400.png', alt: 'Cooking on open fire', hint: 'village cooking' },
