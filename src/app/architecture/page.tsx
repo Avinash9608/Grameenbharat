@@ -91,7 +91,7 @@ const ArchitecturePage = () => {
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
-                            src="https://images.unsplash.com/photo-1728290838813-9c94d553d988?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            src="https://plus.unsplash.com/premium_photo-1721165941568-bc6813053bcd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="A beautiful village home in Rajasthan"
                             fill
                             className="object-cover brightness-75"
@@ -225,3 +225,5 @@ const ArchitecturePage = () => {
 };
 
 export default ArchitecturePage;
+
+    
