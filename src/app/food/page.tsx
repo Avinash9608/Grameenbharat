@@ -58,20 +58,22 @@ const culturalPairings = [
 
 const FoodPage = () => {
     return (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen">
             <Header />
 
             <main className="flex-1">
                 {/* 1. Hero Banner */}
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
-                    <Image
-                        src="https://images.unsplash.com/photo-1742281257707-0c7f7e5ca9c6?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="A spread of delicious Indian food"
-                        fill
-                        className="object-cover brightness-75 -z-10"
-                        priority
-                        data-ai-hint="indian food"
-                    />
+                    <div className="absolute inset-0 -z-10">
+                        <Image
+                            src="https://images.unsplash.com/photo-1742281257707-0c7f7e5ca9c6?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="A spread of delicious Indian food"
+                            fill
+                            className="object-cover brightness-75"
+                            priority
+                            data-ai-hint="indian food"
+                        />
+                    </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4">
                         <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
                            From Chulhas to Charcoal
@@ -310,5 +312,3 @@ const FoodPage = () => {
 };
 
 export default FoodPage;
-
-    
