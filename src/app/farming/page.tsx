@@ -17,14 +17,14 @@ const farmingRegionsData = {
         crops: ['Wheat', 'Rice'],
         patterns: ['Rabi', 'Kharif'],
         irrigation: 'Tube Well System',
-        image: 'https://images.unsplash.com/photo-1596924046733-6d6c934da277?w=600&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1710170909047-135c7a010e41?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fFB1bmphYiUyMGZhcm1pbmd8ZW58MHx8MHx8fDA%3D',
         hint: 'punjab fields'
     },
     Bihar: {
         crops: ['Paddy', 'Maize', 'Litchi'],
         patterns: ['Kharif', 'Rabi'],
         irrigation: 'Flood-fed, Canal',
-        image: 'https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop',
+        image: 'https://plus.unsplash.com/premium_photo-1682092663122-725ebb4592c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fFB1bmphYiUyMGZhcm1pbmd8ZW58MHx8MHx8fDA%3D',
         hint: 'bihar farming'
     },
     Maharashtra: {
@@ -38,14 +38,14 @@ const farmingRegionsData = {
         crops: ['Coconut', 'Banana', 'Rice'],
         patterns: ['Kharif', 'Rabi'],
         irrigation: 'Backwater & Rain-fed',
-        image: 'https://images.unsplash.com/photo-1603513493356-1636a8e3d64c?w=600&auto=format&fit=crop',
+        image: 'https://plus.unsplash.com/premium_photo-1664303828953-3e8ef4ac44e2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2VybGElMjBmYXJtaW5nfGVufDB8fDB8fHww',
         hint: 'kerala backwaters farming'
     },
     Rajasthan: {
         crops: ['Bajra', 'Mustard'],
         patterns: ['Kharif'],
         irrigation: 'Dry Farming, Tank Irrigation',
-        image: 'https://images.unsplash.com/photo-1615789591457-74a63395c990?w=600&auto=format&fit=crop',
+        image: 'https://media.istockphoto.com/id/533314469/photo/mustard-flower.webp?a=1&b=1&s=612x612&w=0&k=20&c=t70FNee9KGEf5axbeExEPMmS5OfPYfnA_7C0UaRz0wk=',
         hint: 'mustard fields rajasthan'
     },
 };
