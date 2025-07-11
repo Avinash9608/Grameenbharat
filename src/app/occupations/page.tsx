@@ -237,7 +237,7 @@ const OccupationsPage = () => {
                 <section className="relative h-[60vh] w-full flex items-start justify-center text-center overflow-hidden pt-24 md:pt-32">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
-                            src="https://images.unsplash.com/photo-1594759438498-234271c45d3a?w=1920&h=1080&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1642519898120-76e8d6038eda?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="A farmer working in a field"
                             fill
                             className="object-cover"
@@ -246,10 +246,10 @@ const OccupationsPage = () => {
                         />
                     </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-                        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground drop-shadow-lg">
+                        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
                             Rooted in Tradition, Driven by Labor
                         </h1>
-                        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-foreground/80 drop-shadow-md">
+                        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
                             Discover the soul of rural India through its diverse and timeless occupations.
                         </p>
                         <Button asChild size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 text-lg">
@@ -368,3 +368,5 @@ const OccupationsPage = () => {
 };
 
 export default OccupationsPage;
+
+    
