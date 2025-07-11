@@ -20,7 +20,7 @@ const regionalHomesData = {
             materials: ['Mud', 'Cow Dung', 'Straw'],
             adaptation: 'Thick walls keep interiors cool in extreme heat.',
             culture: 'Walls are often decorated with Mandana art.',
-            image: 'https://images.unsplash.com/photo-1618767568559-2c0926a27483?w=600&auto=format&fit=crop',
+            image: 'https://images.unsplash.com/photo-1615139440333-9ac3c41c53f2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TXVkJTIwJTI2JTIwVGhhdGNoJTIwSHV0cyUyMChKaG9wZGkpfGVufDB8fDB8fHww',
             hint: 'rajasthani mud hut' 
         },
         { 
@@ -29,7 +29,7 @@ const regionalHomesData = {
             materials: ['Bamboo', 'Cane', 'Wood'],
             adaptation: 'Elevated on stilts to protect from floods in the Brahmaputra plains.',
             culture: 'Weaving looms are often kept underneath the house.',
-            image: 'https://media.istockphoto.com/id/1324727198/photo/traditional-mishing-house-in-majuli-assam.webp?b=1&s=170667a&w=0&k=20&c=06KqHqi4Jj8_g-4aI4oNnqZqQG_Hq-V2f7yv-Xj-G_8=',
+            image: 'https://th-i.thgim.com/public/incoming/oipaqc/article68712662.ece/alternates/FREE_1200/iStock-1171428276.jpg',
             hint: 'assam bamboo house' 
         },
     ],
@@ -40,7 +40,7 @@ const regionalHomesData = {
             materials: ['Laterite Stone', 'Wood', 'Clay Tiles'],
             adaptation: 'Sloping roofs handle heavy monsoon rains; a central courtyard provides ventilation.',
             culture: 'The design is based on Thachu Shastra, the ancient science of carpentry.',
-            image: 'https://assets.architecturaldigest.in/photos/60084d33a28465a7f24057a1/16:9/w_2560%2Cc_limit/kerala-traditional-nalukettu-home-1366x768.jpg',
+            image: 'https://media.istockphoto.com/id/826767954/photo/padmanabhapuram-palace.webp?a=1&b=1&s=612x612&w=0&k=20&c=DOPo0P2T3f8QZtHS3ENOjjqDuZuoecJQR1Qzu3n64UQ=',
             hint: 'kerala nalukettu' 
         },
     ],
