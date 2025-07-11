@@ -17,7 +17,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
+  
+  const pagesWithDarkHero = ['/', '/food', '/occupations'];
+  const hasDarkHero = pagesWithDarkHero.includes(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +44,10 @@ const Header = () => {
     { name: 'Food', href: '/food' },
   ];
 
-  const headerTextColor = isHomePage && !isScrolled ? 'text-white' : 'text-foreground';
+  const useLightTextColor = hasDarkHero && !isScrolled;
+  const headerTextColor = useLightTextColor ? 'text-white' : 'text-foreground';
+  const navLinkColor = useLightTextColor ? 'text-stone-200 hover:text-white' : 'text-foreground/80 hover:text-foreground';
+
 
   return (
     <header className={cn(
@@ -63,7 +68,7 @@ const Header = () => {
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className={cn(
                 "text-sm font-medium transition-colors hover:text-primary",
-                 isHomePage && !isScrolled ? 'text-stone-200 hover:text-white' : 'text-foreground/80 hover:text-foreground'
+                 navLinkColor
             )}>
               {link.name}
             </Link>
