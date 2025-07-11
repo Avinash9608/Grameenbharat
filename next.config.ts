@@ -208,6 +208,12 @@ const nextConfig: NextConfig = {
         hostname: 'm.media-amazon.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.architecturaldigest.in',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
@@ -215,4 +221,5 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
+    
     
