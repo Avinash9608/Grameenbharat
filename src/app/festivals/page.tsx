@@ -157,7 +157,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Lohri",
-            image: "https://placehold.co/600x400.png",
+            image: "https://c.ndtvimg.com/2025-01/iojkrvu_lohri-celebrations_625x300_08_January_25.jpeg",
             hint: "lohri festival",
             details: {
                 description: "Lohri is a popular winter folk festival, celebrated primarily by Sikhs and Hindus from the Punjab region. It marks the end of winter and the passing of the winter solstice.",
@@ -169,7 +169,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Kerala": [
         {
             name: "Onam",
-            image: "https://images.unsplash.com/photo-1632839088691-3bc8c9629e46?w=600&auto=format&fit=crop",
+            image: "https://static.india.com/wp-content/uploads/2021/08/pjimage-64-1.jpg?impolicy=Medium_Resize&w=1200&h=800",
             hint: "onam festival",
             details: {
                 description: "Onam is the official state festival of Kerala. It is a harvest festival celebrating the mythical homecoming of King Mahabali.",
@@ -179,7 +179,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Vallam Kali",
-            image: "https://placehold.co/600x400.png",
+            image: "https://img.etimg.com/thumb/width-600,height-450,msid-85623372,imgsize-77152/watch-vallam-kali-keralas-traditional-boat-race-held-symbolically-with-just-three-snake-boats-due-to-the-covid-19-situation-in-the-state.jpg",
             hint: "snake boat race",
             details: {
                 description: "Vallam Kali, the traditional snake boat race of Kerala, is a thrilling event held on the backwaters during the harvest season.",
@@ -189,7 +189,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Garudan Thookam",
-            image: "https://placehold.co/600x400.png",
+            image: "https://compass.rauias.com/wp-content/uploads/2024/04/image-25-1024x486.png",
             hint: "temple ritual",
             details: {
                 description: "Garudan Thookam is a dramatic ritual art form performed in certain Kali temples in Kerala as an offering to the goddess.",
@@ -201,7 +201,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Tamil Nadu": [
         {
             name: "Thaipusam",
-            image: "https://placehold.co/600x400.png",
+            image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Penang_thaipusam_Kavadi_procceession.jpg",
             hint: "thaipusam festival",
             details: {
                 description: "Thaipusam is a dramatic festival of faith and penance dedicated to the Hindu god Lord Murugan.",
@@ -211,7 +211,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Jallikattu",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuftRuGaH_Z6B-ml4dQeEx8ggQkYUCWjnZtA&s",
             hint: "bull taming",
             details: {
                 description: "Jallikattu is a traditional bull-taming sport held during the Pongal harvest festival in Tamil Nadu.",
@@ -223,7 +223,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Uttarakhand": [
         {
             name: "Ghughutiya",
-            image: "https://placehold.co/600x400.png",
+            image: "https://devbhoomidarshan.in/wp-content/uploads/2024/12/ghughutiya-festival-photo.webp",
             hint: "indian festival",
             details: {
                 description: "Ghughutiya, also known as Kale Kauva, is celebrated on Makar Sankranti. It is a festival that celebrates the bond between humans and nature.",
@@ -233,7 +233,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Bagwal Mela",
-            image: "https://placehold.co/600x400.png",
+            image: "https://utsav.gov.in/public/uploads/event_cover_image/event_389/1655984018873520209.jpeg",
             hint: "stone festival",
             details: {
                 description: "Bagwal Mela is a unique and ancient festival where two groups of villagers throw stones at each other as a ritual offering.",
@@ -245,7 +245,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Odisha": [
         {
             name: "Boita Bandana",
-            image: "https://placehold.co/600x400.png",
+            image: "https://www.orissapost.com/wp-content/uploads/2019/11/Boita-Bandana-Utsav-celebrated-in-Sundargarh.jpg",
             hint: "boat festival",
             details: {
                 description: "Boita Bandana commemorates the rich maritime history of Odisha, celebrating the ancient sea voyages of its merchants (sadhabas).",
@@ -255,7 +255,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Samba Dashami",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXGhYCfZSiPGhv30FCPZNFQazx9gaspX5gbw&s",
             hint: "sun god",
             details: {
                 description: "Samba Dashami is a festival unique to Odisha, where mothers worship the Sun God for the health and well-being of their children.",
@@ -265,7 +265,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Dola Jatra",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuclxgQ8FReYAtKycmb1_CNqXIIYzDUGcRWQ&s",
             hint: "swinging deities",
             details: {
                 description: "Dola Jatra, also known as Dola Purnima, is a major festival in Odisha that is similar to Holi. It celebrates the divine love of Radha and Krishna.",
@@ -287,7 +287,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Kherai Puja",
-            image: "https://placehold.co/600x400.png",
+            image: "https://cf-img-a-in.tosshub.com/lingo/itne/images/story/202206/iuewuisw.jpg?size=948:533",
             hint: "bodo tribe",
             details: {
                 description: "Kherai Puja is the most important religious festival of the Bodo community. It is a vibrant ritual worshiping Bathou Bwrai, their supreme deity.",
@@ -297,7 +297,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Rongker",
-            image: "https://placehold.co/600x400.png",
+            image: "https://utsav.gov.in/public/uploads/event_picture_image/event_547/16577243721659203687.jpg",
             hint: "karbi tribe",
             details: {
                 description: "Rongker is an annual festival of the Karbi tribe, celebrated to appease the local deities and seek their blessings for the village's welfare.",
@@ -309,7 +309,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Manipur": [
         {
             name: "Yaosang",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBKxaWzJli-ZQUo2kw12V_dYA4sHm8W4Swgg&s",
             hint: "manipur festival",
             details: {
                 description: "Yaosang is Manipur's version of Holi, but it is a much more elaborate festival celebrated for five days during spring.",
@@ -321,7 +321,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Meghalaya": [
         {
             name: "Wangala",
-            image: "https://placehold.co/600x400.png",
+            image: "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2023/11/100-Drums-Festival-of-Meghalay.jpg?fit=1365%2C1024&ssl=1",
             hint: "hundred drums",
             details: {
                 description: "Wangala, also known as the Festival of a Hundred Drums, is a post-harvest festival of the Garo tribe, thanking the Sun God (Misi Saljong) for a bountiful harvest.",
@@ -333,7 +333,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Nagaland": [
         {
             name: "Tuluni",
-            image: "https://placehold.co/600x400.png",
+            image: "https://utsav.gov.in/public/uploads/event_picture_image/event_46/16559633591397386022.jpg",
             hint: "naga tribe",
             details: {
                 description: "Tuluni is the most significant festival of the Sumi Naga tribe, celebrated to mark the end of the dry season and the beginning of new fruits.",
@@ -345,7 +345,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Andhra Pradesh": [
         {
             name: "Bani Festival",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG6nBFRMKd8TXVV2BcC5U1RgyxGLS357JyDw&s",
             hint: "stick fighting",
             details: {
                 description: "The Bani Festival is a unique and intense ritual held annually during Dussehra at the Devaragattu Temple in Kurnool district.",
@@ -355,7 +355,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Bonalu",
-            image: "https://placehold.co/600x400.png",
+            image: "https://www.abhibus.com/blog/wp-content/uploads/2023/06/Hyderabad-Bonalu-2023.jpg",
             hint: "bonalu festival",
             details: {
                 description: "Bonalu is a vibrant Hindu festival celebrated in Telangana and parts of Andhra Pradesh, dedicated to the Goddess Mahakali.",
@@ -367,7 +367,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Karnataka": [
         {
             name: "Made Snana",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQ_jcq1FDS12MHvb-K9-pL2xhf5WI2Zfx3A&s",
             hint: "temple ritual",
             details: {
                 description: "Made Snana is a controversial religious ritual where devotees from lower castes roll over the leftover food on banana leaves eaten by Brahmins.",
@@ -379,7 +379,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Gujarat": [
         {
             name: "Uttarayan",
-            image: "https://images.unsplash.com/photo-1550697943-463e26458155?w=600&auto=format&fit=crop",
+            image: "https://www.oyorooms.com/travel-guide/wp-content/uploads/2020/01/Generic-1-23.jpg",
             hint: "kite festival",
             details: {
                 description: "Uttarayan, the International Kite Festival, is one of the most vibrant festivals in Gujarat, celebrated on Makar Sankranti.",
@@ -391,7 +391,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Jammu and Kashmir": [
         {
             name: "Wanvun",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKW10obA_pjazW73F1HqvLQig2tWkfVABSDQ&s",
             hint: "kashmiri wedding",
             details: {
                 description: "Wanvun is not a festival but a traditional form of Kashmiri folk music sung during weddings and other celebrations.",
