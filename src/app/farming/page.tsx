@@ -59,7 +59,7 @@ const dailyRoutineData = [
 ];
 
 const farmingToolsData = [
-    { name: 'Wooden Plough (Hal)', description: 'A traditional tool pulled by oxen to prepare the soil for sowing.', image: 'https://plus.unsplash.com/premium_photo-1691030256235-47d75d5890b9?w=600&auto=format&fit=crop', hint: 'farmer ploughing' },
+    { name: 'Wooden Plough (Hal)', description: 'A traditional tool pulled by oxen to prepare the soil for sowing.', image: 'https://m.media-amazon.com/images/I/61aegKeQOgL._UF894,1000_QL80_.jpg', hint: 'farmer ploughing' },
     { name: 'Sickle (Hasiya)', description: 'A curved blade used for harvesting crops like rice and wheat with precision.', image: 'https://tiimg.tistatic.com/fp/1/005/646/agricultural-sickle-khurpa-no-5-943.jpg', hint: 'harvesting wheat' },
     { name: 'Modern Tractor', description: 'Mechanization is slowly replacing traditional methods, increasing efficiency.', image: 'https://plus.unsplash.com/premium_photo-1661922800416-c0b49b9bb77f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8TW9kZXJuJTIwVHJhY3RvcnxlbnwwfHwwfHx8MA%3D%3D', hint: 'farm tractor' },
 ];
