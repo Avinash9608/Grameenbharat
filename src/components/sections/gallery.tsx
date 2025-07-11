@@ -73,11 +73,11 @@ const Gallery = () => {
           </TabsList>
           {Object.entries(galleryItems).map(([category, items]) => (
             <TabsContent key={category} value={category}>
-              <div className="columns-2 md:columns-3 gap-4 space-y-4">
-                {items.map((item: any, index: number) => (
-                  <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative aspect-video bg-black">
-                    {category === 'Videos' ? (
-                      playingVideoId === item.videoId ? (
+              {category === 'Videos' ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {items.map((item: any, index: number) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-lg group relative aspect-video bg-black">
+                      {playingVideoId === item.videoId ? (
                         <iframe
                           src={`https://www.youtube.com/embed/${item.videoId}?autoplay=1&rel=0`}
                           title={item.alt}
@@ -99,20 +99,26 @@ const Gallery = () => {
                              <PlayCircle className="h-16 w-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
                            </div>
                         </div>
-                      )
-                    ) : (
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="columns-2 md:columns-3 gap-4 space-y-4">
+                  {items.map((item: any, index: number) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative bg-black">
                       <Image
                         src={item.src}
                         alt={item.alt}
                         width={600}
                         height={400}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                         data-ai-hint={item.hint}
                       />
-                    )}
-                  </div>
-                ))}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </TabsContent>
           ))}
         </Tabs>
