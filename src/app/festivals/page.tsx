@@ -456,7 +456,7 @@ const FestivalsPage = () => {
                 <div className="absolute inset-0 z-[-1] overflow-hidden">
                     <div style={parallaxStyle} className="absolute inset-[-10%] w-[120%] h-[120%]">
                         <Image
-                            src="https://images.unsplash.com/photo-1597131267491-b28fc433ea3c?q=80&w=1920&auto=format&fit=crop"
+                            src="https://images.unsplash.com/photo-1468234847176-28606331216a?q=80&w=1477&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Indian festival celebration"
                             fill
                             className="object-cover"
@@ -580,5 +580,3 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
-
-    
