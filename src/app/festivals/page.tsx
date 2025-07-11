@@ -436,39 +436,56 @@ const FestivalsPage = () => {
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
-            <main className="flex-1 py-24 pt-32 md:py-32">
-                <div className="container mx-auto px-4 md:px-6">
-                    <div className="text-center mb-16">
-                        <h1 className="font-headline text-5xl md:text-7xl font-bold">Festivals of India</h1>
-                        <p className="text-lg text-muted-foreground mt-4 max-w-3xl mx-auto">
-                            Explore the vibrant tapestry of rituals and celebrations from across the states of India.
-                        </p>
-                    </div>
+            
+            <section className="relative h-[50vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
+                <div className="absolute inset-0 z-[-1]">
+                    <Image
+                    src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
+                    alt="Indian festival celebration"
+                    fill
+                    className="object-cover brightness-50"
+                    priority
+                    data-ai-hint="indian festival"
+                    />
+                </div>
+                <div className="relative z-10 flex flex-col items-center gap-6 p-4">
+                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
+                    Festivals of India
+                    </h1>
+                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
+                    Explore the vibrant tapestry of rituals and celebrations from across the states of India.
+                    </p>
+                </div>
+            </section>
 
+            <main className="flex-1 py-16 md:py-24">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                         <div className="md:col-span-5 lg:col-span-4">
-                            <h2 className="font-headline text-3xl font-bold mb-6">Festivals by State</h2>
-                             <Accordion type="single" collapsible className="w-full">
-                                {Object.entries(festivalData).map(([state, festivals]) => (
-                                    <AccordionItem key={state} value={state}>
-                                        <AccordionTrigger className="text-xl font-semibold">{state}</AccordionTrigger>
-                                        <AccordionContent>
-                                            <div className="flex flex-col gap-4 pl-2">
-                                                {festivals.map(festival => (
-                                                    <Button
-                                                        key={festival.name}
-                                                        variant={selectedFestival?.name === festival.name ? 'secondary' : 'ghost'}
-                                                        className="justify-start"
-                                                        onClick={() => handleFestivalClick(festival, state)}
-                                                    >
-                                                        {festival.name}
-                                                    </Button>
-                                                ))}
-                                            </div>
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
+                            <div className="sticky top-24">
+                                <h2 className="font-headline text-3xl font-bold mb-6">Festivals by State</h2>
+                                <Accordion type="single" collapsible className="w-full bg-card p-4 rounded-lg shadow-md">
+                                    {Object.entries(festivalData).map(([state, festivals]) => (
+                                        <AccordionItem key={state} value={state}>
+                                            <AccordionTrigger className="text-xl font-semibold hover:no-underline">{state}</AccordionTrigger>
+                                            <AccordionContent>
+                                                <div className="flex flex-col gap-2 pt-2">
+                                                    {festivals.map(festival => (
+                                                        <Button
+                                                            key={festival.name}
+                                                            variant={selectedFestival?.name === festival.name ? 'secondary' : 'ghost'}
+                                                            className="justify-start h-auto py-2 text-left"
+                                                            onClick={() => handleFestivalClick(festival, state)}
+                                                        >
+                                                            {festival.name}
+                                                        </Button>
+                                                    ))}
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
                         </div>
 
                         <div className="md:col-span-7 lg:col-span-8">
@@ -477,7 +494,7 @@ const FestivalsPage = () => {
                                    <CardTitle className="font-headline text-4xl">
                                       {selectedFestival ? selectedFestival.name : "Select a Festival"}
                                    </CardTitle>
-                                   <CardDescription>
+                                   <CardDescription className="text-base">
                                         {selectedFestival ? `A prominent festival from ${selectedFestival.state}` : "Click on a festival from the list to learn more about it."}
                                    </CardDescription>
                                </CardHeader>
@@ -489,12 +506,12 @@ const FestivalsPage = () => {
                                             </div>
                                            <div className="prose prose-lg max-w-none text-foreground">
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Sparkles className="text-primary"/> Description</h3>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Sparkles className="text-primary"/> Description</h3>
                                                     <p>{selectedFestival.details.description}</p>
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Star className="text-primary"/> Significance</h3>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Star className="text-primary"/> Significance</h3>
                                                     {Array.isArray(selectedFestival.details.significance) ? (
                                                         <ul className="list-disc pl-5 space-y-2">
                                                             {selectedFestival.details.significance.map((item, index) => <li key={index}>{item}</li>)}
@@ -505,13 +522,13 @@ const FestivalsPage = () => {
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><CalendarDays className="text-primary"/> How It's Celebrated</h3>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><CalendarDays className="text-primary"/> How It's Celebrated</h3>
                                                     {renderCelebration(selectedFestival.details.celebration)}
                                                 </div>
 
                                                 {selectedFestival.details.culturalElements && (
                                                      <div>
-                                                        <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Wind className="text-primary"/> Cultural Elements</h3>
+                                                        <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Wind className="text-primary"/> Cultural Elements</h3>
                                                         <ul className="list-disc pl-5 space-y-2">
                                                             {selectedFestival.details.culturalElements.map((item, index) => <li key={index}>{item}</li>)}
                                                         </ul>
