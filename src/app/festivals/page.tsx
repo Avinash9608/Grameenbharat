@@ -409,7 +409,6 @@ interface SelectedFestival extends Festival {
 const FestivalsPage = () => {
     const [selectedFestival, setSelectedFestival] = useState<SelectedFestival | null>(null);
     const [scrollY, setScrollY] = useState(0);
-    const heroRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -452,20 +451,18 @@ const FestivalsPage = () => {
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
             
-            <section ref={heroRef} className="relative h-[60vh] w-full flex items-center justify-center text-center overflow-hidden">
-                <div className="absolute inset-0 z-[-1] overflow-hidden">
-                    <div style={parallaxStyle} className="absolute inset-[-10%] w-[120%] h-[120%]">
-                        <Image
-                            src="https://images.unsplash.com/photo-1468234847176-28606331216a?q=80&w=1477&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Indian festival celebration"
-                            fill
-                            className="object-cover"
-                            priority
-                            data-ai-hint="indian festival"
-                        />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+            <section className="relative h-[60vh] w-full flex items-center justify-center text-center overflow-hidden">
+                <div className="absolute inset-0 z-0" style={parallaxStyle}>
+                    <Image
+                        src="https://images.unsplash.com/photo-1468234847176-28606331216a?q=80&w=1477&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Indian festival celebration"
+                        fill
+                        className="object-cover"
+                        priority
+                        data-ai-hint="indian festival"
+                    />
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
                 <div className="relative z-10 flex flex-col items-center gap-6 p-4">
                     <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
                         Festivals of India
@@ -580,3 +577,5 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
+
+    
