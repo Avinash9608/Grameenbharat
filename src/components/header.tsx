@@ -38,10 +38,6 @@ const Header = () => {
     { name: 'Villages', href: '/#villages' },
     { name: 'Arts', href: '/#arts' },
     { name: 'Folklore', href: '/#folklore' },
-    { name: 'Festivals', href: '/festivals' },
-    { name: 'Occupations', href: '/occupations'},
-    { name: 'Clothing', href: '/clothing'},
-    { name: 'Food', href: '/food' },
   ];
 
   const useLightTextColor = hasDarkHero && !isScrolled;
