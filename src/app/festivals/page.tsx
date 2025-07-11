@@ -6,26 +6,54 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, CalendarDays, Wind, Star } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import type { FestivalInfoOutput } from '@/ai/flows/festival-info-flow';
 
-const festivalData: { [state: string]: { name: string; image: string; hint: string; details: FestivalInfoOutput }[] } = {
+type FestivalDetails = {
+    description: string;
+    significance: string | string[];
+    celebration: string | { day: string; description: string }[];
+    culturalElements?: string[];
+};
+
+interface Festival {
+    name: string;
+    image: string;
+    hint: string;
+    details: FestivalDetails;
+}
+
+const festivalData: { [state: string]: Festival[] } = {
     "Bihar": [
-        { 
-            name: "Chhath Puja", 
-            image: "https://images.unsplash.com/photo-1731056994556-2f0660647908?w=600&auto=format&fit=crop", 
+        {
+            name: "Chhath Puja",
+            image: "https://images.unsplash.com/photo-1731056994556-2f0660647908?w=600&auto=format&fit=crop",
             hint: "chhath puja",
             details: {
-                description: "Chhath Puja is an ancient Hindu Vedic festival dedicated to Surya Dev (the Sun God) and Chhathi Maiya. It involves rigorous fasting and offering prayers to the sun, reflecting gratitude for life and nature.",
-                significance: "The festival is celebrated to thank the Sun God for sustaining life on earth and to request the granting of certain wishes. Chhathi Maiya is believed to bestow prosperity, well-being, and protection.",
-                celebration: "The four-day festival includes holy bathing, fasting, and offering 'arghya' (prayers and water) to the rising and setting sun. Devotees prepare special prasad like Thekua and fruits."
+                description: "Chhath Puja is an ancient Hindu Vedic festival dedicated to Surya Dev (the Sun God) and Chhathi Maiya, considered the Goddess of purity, protection, and childbearing. It’s one of the most spiritually rigorous and environmentally conscious festivals in India, involving strict fasting, holy bathing, and ritual offerings. Chhath Puja is unique because it is one of the few Hindu festivals dedicated solely to the Sun God and celebrates nature, discipline, and gratitude.",
+                significance: [
+                    "Worshiping the Sun God, the ultimate source of energy, ensures health, prosperity, and progress.",
+                    "Chhathi Maiya is believed to protect children and grant fertility, so women especially pray for the well-being of their offspring.",
+                    "The festival reflects spiritual purity, environmental awareness, and community bonding."
+                ],
+                celebration: [
+                    { day: "Day 1: Nahay Khay", description: "Devotees bathe in a holy river and prepare a pure vegetarian meal, usually lauki-bhaat (bottle gourd with rice). The house is thoroughly cleaned." },
+                    { day: "Day 2: Kharna (Lohanda)", description: "A strict fast is observed all day without water. In the evening, a sweet dish called Rasaio-Kheer (jaggery rice pudding) is made and offered. After this, a 36-hour waterless fast begins." },
+                    { day: "Day 3: Sandhya Arghya (Evening Offering)", description: "Devotees offer 'arghya' (water and fruits) to the setting sun at a riverbank or pond. Women wear traditional sarees and carry bamboo baskets filled with thekua, fruits, and sugarcane." },
+                    { day: "Day 4: Usha Arghya (Morning Offering)", description: "The final day begins before sunrise. Devotees offer prayers to the rising sun, after which the fast is broken. Prasad is then distributed." }
+                ],
+                culturalElements: [
+                    "Traditional songs (Chhath geet) are sung throughout the nights.",
+                    "Rituals are done near natural water bodies—emphasizing the need for clean rivers and ponds.",
+                    "Devotees stand in waist-deep water to perform the arghya.",
+                    "Emphasis on minimalism, eco-friendliness, and community participation."
+                ]
             }
         },
-        { 
-            name: "Karam Festival", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Karam Festival",
+            image: "https://placehold.co/600x400.png",
             hint: "karam festival",
             details: {
                 description: "Karam is a harvest festival celebrated by various tribal groups. It revolves around the worship of the Karam tree, which is considered sacred.",
@@ -35,9 +63,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "West Bengal": [
-        { 
-            name: "Durga Puja", 
-            image: "https://images.unsplash.com/photo-1616074385287-67f6fb9e9eb8?w=600&auto=format&fit=crop", 
+        {
+            name: "Durga Puja",
+            image: "https://images.unsplash.com/photo-1616074385287-67f6fb9e9eb8?w=600&auto=format&fit=crop",
             hint: "durga puja",
             details: {
                 description: "Durga Puja is a major Hindu festival celebrating the victory of the goddess Durga over the demon Mahishasur. It is a grand celebration of art, culture, and devotion.",
@@ -45,9 +73,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "Elaborately decorated pandals (temporary structures) with idols of Durga are set up. The celebration includes prayers, feasts, cultural performances, and a grand immersion ceremony."
             }
         },
-        { 
-            name: "Gajan", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Gajan",
+            image: "https://placehold.co/600x400.png",
             hint: "shiva devotee",
             details: {
                 description: "Gajan is a folk festival dedicated to Lord Shiva, where devotees perform intense acts of penance and devotion.",
@@ -57,9 +85,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Maharashtra": [
-        { 
-            name: "Ganesh Chaturthi", 
-            image: "https://images.unsplash.com/photo-1596423924829-544a83c5c9e2?w=600&auto=format&fit=crop", 
+        {
+            name: "Ganesh Chaturthi",
+            image: "https://images.unsplash.com/photo-1596423924829-544a83c5c9e2?w=600&auto=format&fit=crop",
             hint: "ganesh chaturthi",
             details: {
                 description: "Ganesh Chaturthi is a vibrant festival celebrating the birth of Lord Ganesha, the god of new beginnings and wisdom.",
@@ -67,9 +95,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "Clay idols of Ganesha are installed in homes and public pandals. The festival concludes with the immersion of the idols in water."
             }
         },
-        { 
-            name: "Gudi Padwa", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Gudi Padwa",
+            image: "https://placehold.co/600x400.png",
             hint: "gudi padwa",
             details: {
                 description: "Gudi Padwa marks the traditional New Year for Marathi and Konkani Hindus. It is celebrated on the first day of the Chaitra month.",
@@ -79,9 +107,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Rajasthan": [
-        { 
-            name: "Pushkar Camel Fair", 
-            image: "https://plus.unsplash.com/premium_photo-1697729460658-6a831a518d2a?w=600&auto=format&fit=crop", 
+        {
+            name: "Pushkar Camel Fair",
+            image: "https://plus.unsplash.com/premium_photo-1697729460658-6a831a518d2a?w=600&auto=format&fit=crop",
             hint: "pushkar fair",
             details: {
                 description: "The Pushkar Camel Fair is one of the world's largest cattle fairs, featuring thousands of camels, horses, and cattle. It is a vibrant spectacle of Rajasthani culture.",
@@ -89,9 +117,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "The fair includes camel races, cultural performances, folk music, and various competitions. It coincides with the holy Kartik Purnima festival."
             }
         },
-        { 
-            name: "Teej", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Teej",
+            image: "https://placehold.co/600x400.png",
             hint: "teej festival",
             details: {
                 description: "Teej is a monsoon festival celebrated by women, marking the union of Goddess Parvati with Lord Shiva.",
@@ -101,9 +129,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         }
     ],
     "Punjab": [
-        { 
-            name: "Baisakhi", 
-            image: "https://media.istockphoto.com/id/1500853989/photo/happy-senior-punjabi-sikh-couple-wearing-colorful-cloths-standing-together-at-agriculture.webp?a=1&b=1&s=612x612", 
+        {
+            name: "Baisakhi",
+            image: "https://media.istockphoto.com/id/1500853989/photo/happy-senior-punjabi-sikh-couple-wearing-colorful-cloths-standing-together-at-agriculture.webp?a=1&b=1&s=612x612",
             hint: "baisakhi festival",
             details: {
                 description: "Baisakhi is the Sikh New Year and a spring harvest festival. It holds immense religious significance for Sikhs as the day the Khalsa was founded.",
@@ -111,9 +139,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "People visit Gurdwaras, participate in processions (Nagar Kirtan), and enjoy traditional folk dances like Bhangra and Gidda."
             }
         },
-        { 
-            name: "Lohri", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Lohri",
+            image: "https://placehold.co/600x400.png",
             hint: "lohri festival",
             details: {
                 description: "Lohri is a popular winter folk festival, celebrated primarily by Sikhs and Hindus from the Punjab region. It marks the end of winter and the passing of the winter solstice.",
@@ -123,9 +151,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         }
     ],
     "Kerala": [
-        { 
-            name: "Onam", 
-            image: "https://images.unsplash.com/photo-1632839088691-3bc8c9629e46?w=600&auto=format&fit=crop", 
+        {
+            name: "Onam",
+            image: "https://images.unsplash.com/photo-1632839088691-3bc8c9629e46?w=600&auto=format&fit=crop",
             hint: "onam festival",
             details: {
                 description: "Onam is the official state festival of Kerala. It is a harvest festival celebrating the mythical homecoming of King Mahabali.",
@@ -133,9 +161,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "The ten-day festival includes creating intricate flower carpets (Pookalam), the grand feast (Onam Sadya), snake boat races (Vallam Kali), and traditional dances like Kathakali and Pulikali (tiger dance)."
             }
         },
-        { 
-            name: "Vallam Kali", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Vallam Kali",
+            image: "https://placehold.co/600x400.png",
             hint: "snake boat race",
             details: {
                 description: "Vallam Kali, the traditional snake boat race of Kerala, is a thrilling event held on the backwaters during the harvest season.",
@@ -143,9 +171,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "Long canoes, resembling snakes and rowed by dozens of men, compete fiercely to the rhythm of traditional boat songs (vanchipattu)."
             }
         },
-        { 
-            name: "Garudan Thookam", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Garudan Thookam",
+            image: "https://placehold.co/600x400.png",
             hint: "temple ritual",
             details: {
                 description: "Garudan Thookam is a dramatic ritual art form performed in certain Kali temples in Kerala as an offering to the goddess.",
@@ -155,9 +183,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Tamil Nadu": [
-        { 
-            name: "Thaipusam", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Thaipusam",
+            image: "https://placehold.co/600x400.png",
             hint: "thaipusam festival",
             details: {
                 description: "Thaipusam is a dramatic festival of faith and penance dedicated to the Hindu god Lord Murugan.",
@@ -165,9 +193,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "The main feature is the act of penance where devotees carry 'kavadis' (burdens) and pierce their bodies with skewers and hooks, entering a trance-like state of devotion."
             }
         },
-        { 
-            name: "Jallikattu", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Jallikattu",
+            image: "https://placehold.co/600x400.png",
             hint: "bull taming",
             details: {
                 description: "Jallikattu is a traditional bull-taming sport held during the Pongal harvest festival in Tamil Nadu.",
@@ -177,9 +205,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Uttarakhand": [
-        { 
-            name: "Ghughutiya", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Ghughutiya",
+            image: "https://placehold.co/600x400.png",
             hint: "indian festival",
             details: {
                 description: "Ghughutiya, also known as Kale Kauva, is celebrated on Makar Sankranti. It is a festival that celebrates the bond between humans and nature.",
@@ -187,9 +215,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "People prepare sweet wheat-flour delicacies called 'ghughuts' shaped like birds and offer them to the crows."
             }
         },
-        { 
-            name: "Bagwal Mela", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Bagwal Mela",
+            image: "https://placehold.co/600x400.png",
             hint: "stone festival",
             details: {
                 description: "Bagwal Mela is a unique and ancient festival where two groups of villagers throw stones at each other as a ritual offering.",
@@ -199,9 +227,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Odisha": [
-        { 
-            name: "Boita Bandana", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Boita Bandana",
+            image: "https://placehold.co/600x400.png",
             hint: "boat festival",
             details: {
                 description: "Boita Bandana commemorates the rich maritime history of Odisha, celebrating the ancient sea voyages of its merchants (sadhabas).",
@@ -209,9 +237,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "On Kartik Purnima, people float miniature boats made of banana stems or paper with lamps and offerings in rivers and ponds."
             }
         },
-        { 
-            name: "Samba Dashami", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Samba Dashami",
+            image: "https://placehold.co/600x400.png",
             hint: "sun god",
             details: {
                 description: "Samba Dashami is a festival unique to Odisha, where mothers worship the Sun God for the health and well-being of their children.",
@@ -219,9 +247,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "Mothers prepare special dishes and offer them to the Sun God at different times of the day, praying for their children's longevity."
             }
         },
-        { 
-            name: "Dola Jatra", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Dola Jatra",
+            image: "https://placehold.co/600x400.png",
             hint: "swinging deities",
             details: {
                 description: "Dola Jatra, also known as Dola Purnima, is a major festival in Odisha that is similar to Holi. It celebrates the divine love of Radha and Krishna.",
@@ -231,9 +259,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Assam": [
-        { 
-            name: "Bohag Bihu", 
-            image: "https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop", 
+        {
+            name: "Bohag Bihu",
+            image: "https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop",
             hint: "bihu dance",
             details: {
                 description: "Bohag Bihu, also known as Rongali Bihu, is the most important festival in Assam, celebrating the Assamese New Year and the onset of spring.",
@@ -241,9 +269,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "The festival lasts for several days and is marked by Bihu dance, folk songs, feasting, and exchanging traditional sweets."
             }
         },
-        { 
-            name: "Kherai Puja", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Kherai Puja",
+            image: "https://placehold.co/600x400.png",
             hint: "bodo tribe",
             details: {
                 description: "Kherai Puja is the most important religious festival of the Bodo community. It is a vibrant ritual worshiping Bathou Bwrai, their supreme deity.",
@@ -251,9 +279,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "The puja involves a trance-like dance by a priestess (Doudini) around a sacred Sijou plant, accompanied by traditional music and offerings."
             }
         },
-        { 
-            name: "Rongker", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Rongker",
+            image: "https://placehold.co/600x400.png",
             hint: "karbi tribe",
             details: {
                 description: "Rongker is an annual festival of the Karbi tribe, celebrated to appease the local deities and seek their blessings for the village's welfare.",
@@ -263,9 +291,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Manipur": [
-        { 
-            name: "Yaosang", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Yaosang",
+            image: "https://placehold.co/600x400.png",
             hint: "manipur festival",
             details: {
                 description: "Yaosang is Manipur's version of Holi, but it is a much more elaborate festival celebrated for five days during spring.",
@@ -275,9 +303,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Meghalaya": [
-        { 
-            name: "Wangala", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Wangala",
+            image: "https://placehold.co/600x400.png",
             hint: "hundred drums",
             details: {
                 description: "Wangala, also known as the Festival of a Hundred Drums, is a post-harvest festival of the Garo tribe, thanking the Sun God (Misi Saljong) for a bountiful harvest.",
@@ -287,9 +315,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Nagaland": [
-        { 
-            name: "Tuluni", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Tuluni",
+            image: "https://placehold.co/600x400.png",
             hint: "naga tribe",
             details: {
                 description: "Tuluni is the most significant festival of the Sumi Naga tribe, celebrated to mark the end of the dry season and the beginning of new fruits.",
@@ -299,9 +327,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Andhra Pradesh": [
-        { 
-            name: "Bani Festival", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Bani Festival",
+            image: "https://placehold.co/600x400.png",
             hint: "stick fighting",
             details: {
                 description: "The Bani Festival is a unique and intense ritual held annually during Dussehra at the Devaragattu Temple in Kurnool district.",
@@ -309,9 +337,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
                 celebration: "Thousands of devotees from surrounding villages engage in a massive mock stick-fight (lathi-khela) at midnight, often resulting in injuries, which are considered a sign of divine blessing."
             }
         },
-        { 
-            name: "Bonalu", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Bonalu",
+            image: "https://placehold.co/600x400.png",
             hint: "bonalu festival",
             details: {
                 description: "Bonalu is a vibrant Hindu festival celebrated in Telangana and parts of Andhra Pradesh, dedicated to the Goddess Mahakali.",
@@ -321,9 +349,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Karnataka": [
-        { 
-            name: "Made Snana", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Made Snana",
+            image: "https://placehold.co/600x400.png",
             hint: "temple ritual",
             details: {
                 description: "Made Snana is a controversial religious ritual where devotees from lower castes roll over the leftover food on banana leaves eaten by Brahmins.",
@@ -333,9 +361,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Gujarat": [
-        { 
-            name: "Uttarayan", 
-            image: "https://images.unsplash.com/photo-1550697943-463e26458155?w=600&auto=format&fit=crop", 
+        {
+            name: "Uttarayan",
+            image: "https://images.unsplash.com/photo-1550697943-463e26458155?w=600&auto=format&fit=crop",
             hint: "kite festival",
             details: {
                 description: "Uttarayan, the International Kite Festival, is one of the most vibrant festivals in Gujarat, celebrated on Makar Sankranti.",
@@ -345,9 +373,9 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
         },
     ],
     "Jammu and Kashmir": [
-        { 
-            name: "Wanvun", 
-            image: "https://placehold.co/600x400.png", 
+        {
+            name: "Wanvun",
+            image: "https://placehold.co/600x400.png",
             hint: "kashmiri wedding",
             details: {
                 description: "Wanvun is not a festival but a traditional form of Kashmiri folk music sung during weddings and other celebrations.",
@@ -358,10 +386,14 @@ const festivalData: { [state: string]: { name: string; image: string; hint: stri
     ]
 };
 
-const FestivalsPage = () => {
-    const [selectedFestival, setSelectedFestival] = useState<{name: string; state: string; details: FestivalInfoOutput, image: string, hint: string} | null>(null);
+interface SelectedFestival extends Festival {
+    state: string;
+}
 
-    const handleFestivalClick = (festival: {name: string, image: string, hint: string, details: FestivalInfoOutput}, stateName: string) => {
+const FestivalsPage = () => {
+    const [selectedFestival, setSelectedFestival] = useState<SelectedFestival | null>(null);
+
+    const handleFestivalClick = (festival: Festival, stateName: string) => {
         if (selectedFestival?.name === festival.name && selectedFestival?.state === stateName) {
             setSelectedFestival(null);
             return;
@@ -419,17 +451,51 @@ const FestivalsPage = () => {
                                </CardHeader>
                                <CardContent>
                                    {selectedFestival ? (
-                                       <div className="space-y-6">
-                                            <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                                       <div className="space-y-8">
+                                            <div className="relative h-64 md:h-80 w-full rounded-lg overflow-hidden shadow-inner">
                                                 <Image src={selectedFestival.image} alt={selectedFestival.name} fill className="object-cover" data-ai-hint={selectedFestival.hint} />
                                             </div>
                                            <div className="prose prose-lg max-w-none text-foreground">
-                                                <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Sparkles className="text-primary"/> Description</h3>
-                                                <p>{selectedFestival.details.description}</p>
-                                                <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Sparkles className="text-primary"/> Significance</h3>
-                                                <p>{selectedFestival.details.significance}</p>
-                                                <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Sparkles className="text-primary"/> How It's Celebrated</h3>
-                                                <p>{selectedFestival.details.celebration}</p>
+                                                <div>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Sparkles className="text-primary"/> Description</h3>
+                                                    <p>{selectedFestival.details.description}</p>
+                                                </div>
+
+                                                <div>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Star className="text-primary"/> Significance</h3>
+                                                    {Array.isArray(selectedFestival.details.significance) ? (
+                                                        <ul className="list-disc pl-5 space-y-2">
+                                                            {selectedFestival.details.significance.map((item, index) => <li key={index}>{item}</li>)}
+                                                        </ul>
+                                                    ) : (
+                                                        <p>{selectedFestival.details.significance}</p>
+                                                    )}
+                                                </div>
+
+                                                <div>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><CalendarDays className="text-primary"/> How It's Celebrated</h3>
+                                                    {Array.isArray(selectedFestival.details.celebration) ? (
+                                                        <div className="space-y-4 mt-4">
+                                                            {selectedFestival.details.celebration.map((item, index) => (
+                                                                <div key={index} className="pl-4 border-l-4 border-primary/50">
+                                                                    <p className="font-bold text-lg">{item.day}</p>
+                                                                    <p>{item.description}</p>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    ) : (
+                                                        <p>{selectedFestival.details.celebration}</p>
+                                                    )}
+                                                </div>
+
+                                                {selectedFestival.details.culturalElements && (
+                                                     <div>
+                                                        <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><Wind className="text-primary"/> Cultural Elements</h3>
+                                                        <ul className="list-disc pl-5 space-y-2">
+                                                            {selectedFestival.details.culturalElements.map((item, index) => <li key={index}>{item}</li>)}
+                                                        </ul>
+                                                    </div>
+                                                )}
                                            </div>
                                        </div>
                                    ) : (
@@ -450,3 +516,5 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
+
+    
