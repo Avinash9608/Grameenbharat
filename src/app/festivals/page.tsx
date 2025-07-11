@@ -91,7 +91,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Gajan",
-            image: "https://placehold.co/600x400.png",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Celebration_during_Gajan_1.jpg/500px-Celebration_during_Gajan_1.jpg",
             hint: "shiva devotee",
             details: {
                 description: "Gajan is a folk festival dedicated to Lord Shiva, where devotees perform intense acts of penance and devotion.",
@@ -537,3 +537,5 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
+
+    
