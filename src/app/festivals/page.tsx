@@ -430,7 +430,7 @@ const FestivalsPage = () => {
                 </div>
             );
         }
-        return <p>{celebration}</p>;
+        return <p className="text-muted-foreground">{celebration}</p>;
     };
     
     return (
@@ -438,22 +438,23 @@ const FestivalsPage = () => {
             <Header />
             
             <section className="relative h-[50vh] w-full flex items-center justify-center text-center overflow-hidden">
-                <div className="absolute inset-0 z-[-1]">
+                <div className="absolute inset-0">
                     <Image
-                    src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
-                    alt="Indian festival celebration"
-                    fill
-                    className="object-cover"
-                    priority
-                    data-ai-hint="indian festival"
+                        src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
+                        alt="Indian festival celebration"
+                        fill
+                        className="object-cover brightness-75"
+                        priority
+                        data-ai-hint="indian festival"
                     />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
                 <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground drop-shadow-lg">
-                    Festivals of India
+                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
+                        Festivals of India
                     </h1>
-                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-foreground/80 drop-shadow-md">
-                    Explore the vibrant tapestry of rituals and celebrations from across the states of India.
+                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
+                        Explore the vibrant tapestry of rituals and celebrations from across the states of India.
                     </p>
                 </div>
             </section>
@@ -489,47 +490,55 @@ const FestivalsPage = () => {
                         </div>
 
                         <div className="md:col-span-7 lg:col-span-8">
-                           <Card className="sticky top-24 shadow-xl">
-                               <CardHeader>
+                           <Card className="sticky top-24 shadow-xl overflow-hidden">
+                               <CardHeader className="bg-secondary/20 p-6">
                                    <CardTitle className="font-headline text-4xl">
                                       {selectedFestival ? selectedFestival.name : "Select a Festival"}
                                    </CardTitle>
-                                   <CardDescription className="text-base">
-                                        {selectedFestival ? `A prominent festival from ${selectedFestival.state}` : "Click on a festival from the list to learn more about it."}
+                                   <CardDescription className="text-base pt-1">
+                                        {selectedFestival ? `A prominent festival from ${selectedFestival.state}` : "Click on a festival from the list to learn more."}
                                    </CardDescription>
                                </CardHeader>
-                               <CardContent>
+                               <CardContent className="p-6">
                                    {selectedFestival ? (
                                        <div className="space-y-8">
                                             <div className="relative h-64 md:h-80 w-full rounded-lg overflow-hidden shadow-inner">
                                                 <Image src={selectedFestival.image} alt={selectedFestival.name} fill className="object-cover" data-ai-hint={selectedFestival.hint} />
                                             </div>
-                                           <div className="prose prose-lg max-w-none text-foreground">
+                                           <div className="space-y-6">
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Sparkles className="text-primary"/> Description</h3>
-                                                    <p>{selectedFestival.details.description}</p>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-3 mb-3 text-primary border-b pb-2">
+                                                        <Sparkles/> Description
+                                                    </h3>
+                                                    <p className="text-muted-foreground">{selectedFestival.details.description}</p>
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Star className="text-primary"/> Significance</h3>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-3 mb-3 text-primary border-b pb-2">
+                                                        <Star/> Significance
+                                                    </h3>
                                                     {Array.isArray(selectedFestival.details.significance) ? (
-                                                        <ul className="list-disc pl-5 space-y-2">
+                                                        <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                                                             {selectedFestival.details.significance.map((item, index) => <li key={index}>{item}</li>)}
                                                         </ul>
                                                     ) : (
-                                                        <p>{selectedFestival.details.significance}</p>
+                                                        <p className="text-muted-foreground">{selectedFestival.details.significance}</p>
                                                     )}
                                                 </div>
 
                                                 <div>
-                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><CalendarDays className="text-primary"/> How It's Celebrated</h3>
+                                                    <h3 className="font-headline text-2xl font-semibold flex items-center gap-3 mb-3 text-primary border-b pb-2">
+                                                        <CalendarDays/> How It's Celebrated
+                                                    </h3>
                                                     {renderCelebration(selectedFestival.details.celebration)}
                                                 </div>
 
                                                 {selectedFestival.details.culturalElements && (
                                                      <div>
-                                                        <h3 className="font-headline text-2xl font-semibold flex items-center gap-2 mb-3"><Wind className="text-primary"/> Cultural Elements</h3>
-                                                        <ul className="list-disc pl-5 space-y-2">
+                                                        <h3 className="font-headline text-2xl font-semibold flex items-center gap-3 mb-3 text-primary border-b pb-2">
+                                                            <Wind/> Cultural Elements
+                                                        </h3>
+                                                        <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                                                             {selectedFestival.details.culturalElements.map((item, index) => <li key={index}>{item}</li>)}
                                                         </ul>
                                                     </div>
@@ -537,9 +546,9 @@ const FestivalsPage = () => {
                                            </div>
                                        </div>
                                    ) : (
-                                       <div className="flex flex-col items-center justify-center text-center p-8 rounded-lg bg-secondary/30 h-96">
-                                            <Image src="https://placehold.co/600x400.png" data-ai-hint="indian culture" width={200} height={200} alt="A collage of Indian culture" className="rounded-lg mb-4 opacity-70"/>
-                                            <p className="text-muted-foreground font-semibold max-w-xs">The stories and traditions of India's festivals are waiting to be explored.</p>
+                                       <div className="flex flex-col items-center justify-center text-center p-8 rounded-lg bg-secondary/30 h-[50vh]">
+                                            <Image src="https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop" data-ai-hint="indian culture festival" width={200} height={200} alt="A collage of Indian culture" className="rounded-full mb-4 opacity-70 size-40 object-cover shadow-lg"/>
+                                            <p className="text-muted-foreground font-semibold max-w-xs mt-4">The stories and traditions of India's festivals are waiting to be explored.</p>
                                        </div>
                                    )}
                                </CardContent>
@@ -554,3 +563,5 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
+
+    
