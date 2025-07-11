@@ -6,11 +6,10 @@ const Hero = () => {
     <section className="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
       <div className="absolute inset-0 z-[-1]">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="https://images.unsplash.com/photo-1687099415795-40b61242d421?q=80&w=1920&h=1080&auto=format&fit=crop"
           alt="Village scenery at sunset"
           fill
           className="object-cover brightness-50"
-          data-ai-hint="village sunset"
           priority
         />
       </div>
