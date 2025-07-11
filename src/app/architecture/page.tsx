@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Building, Home, Brick, Leaf, PlayCircle, Milestone, Wind, Shield, Users, Sun, Droplets, MapPin } from 'lucide-react';
+import { Building, Home, Blocks, Leaf, Milestone, Wind, Shield, Users, Sun, Droplets, MapPin } from 'lucide-react';
 
 const regionalHomesData = {
     North: [
@@ -69,7 +69,7 @@ const regionalHomesData = {
 };
 
 const materialsData = [
-    { title: 'Mud & Clay', description: 'Excellent natural insulator, keeping homes cool in summer and warm in winter. It is cheap, abundant, and easy to repair.', icon: <Brick/>, image: 'https://media.istockphoto.com/id/1149451996/photo/clay-pot.webp?b=1&s=170667a&w=0&k=20&c=L_Jg9Ydo3_4XML2S-AyORsVT_JDErU_P2b-5LRv5lRg=', hint: 'mud clay' },
+    { title: 'Mud & Clay', description: 'Excellent natural insulator, keeping homes cool in summer and warm in winter. It is cheap, abundant, and easy to repair.', icon: <Blocks/>, image: 'https://media.istockphoto.com/id/1149451996/photo/clay-pot.webp?b=1&s=170667a&w=0&k=20&c=L_Jg9Ydo3_4XML2S-AyORsVT_JDErU_P2b-5LRv5lRg=', hint: 'mud clay' },
     { title: 'Bamboo & Cane', description: 'Highly sustainable and flexible, making it ideal for earthquake-prone regions. It is lightweight yet strong.', icon: <Milestone/>, image: 'https://images.unsplash.com/photo-1579583765365-a843f5213d22?w=600&auto=format&fit=crop', hint: 'bamboo craft' },
     { title: 'Laterite Stone', description: 'A porous, iron-rich rock found in coastal and humid areas. It hardens on exposure to air, making it a durable building material.', icon: <Home/>, image: 'https://media.istockphoto.com/id/1400235948/photo/brick-wall-texture-of-a-laterite-rock-stone.webp?b=1&s=170667a&w=0&k=20&c=wX_QfgQJ5kM4aX-fC07vYI2lCAbG9cO2V_q6oUu_Z_c=', hint: 'laterite stone' },
     { title: 'Cow Dung Plaster', description: 'A natural, anti-bacterial plaster that also acts as an insect repellent. It is used for both floors and walls.', icon: <Shield/>, image: 'https://media.istockphoto.com/id/1447094052/photo/indian-woman-plastering-the-floor-of-her-house-with-cow-dung.webp?b=1&s=170667a&w=0&k=20&c=t9C_j8eT7A5rWk180n3wG_m_J7dG2u0j2y0hD5j8l-I=', hint: 'cow dung' },
@@ -225,5 +225,3 @@ const ArchitecturePage = () => {
 };
 
 export default ArchitecturePage;
-
-    
