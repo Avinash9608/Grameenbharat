@@ -20,6 +20,7 @@ const festivalsByState = {
     "West Bengal": [
         { name: "Durga Puja", image: "https://images.unsplash.com/photo-1616074385287-67f6fb9e9eb8?w=600&auto=format&fit=crop", hint: "durga puja" },
         { name: "Karam Festival", image: "https://placehold.co/600x400.png", hint: "karam festival" },
+        { name: "Gajan", image: "https://placehold.co/600x400.png", hint: "shiva devotee" },
     ],
     "Maharashtra": [
         { name: "Ganesh Chaturthi", image: "https://images.unsplash.com/photo-1596423924829-544a83c5c9e2?w=600&auto=format&fit=crop", hint: "ganesh chaturthi" },
@@ -35,7 +36,13 @@ const festivalsByState = {
     ],
     "Kerala": [
         { name: "Onam", image: "https://images.unsplash.com/photo-1632839088691-3bc8c9629e46?w=600&auto=format&fit=crop", hint: "onam festival" },
-        { name: "Vishu", image: "https://placehold.co/600x400.png", hint: "vishu festival" }
+        { name: "Vishu", image: "https://placehold.co/600x400.png", hint: "vishu festival" },
+        { name: "Vallam Kali", image: "https://placehold.co/600x400.png", hint: "snake boat race" },
+        { name: "Garudan Thookam", image: "https://placehold.co/600x400.png", hint: "temple ritual" },
+    ],
+    "Tamil Nadu": [
+        { name: "Thaipusam", image: "https://placehold.co/600x400.png", hint: "thaipusam festival" },
+        { name: "Jallikattu", image: "https://placehold.co/600x400.png", hint: "bull taming" },
     ],
     "Uttarakhand": [
         { name: "Ghughutiya", image: "https://placehold.co/600x400.png", hint: "indian festival" },
@@ -44,10 +51,13 @@ const festivalsByState = {
     "Odisha": [
         { name: "Boita Bandana", image: "https://placehold.co/600x400.png", hint: "boat festival" },
         { name: "Karam Festival", image: "https://placehold.co/600x400.png", hint: "karam festival" },
+        { name: "Samba Dashami", image: "https://placehold.co/600x400.png", hint: "sun god" },
+        { name: "Dola Jatra", image: "https://placehold.co/600x400.png", hint: "swinging deities" },
     ],
     "Assam": [
         { name: "Bohag Bihu", image: "https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop", hint: "bihu dance" },
         { name: "Kherai Puja", image: "https://placehold.co/600x400.png", hint: "bodo tribe" },
+        { name: "Rongker", image: "https://placehold.co/600x400.png", hint: "karbi tribe" },
     ],
     "Manipur": [
         { name: "Yaosang", image: "https://placehold.co/600x400.png", hint: "manipur festival" },
@@ -67,6 +77,9 @@ const festivalsByState = {
     ],
     "Gujarat": [
         { name: "Uttarayan", image: "https://images.unsplash.com/photo-1550697943-463e26458155?w=600&auto=format&fit=crop", hint: "kite festival" },
+    ],
+    "Jammu and Kashmir": [
+        { name: "Wanvun", image: "https://placehold.co/600x400.png", hint: "kashmiri wedding" },
     ]
 };
 
@@ -163,9 +176,9 @@ const FestivalsPage = () => {
                                         </div>
                                    ) : selectedFestival && festivalDetails[`${selectedFestival.name}-${selectedFestival.state}`] ? (
                                        <div className="space-y-6">
-                                           {Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name)?.image &&
+                                           {Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name && festivalsByState[selectedFestival.state].includes(f))?.image &&
                                                <div className="relative h-64 w-full rounded-lg overflow-hidden">
-                                                   <Image src={Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name)!.image} alt={selectedFestival.name} fill className="object-cover" data-ai-hint={Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name)!.hint} />
+                                                   <Image src={Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name && festivalsByState[selectedFestival.state].includes(f))!.image} alt={selectedFestival.name} fill className="object-cover" data-ai-hint={Object.values(festivalsByState).flat().find(f => f.name === selectedFestival.name && festivalsByState[selectedFestival.state].includes(f))!.hint} />
                                                </div>
                                            }
                                            <div className="prose prose-lg max-w-none text-foreground">
@@ -195,5 +208,3 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
-
-    
