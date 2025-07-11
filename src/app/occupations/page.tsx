@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShipWheel, ShoppingBasket, Construction, SwatchBook, Info } from 'lucide-react';
+import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShipWheel, ShoppingBasket, Construction, SwatchBook, Info, Bee, Target, Fish } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -122,12 +122,12 @@ const occupationsData: Occupation[] = [
         }
     },
     {
-        name: 'Fishing',
+        name: 'Fishing & Poultry',
         description: 'A primary livelihood for coastal and riverside communities, depending on nets, boats, and traditional knowledge.',
         image: 'https://images.unsplash.com/photo-1541552382-9a3976345999?w=600&auto=format&fit=crop',
         hint: 'indian fisherman',
         region: 'Kerala, West Bengal',
-        icon: <ShipWheel className="h-8 w-8 text-primary" />,
+        icon: <Fish className="h-8 w-8 text-primary" />,
         details: {
             title: 'The Bounty of the Waters: Fishing Communities',
             description: "Life in coastal and riverside villages revolves around the rhythm of the tides and the flow of the river. Fishermen brave the waters with their traditional boats and nets, relying on ancestral knowledge of the currents and fish behavior. Their catch not only feeds their families but also supplies local markets, forming a vital part of the regional economy.",
@@ -160,7 +160,7 @@ const occupationsData: Occupation[] = [
         }
     },
     {
-        name: 'Market Trading',
+        name: 'Vegetable Selling / Market Trading',
         description: 'Selling fresh vegetables, fruits, and handmade goods in bustling local markets (haats).',
         image: 'https://images.unsplash.com/photo-1587535919292-301def3230a0?w=600&auto=format&fit=crop',
         hint: 'village market',
@@ -177,6 +177,44 @@ const occupationsData: Occupation[] = [
                 "The market day is often a social occasion for the community."
             ]
         }
+    },
+    {
+        name: 'Honey Collection & Forest Produce',
+        description: 'Gathering wild honey and other natural products from forests, a practice that requires deep ecological knowledge.',
+        image: 'https://images.unsplash.com/photo-1587325483484-8250b7348e35?w=600&auto=format&fit=crop',
+        hint: 'honey collection',
+        region: 'Sundarbans, Western Ghats',
+        icon: <Bee className="h-8 w-8 text-primary" />,
+        details: {
+            title: 'The Sweetness of the Wild: Forest Gatherers',
+            description: 'In forest-dwelling communities, life is intricately linked with the wild. Honey collectors, with immense courage and traditional wisdom, venture deep into the forests to gather wild honey. This occupation, along with collecting other produce like medicinal herbs and leaves, is a sustainable livelihood that depends on a harmonious relationship with nature.',
+            image: 'https://images.unsplash.com/photo-1600806346714-dba2fde8f483?w=600&auto=format&fit=crop',
+            keyFacts: [
+                'Requires intimate knowledge of bee behavior and forest paths.',
+                'Many communities perform rituals to ask for protection before entering the forest.',
+                'Besides honey, they collect tendu leaves, sal seeds, and mahua flowers.',
+                'Over-exploitation and climate change pose significant threats to this livelihood.',
+            ],
+        },
+    },
+    {
+        name: 'Tribal Hunting & Occupations',
+        description: 'Traditional hunting and gathering practices of indigenous communities, deeply rooted in their cultural identity.',
+        image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop',
+        hint: 'tribal community',
+        region: 'Central & Northeast India',
+        icon: <Target className="h-8 w-8 text-primary" />,
+        details: {
+            title: 'Echoes of the Ancestors: Tribal Livelihoods',
+            description: 'For many indigenous tribes in India, traditional occupations like hunting with bows and arrows, gathering, and shifting cultivation (jhum) are not just for sustenance but are central to their cultural and spiritual identity. These practices are governed by age-old community laws and a deep respect for the balance of nature.',
+            image: 'https://images.unsplash.com/photo-1542385153-285d88dd2248?w=600&auto=format&fit=crop',
+            keyFacts: [
+                'Hunting is often a communal activity, followed by equitable distribution.',
+                'These occupations are intertwined with folklore, rituals, and festivals.',
+                'Knowledge of the forest, its flora, and fauna is passed down orally.',
+                'Modern laws and deforestation have significantly impacted these traditional practices.',
+            ],
+        },
     },
 ];
 
