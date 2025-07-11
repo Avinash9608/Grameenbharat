@@ -214,14 +214,17 @@ const nextConfig: NextConfig = {
         hostname: 'assets.architecturaldigest.in',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tiimg.tistatic.com',
+        port: '',
+        pathname: '/**'
       }
     ],
   },
 };
 
 export default nextConfig;
-
-    
-    
 
     
