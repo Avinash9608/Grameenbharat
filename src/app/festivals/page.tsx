@@ -6,14 +6,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Sparkles, CalendarDays, Wind, Star } from 'lucide-react';
+import { Sparkles, CalendarDays, Wind, Star, Users } from 'lucide-react'; // Assuming Users is a good icon for community
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 type FestivalDetails = {
     description: string;
     significance: string | string[];
-    celebration: string | { day: string; description: string }[];
+    celebration: string | { day: string; description: string }[] | { step: string; description: string }[];
     culturalElements?: string[];
 };
 
@@ -53,12 +53,28 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Karam Festival",
-            image: "https://placehold.co/600x400.png",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo64UuS3E89Ejw9kuY1EuU1M1Y5S2C_dCtHw&usqp=CAU",
             hint: "karam festival",
             details: {
-                description: "Karam is a harvest festival celebrated by various tribal groups. It revolves around the worship of the Karam tree, which is considered sacred.",
-                significance: "The festival is celebrated for a good harvest and prosperity. The Karam tree is a symbol of fertility, wealth, and children.",
-                celebration: "A branch of the Karam tree is planted in the village, and people sing and dance around it. The branch is later immersed in a river."
+                description: "Karam is a tribal harvest festival celebrated with immense devotion to nature and youth energy. The central ritual revolves around the Karam tree, whose branch is worshipped by unmarried girls and village youth as a symbol of prosperity and protection. The festival is deeply rooted in tribal identity, respect for nature, and belief in community harmony.",
+                significance: [
+                    "Karam Devta is worshipped for good harvest, social prosperity, fertility, and youth protection.",
+                    "Girls pray for brothers’ long life, good fortune, and happy family life.",
+                    "The Karam tree symbolizes strength, nature’s blessings, and ancestral connection."
+                ],
+                celebration: [
+                    { step: "1. Planting Jawa (Germinated Seeds)", description: "For 7-9 days, girls sow barley, rice, or wheat seeds in small baskets with wet soil, keeping these germinated seedlings (Jawa) in dark rooms and watering daily." },
+                    { step: "2. Collection of Karam Branch", description: "On the festival day, young men go to the forest in a procession with songs and drums to cut a Karam tree branch." },
+                    { step: "3. Ritual Setup (Puja)", description: "The branch is planted in the village center, surrounded by the Jawa baskets. Offerings like earthen lamps, rice beer (handia), and sweets are made, while a village priest (Pahan) conducts rituals." },
+                    { step: "4. Nightlong Celebration", description: "Youth gather to perform tribal folk dances like Jhumar and Paika around the Karam branch, accompanied by traditional instruments and storytelling." },
+                    { step: "5. Immersion of Karam Branch", description: "The next morning, the branch and Jawa seedlings are immersed in a river or pond, symbolizing a return to nature." }
+                ],
+                culturalElements: [
+                    "Eco-conscious: Uses natural, biodegradable materials.",
+                    "Community bonding: Everyone participates—women, children, elders.",
+                    "Songs: Special Karam Geet sung by women in local dialects.",
+                    "Ritual purity: Girls stay vegetarian and avoid certain foods during the Karam week."
+                ]
             }
         },
     ],
@@ -400,6 +416,22 @@ const FestivalsPage = () => {
         }
         setSelectedFestival({ ...festival, state: stateName });
     };
+
+    const renderCelebration = (celebration: any) => {
+        if (Array.isArray(celebration)) {
+            return (
+                <div className="space-y-4 mt-4">
+                    {celebration.map((item, index) => (
+                        <div key={index} className="pl-4 border-l-4 border-primary/50">
+                            <p className="font-bold text-lg">{item.day || item.step}</p>
+                            <p>{item.description}</p>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+        return <p>{celebration}</p>;
+    };
     
     return (
         <div className="flex flex-col min-h-screen bg-background">
@@ -474,18 +506,7 @@ const FestivalsPage = () => {
 
                                                 <div>
                                                     <h3 className="font-headline text-2xl font-semibold flex items-center gap-2"><CalendarDays className="text-primary"/> How It's Celebrated</h3>
-                                                    {Array.isArray(selectedFestival.details.celebration) ? (
-                                                        <div className="space-y-4 mt-4">
-                                                            {selectedFestival.details.celebration.map((item, index) => (
-                                                                <div key={index} className="pl-4 border-l-4 border-primary/50">
-                                                                    <p className="font-bold text-lg">{item.day}</p>
-                                                                    <p>{item.description}</p>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    ) : (
-                                                        <p>{selectedFestival.details.celebration}</p>
-                                                    )}
+                                                    {renderCelebration(selectedFestival.details.celebration)}
                                                 </div>
 
                                                 {selectedFestival.details.culturalElements && (
