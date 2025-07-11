@@ -35,13 +35,19 @@ const Header = () => {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <a href="#" className="flex items-center gap-2">
           <Leaf className="h-8 w-8 text-primary" />
-          <span className="font-headline text-2xl font-bold text-foreground">
+          <span className={cn(
+            "font-headline text-2xl font-bold transition-colors",
+            isScrolled ? "text-foreground" : "text-white"
+          )}>
             Grameen Bharat
           </span>
         </a>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-sm font-medium text-foreground/80 transition-colors hover:text-foreground">
+            <a key={link.name} href={link.href} className={cn(
+                "text-sm font-medium transition-colors hover:text-primary",
+                isScrolled ? "text-foreground/80 hover:text-foreground" : "text-stone-100 hover:text-white"
+            )}>
               {link.name}
             </a>
           ))}
