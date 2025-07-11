@@ -96,16 +96,16 @@ const OccupationsPage = () => {
                         src="https://images.unsplash.com/photo-1594759438498-234271c45d3a?w=1920&h=1080&auto=format&fit=crop"
                         alt="A farmer working in a field"
                         fill
-                        className="object-cover brightness-75"
+                        className="object-cover"
                         priority
                         data-ai-hint="indian farmer"
                     />
                 </div>
-                <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white">
-                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight drop-shadow-lg">
+                <div className="relative z-10 flex flex-col items-center gap-6 p-4">
+                    <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground drop-shadow-lg">
                         Rooted in Tradition, Driven by Labor
                     </h1>
-                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
+                    <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-foreground/80 drop-shadow-md">
                         Discover the soul of rural India through its diverse and timeless occupations.
                     </p>
                     <Button asChild size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 text-lg">
