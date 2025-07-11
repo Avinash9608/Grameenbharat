@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Leaf, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -14,6 +15,8 @@ import Link from 'next/link';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +38,8 @@ const Header = () => {
     { name: 'Festivals', href: '/festivals' },
   ];
 
+  const headerTextColor = isHomePage && !isScrolled ? 'text-white' : 'text-foreground';
+
   return (
     <header className={cn(
       "fixed top-0 z-50 w-full transition-all duration-300",
@@ -42,9 +47,10 @@ const Header = () => {
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Leaf className="h-8 w-8 text-primary" />
+          <Leaf className={cn("h-8 w-8 transition-colors", isHomePage && !isScrolled ? 'text-primary' : 'text-primary')} />
           <span className={cn(
-            "font-headline text-2xl font-bold transition-colors text-foreground"
+            "font-headline text-2xl font-bold transition-colors",
+             headerTextColor
           )}>
             Grameen Bharat
           </span>
@@ -52,7 +58,8 @@ const Header = () => {
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className={cn(
-                "text-sm font-medium transition-colors hover:text-primary text-foreground/80 hover:text-foreground"
+                "text-sm font-medium transition-colors hover:text-primary",
+                 isHomePage && !isScrolled ? 'text-stone-200 hover:text-white' : 'text-foreground/80 hover:text-foreground'
             )}>
               {link.name}
             </Link>
@@ -64,7 +71,7 @@ const Header = () => {
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden">
+                <Button variant="outline" size="icon" className={cn("md:hidden", headerTextColor)}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
