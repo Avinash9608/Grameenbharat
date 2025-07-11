@@ -202,6 +202,12 @@ const nextConfig: NextConfig = {
         hostname: 'resize.indiatvnews.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'm.media-amazon.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
