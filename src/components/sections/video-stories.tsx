@@ -9,10 +9,10 @@ import { PlayCircle } from "lucide-react";
 
 const videoItems = [
     { title: "A Day in a Farmer's Life", src: "https://placehold.co/1600x900.png", hint: "farmer working", videoId: "Bhs7yXhJBdo" },
-    { title: "Celebrating Holi in Villages", src: "https://placehold.co/1600x900.png", hint: "holi festival", videoId: "some_other_id_1" },
-    { title: "Folk Songs &amp; Dance", src: "https://placehold.co/1600x900.png", hint: "folk dance", videoId: "some_other_id_2" },
-    { title: "The Art of Pottery", src: "https://placehold.co/1600x900.png", hint: "pottery making", videoId: "some_other_id_3" },
-    { title: "Monsoon Arrival", src: "https://placehold.co/1600x900.png", hint: "monsoon rain", videoId: "some_other_id_4" },
+    { title: "Celebrating Holi in Villages", src: "https://placehold.co/1600x900.png", hint: "holi festival", videoId: "AbFIkJ8KFZ8" },
+    { title: "Folk Songs &amp; Dance", src: "https://placehold.co/1600x900.png", hint: "folk dance", videoId: "w0gamtoWxnE" },
+    { title: "The Art of Pottery", src: "https://placehold.co/1600x900.png", hint: "pottery making", videoId: "ErSL2EkQocs" },
+    { title: "Monsoon Arrival", src: "https://placehold.co/1600x900.png", hint: "monsoon rain", videoId: "RPassbDKT4s" },
 ];
 
 const VideoStories = () => {
