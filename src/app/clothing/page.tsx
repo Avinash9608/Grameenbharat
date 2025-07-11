@@ -21,7 +21,7 @@ interface Item {
 
 const culturalAttireData: { [state: string]: Item[] } = {
     "Rajasthan": [
-        { name: 'Ghagra Choli', image: 'https://images.unsplash.com/photo-1617543134934-6e1b0928a34b?w=600&auto=format&fit=crop', hint: 'rajasthani woman', description: 'A long, embroidered skirt paired with a fitted blouse, known for its vibrant colors and mirror work.', type: 'Clothing' },
+        { name: 'Ghagra Choli', image: 'https://media.istockphoto.com/id/1415147616/photo/indian-woman-in-traditional-chaniya-choli-for-navratri.jpg?s=2048x2048&w=is&k=20&c=7MHi_Hqx-U9oMLctBAVlN6O-ilqvFaoI7qUBDGXlHhg=', hint: 'rajasthani woman', description: 'A long, embroidered skirt paired with a fitted blouse, known for its vibrant colors and mirror work.', type: 'Clothing' },
         { name: 'Bandhgala (Men)', image: 'https://plus.unsplash.com/premium_photo-1718570256549-702fc900db10?w=600&auto=format&fit=crop', hint: 'rajasthani man', description: 'A formal jacket with a high collar, often worn with a turban (pagdi) for a regal look.', type: 'Clothing' },
         { name: 'Borla (Maang Tikka)', image: 'https://silvermerc.com/cdn/shop/products/BMH_101MS.jpg?v=1671784754', hint: 'indian jewelry', description: 'A spherical head ornament worn on the forehead, symbolizing marital status.', type: 'Jewelry' },
         { name: 'Kundan Necklace', image: 'https://www.dazzlesjewellery.in/cdn/shop/files/IMG_6475_8183f98b-28b2-4282-8e97-ad5ca9b4dec1.jpg?v=1726904385', hint: 'kundan jewelry', description: 'Elaborate jewelry made by setting polished gemstones in a gold foil base.', type: 'Jewelry' },
