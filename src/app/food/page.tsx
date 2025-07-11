@@ -11,8 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Flame, CookingPot, Utensils, Leaf, Sun, Wind, Droplets, UtensilsCrossed, Clock, Users, BookOpen, PlayCircle, Sprout } from 'lucide-react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Flame, CookingPot, Leaf, Sun, Wind, Droplets, UtensilsCrossed, PlayCircle } from 'lucide-react';
 
 const regionalFoodData = {
     North: [
@@ -59,22 +58,20 @@ const culturalPairings = [
 
 const FoodPage = () => {
     return (
-        <div className="flex flex-col min-h-screen bg-background">
+        <div className="flex flex-col min-h-screen">
             <Header />
 
             <main className="flex-1">
                 {/* 1. Hero Banner */}
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
-                    <div className="absolute inset-0 z-[-1]">
-                        <Image
-                            src="https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxmb29kJTIwaW5kaWFufGVufDB8fDB8fHww"
-                            alt="A spread of delicious Indian food"
-                            fill
-                            className="object-cover brightness-75"
-                            priority
-                            data-ai-hint="indian food"
-                        />
-                    </div>
+                    <Image
+                        src="https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxmb29kJTIwaW5kaWFufGVufDB8fDB8fHww"
+                        alt="A spread of delicious Indian food"
+                        fill
+                        className="object-cover brightness-75 -z-10"
+                        priority
+                        data-ai-hint="indian food"
+                    />
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4">
                         <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-white drop-shadow-lg">
                            From Chulhas to Charcoal
@@ -313,3 +310,5 @@ const FoodPage = () => {
 };
 
 export default FoodPage;
+
+    
