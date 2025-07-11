@@ -90,7 +90,7 @@ const OccupationsPage = () => {
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
 
-            <section className="relative h-[60vh] w-full flex items-center justify-center text-center overflow-hidden">
+            <section className="relative h-[60vh] w-full flex items-start justify-center text-center overflow-hidden pt-24 md:pt-32">
                 <div className="absolute inset-0 z-[-1]">
                     <Image
                         src="https://images.unsplash.com/photo-1594759438498-234271c45d3a?w=1920&h=1080&auto=format&fit=crop"
