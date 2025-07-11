@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { Brush, Hand, Hammer } from 'lucide-react';
 
 const artItems = [
-  { name: 'Madhubani Paintings', description: "Vibrant and intricate paintings from the Mithila region of Bihar, traditionally done on freshly plastered mud walls.", image: 'https://placehold.co/600x400.png', icon: <Brush/>, hint: 'madhubani painting' },
-  { name: 'Bamboo Products', description: 'Eco-friendly and versatile crafts, from furniture to decorative items, showcasing exceptional skill.', image: 'https://placehold.co/600x400.png', icon: <Hand/>, hint: 'bamboo craft' },
-  { name: 'Clay Pottery', description: "A timeless tradition of shaping earth into beautiful and functional pots, lamps, and idols.", image: 'https://placehold.co/600x400.png', icon: <Hammer/>, hint: 'clay pottery' },
+  { name: 'Madhubani Paintings', description: "Vibrant and intricate paintings from the Mithila region of Bihar, traditionally done on freshly plastered mud walls.", image: 'https://plus.unsplash.com/premium_photo-1691030926024-4a5664b37ef8?w=600&auto=format&fit=crop', icon: <Brush/>, hint: 'madhubani painting' },
+  { name: 'Bamboo Products', description: 'Eco-friendly and versatile crafts, from furniture to decorative items, showcasing exceptional skill.', image: 'https://media.istockphoto.com/id/121260897/photo/asian-market-of-bamboo-crafts.webp?a=1&b=1&s=612x612&w=0&k=20&c=uWjkpTtFe0O_Zq8-k1Aay_bv5JAVS9aqA-9zjgdPwdw=', icon: <Hand/>, hint: 'bamboo craft' },
+  { name: 'Clay Pottery', description: "A timeless tradition of shaping earth into beautiful and functional pots, lamps, and idols.", image: 'https://images.unsplash.com/photo-1645401242461-ffdab88f6f99?w=600&auto=format&fit=crop', icon: <Hammer/>, hint: 'clay pottery' },
 ];
 
 const ArtsCrafts = () => {
@@ -35,7 +35,11 @@ const ArtsCrafts = () => {
                 <CardDescription>{item.description}</CardDescription>
               </CardContent>
               <CardFooter>
-                 <Button variant="secondary" className="w-full">Request Order</Button>
+                 <Button asChild variant="secondary" className="w-full">
+                    <a href={`https://www.flipkart.com/search?q=${encodeURIComponent(item.name)}`} target="_blank" rel="noopener noreferrer">
+                        Request Order
+                    </a>
+                 </Button>
               </CardFooter>
             </Card>
           ))}
