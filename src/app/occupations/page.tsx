@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShipWheel, ShoppingBasket, Construction, SwatchBook, Info, Bee, Target, Fish } from 'lucide-react';
+import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShoppingBasket, Construction, SwatchBook, Info, Target, Fish, Hexagon } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -184,7 +184,7 @@ const occupationsData: Occupation[] = [
         image: 'https://images.unsplash.com/photo-1587325483484-8250b7348e35?w=600&auto=format&fit=crop',
         hint: 'honey collection',
         region: 'Sundarbans, Western Ghats',
-        icon: <Bee className="h-8 w-8 text-primary" />,
+        icon: <Hexagon className="h-8 w-8 text-primary" />,
         details: {
             title: 'The Sweetness of the Wild: Forest Gatherers',
             description: 'In forest-dwelling communities, life is intricately linked with the wild. Honey collectors, with immense courage and traditional wisdom, venture deep into the forests to gather wild honey. This occupation, along with collecting other produce like medicinal herbs and leaves, is a sustainable livelihood that depends on a harmonious relationship with nature.',
