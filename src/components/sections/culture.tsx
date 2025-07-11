@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const cultureItems = [
   { title: 'Local Festivals & Rituals', icon: <Tent className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1597131267491-b28fc433ea3c?q=80&w=1100&auto=format&fit=crop', hint: 'indian festival', href: '/festivals' },
-  { title: 'Village Occupations', icon: <CookingPot className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1623211270166-bc232d744d6a?q=80&w=1170&auto=format&fit=crop', hint: 'village pottery' },
+  { title: 'Village Occupations', icon: <CookingPot className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1623211270166-bc232d744d6a?q=80&w=1170&auto=format&fit=crop', hint: 'village pottery', href: '/occupations' },
   { title: 'Clothing and Jewelry', icon: <Shirt className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1679004633953-2af98ed7eaf9?q=80&w=685&auto=format&fit=crop', hint: 'traditional clothing' },
   { title: 'Village Food & Recipes', icon: <Utensils className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1680359873864-43e89bf248ac?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', hint: 'indian food' },
   { title: 'Homes and Architecture', icon: <Building2 className="h-12 w-12 text-white" />, image: 'https://images.unsplash.com/photo-1736914319111-d54ada582633?q=80&w=1332&auto=format&fit=crop', hint: 'village house' },
@@ -54,5 +54,3 @@ const Culture = () => {
 };
 
 export default Culture;
-
-    
