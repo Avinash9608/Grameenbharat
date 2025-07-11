@@ -231,7 +231,7 @@ const OccupationsPage = () => {
 
     return (
         <>
-            <div className="flex flex-col min-h-screen bg-background">
+            <div className="flex flex-col min-h-screen">
                 <Header />
 
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center text-white">
@@ -258,7 +258,7 @@ const OccupationsPage = () => {
                     </div>
                 </section>
                 
-                <main id="occupations-grid" className="flex-1 py-16 md:py-24">
+                <main id="occupations-grid" className="flex-1 py-16 md:py-24 bg-background">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center mb-16">
                             <h2 className="font-headline text-4xl md:text-5xl font-bold">A Tapestry of Livelihoods</h2>
@@ -368,3 +368,5 @@ const OccupationsPage = () => {
 };
 
 export default OccupationsPage;
+
+    
