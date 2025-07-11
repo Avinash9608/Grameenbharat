@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Image from 'next/image';
-import { PlayCircle } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 const galleryItems = {
   Images: [
@@ -96,7 +96,7 @@ const Gallery = () => {
                              data-ai-hint={item.hint}
                            />
                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
-                             <PlayCircle className="h-16 w-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                             <Play className="h-16 w-16 text-white/70 group-hover:text-white group-hover:scale-110 transition-all duration-300" />
                            </div>
                         </div>
                       )}
