@@ -70,6 +70,12 @@ const nextConfig: NextConfig = {
         hostname: 'i.pinimg.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'th-i.thgim.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

@@ -135,7 +135,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Teej",
-            image: "https://placehold.co/600x400.png",
+            image: "https://th-i.thgim.com/public/news/cities/Hyderabad/article19439788.ece/alternates/FREE_1200/HY06TEEJ",
             hint: "teej festival",
             details: {
                 description: "Teej is a monsoon festival celebrated by women, marking the union of Goddess Parvati with Lord Shiva.",
@@ -537,5 +537,3 @@ const FestivalsPage = () => {
 };
 
 export default FestivalsPage;
-
-    
