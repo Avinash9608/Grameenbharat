@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative h-screen w-full flex items-center justify-center text-center text-white">
       <div className="absolute inset-0 z-[-1]">
         <Image
           src="https://images.unsplash.com/photo-1648876565196-a5e5460848c6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
