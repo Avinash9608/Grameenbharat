@@ -9,7 +9,7 @@ import { Gem, Shirt, VenetianMask, MapPin } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 interface Item {
     name: string;
@@ -61,21 +61,22 @@ const ClothingPage = () => {
                 <Header />
 
                 <section className="relative h-[50vh] w-full flex items-center justify-center text-center overflow-hidden">
-                    <div className="absolute inset-0 z-[-1]">
+                    <div className="absolute inset-0">
                         <Image
                             src="https://images.unsplash.com/photo-1594236941676-c6415a7a7a37?w=1920&h=1080&auto=format&fit=crop"
                             alt="A journey through threads and traditions"
                             fill
-                            className="object-cover"
+                            className="object-cover brightness-75"
                             priority
                             data-ai-hint="indian clothing"
                         />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4">
-                        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground drop-shadow-lg">
+                        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
                             India Draped in Culture
                         </h1>
-                        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-foreground/80 drop-shadow-md">
+                        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md">
                             A Journey Through Threads and Traditions.
                         </p>
                     </div>
@@ -103,13 +104,13 @@ const ClothingPage = () => {
                                  <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col bg-card">
                                     <div className="relative h-64 w-full">
                                         <Image src={item.image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform" data-ai-hint={item.hint} />
-                                        <div className={`absolute top-2 right-2 px-3 py-1 rounded-full text-xs font-bold text-white ${item.type === 'Clothing' ? 'bg-primary' : 'bg-accent'}`}>
+                                        <div className={`absolute top-2 right-2 px-3 py-1 rounded-full text-xs font-bold text-white shadow-md ${item.type === 'Clothing' ? 'bg-primary' : 'bg-accent'}`}>
                                             {item.type}
                                         </div>
                                     </div>
                                     <CardHeader>
                                         <CardTitle className="font-headline text-2xl flex items-start gap-2">
-                                            {item.type === 'Clothing' ? <Shirt className="text-primary mt-1" /> : <Gem className="text-primary mt-1" />}
+                                            {item.type === 'Clothing' ? <Shirt className="text-primary mt-1" /> : <Gem className="text-accent mt-1" />}
                                             {item.name}
                                         </CardTitle>
                                         <p className="flex items-center gap-1 text-sm font-semibold text-muted-foreground"><MapPin size={14}/> {item.state}</p>
@@ -132,21 +133,23 @@ const ClothingPage = () => {
             <Dialog open={!!selectedItem} onOpenChange={(isOpen) => !isOpen && setSelectedItem(null)}>
                 <DialogContent className="sm:max-w-3xl p-0">
                     {selectedItem && (
-                        <>
-                            <div className="relative h-96 w-full">
-                                <Image src={selectedItem.image} alt={selectedItem.name} fill className="object-contain rounded-t-lg" />
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <div className="relative h-64 md:h-full w-full">
+                                <Image src={selectedItem.image} alt={selectedItem.name} fill className="object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none" />
                             </div>
-                            <DialogHeader className="p-6">
-                                <DialogTitle className="font-headline text-3xl mb-2 flex items-center gap-3">
-                                    {selectedItem.type === 'Clothing' ? <Shirt className="text-primary" /> : <Gem className="text-primary" />}
-                                    {selectedItem.name}
-                                </DialogTitle>
-                                <CardDescription className="text-base text-muted-foreground">
-                                    <p className="font-bold text-primary flex items-center gap-2"><MapPin size={16}/> {selectedItem.state}</p>
-                                    {selectedItem.description}
-                                </CardDescription>
-                            </DialogHeader>
-                        </>
+                            <div className="p-6 flex flex-col justify-center">
+                                <DialogHeader>
+                                    <p className="font-bold text-primary flex items-center gap-2 mb-2"><MapPin size={16}/> {selectedItem.state}</p>
+                                    <DialogTitle className="font-headline text-3xl mb-2 flex items-center gap-3">
+                                        {selectedItem.type === 'Clothing' ? <Shirt className="text-primary" /> : <Gem className="text-accent" />}
+                                        {selectedItem.name}
+                                    </DialogTitle>
+                                    <DialogDescription className="text-base text-muted-foreground">
+                                        {selectedItem.description}
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </div>
+                        </div>
                     )}
                 </DialogContent>
             </Dialog>
