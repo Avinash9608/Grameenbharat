@@ -368,5 +368,3 @@ const OccupationsPage = () => {
 };
 
 export default OccupationsPage;
-
-    
