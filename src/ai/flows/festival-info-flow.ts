@@ -38,17 +38,13 @@ Festival Name: {{{festivalName}}}
 State of Prominence: {{{stateName}}}
 
 {{#if (eq festivalName "Chhath Puja")}}
-Please use the following specific information for Chhath Puja:
+When the festival is Chhath Puja, you MUST use the following text to populate the JSON output. Do not use any other source.
 
-**Description**: Chhath Puja is an ancient Hindu Vedic festival dedicated to Surya Dev (the Sun God) and Chhathi Maiya, considered the Goddess of purity, protection, and childbearing. It’s one of the most spiritually rigorous and environmentally conscious festivals in India, involving strict fasting, holy bathing, and ritual offerings. Chhath Puja is unique because it is one of the few Hindu festivals dedicated solely to the Sun God and celebrates nature, discipline, and gratitude.
+- For the 'description' field, use: "Chhath Puja is an ancient Hindu Vedic festival dedicated to Surya Dev (the Sun God) and Chhathi Maiya, considered the Goddess of purity, protection, and childbearing. It’s one of the most spiritually rigorous and environmentally conscious festivals in India, involving strict fasting, holy bathing, and ritual offerings. Chhath Puja is unique because it is one of the few Hindu festivals dedicated solely to the Sun God and celebrates nature, discipline, and gratitude."
 
-**Significance**: Worshiping the Sun God, the ultimate source of energy, ensures health, prosperity, and progress. Chhathi Maiya is believed to protect children and grant fertility, so women especially pray for the well-being of their offspring. The festival reflects spiritual purity, environmental awareness, and community bonding.
+- For the 'significance' field, use: "Worshiping the Sun God, the ultimate source of energy, ensures health, prosperity, and progress. Chhathi Maiya is believed to protect children and grant fertility, so women especially pray for the well-being of their offspring. The festival reflects spiritual purity, environmental awareness, and community bonding."
 
-**Celebration**: The festival spans four days.
-- **Day 1: Nahay Khay**: Devotees bathe in a holy river and prepare a pure vegetarian meal, usually lauki-bhaat (bottle gourd with rice). The house is thoroughly cleaned.
-- **Day 2: Kharna (Lohanda)**: A strict fast is observed all day without water. In the evening, a sweet dish called Rasaio-Kheer (jaggery rice pudding) is made and offered. After this, a 36-hour waterless fast begins.
-- **Day 3: Sandhya Arghya (Evening Offering)**: Devotees offer “arghya” (water and fruits) to the setting sun at a riverbank or pond. Women wear traditional sarees and carry bamboo baskets filled with thekua, fruits, and sugarcane.
-- **Day 4: Usha Arghya (Morning Offering)**: The final day begins before sunrise. Devotees offer prayers to the rising sun, after which the fast is broken. Prasad is then distributed.
+- For the 'celebration' field, use: "The festival spans four days. Day 1: Nahay Khay - Devotees bathe in a holy river and prepare a pure vegetarian meal, usually lauki-bhaat (bottle gourd with rice). The house is thoroughly cleaned. Day 2: Kharna (Lohanda) - A strict fast is observed all day without water. In the evening, a sweet dish called Rasaio-Kheer (jaggery rice pudding) is made and offered. After this, a 36-hour waterless fast begins. Day 3: Sandhya Arghya (Evening Offering) - Devotees offer 'arghya' (water and fruits) to the setting sun at a riverbank or pond. Women wear traditional sarees and carry bamboo baskets filled with thekua, fruits, and sugarcane. Day 4: Usha Arghya (Morning Offering) - The final day begins before sunrise. Devotees offer prayers to the rising sun, after which the fast is broken. Prasad is then distributed."
 {{else}}
 Please provide a description, its significance, and how it is celebrated in a concise and engaging manner suitable for a general audience.
 {{/if}}
