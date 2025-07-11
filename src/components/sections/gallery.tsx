@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 const galleryItems = {
   Images: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Village portrait', hint: 'village portrait' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Marketplace', hint: 'village market' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Children playing', hint: 'indian children' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Elderly woman', hint: 'elderly indian' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Handicrafts', hint: 'indian handicrafts' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Farmlands', hint: 'indian fields' },
+    { src: 'https://images.unsplash.com/photo-1717820775574-bc200d22ce40?w=600&auto=format&fit=crop', alt: 'Village portrait', hint: 'village portrait' },
+    { src: 'https://images.unsplash.com/photo-1587535919292-301def3230a0?w=600&auto=format&fit=crop', alt: 'Marketplace', hint: 'village market' },
+    { src: 'https://images.unsplash.com/photo-1669288985566-b9b58fde9f90?w=600&auto=format&fit=crop', alt: 'Children playing', hint: 'indian children' },
+    { src: 'https://images.unsplash.com/photo-1610730686196-1642e127e338?w=600&auto=format&fit=crop', alt: 'Elderly woman', hint: 'elderly indian' },
+    { src: 'https://images.unsplash.com/photo-1530878902700-5ad4f9e4c318?w=600&auto=format&fit=crop', alt: 'Handicrafts', hint: 'indian handicrafts' },
+    { src: 'https://images.unsplash.com/photo-1605272058466-5988743ff1db?w=600&auto=format&fit=crop', alt: 'Farmlands', hint: 'indian fields' },
   ],
   Videos: [
     { src: 'https://placehold.co/600x400.png', alt: 'Festival video still', hint: 'holi festival' },
