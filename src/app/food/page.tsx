@@ -45,10 +45,11 @@ const cookingTechniques = [
 ];
 
 const videoData = [
-    { videoId: 'ErSL2EkQocs', title: 'The Art of Pottery', hint: 'pottery making' },
-    { videoId: 'RPassbDKT4s', title: 'Monsoon Cooking', hint: 'monsoon food' },
-    { videoId: 'w0gamtoWxnE', title: 'Folk Feasts', hint: 'folk food' },
-]
+    { videoId: 'xUr9_zMPaSU', title: 'Village Style Chicken Curry', hint: 'chicken curry' },
+    { videoId: 'PmKKFV1ZjRs', title: 'Grandma\'s Mutton Recipe', hint: 'mutton recipe' },
+    { videoId: 'qMAYG-soxhw', title: 'Authentic Fish Curry', hint: 'fish curry' },
+    { videoId: 'GutKcFT-yXs', title: 'Forest Cooking Adventure', hint: 'forest cooking' },
+];
 
 const culturalPairings = [
     { dish: 'Pitha', festival: 'Makar Sankranti', location: 'Assam', image: 'https://media.istockphoto.com/id/2194526450/photo/pitha-pulli-is-a-traditional-bengali-dish-featuring-rice-flour-dumplings-stuffed-with-jaggery.webp?a=1&b=1&s=612x612&w=0&k=20&c=B4F2KfHGDavMJNeWFNRhyrTHEXA3p6rv-tcrH54yyHA=', hint: 'assamese food' },
