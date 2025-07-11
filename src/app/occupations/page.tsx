@@ -234,13 +234,13 @@ const OccupationsPage = () => {
             <div className="flex flex-col min-h-screen bg-background">
                 <Header />
 
-                <section className="relative h-[60vh] w-full flex items-start justify-center text-center overflow-hidden pt-24 md:pt-32">
+                <section className="relative h-[60vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
                             src="https://images.unsplash.com/photo-1642519898120-76e8d6038eda?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="A farmer working in a field"
                             fill
-                            className="object-cover"
+                            className="object-cover brightness-75"
                             priority
                             data-ai-hint="indian farmer"
                         />
