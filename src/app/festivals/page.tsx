@@ -1,12 +1,12 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { Sparkles, CalendarDays, Wind, Star, Users } from 'lucide-react'; // Assuming Users is a good icon for community
+import { Sparkles, CalendarDays, Wind, Star, Users } from 'lucide-react'; 
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
@@ -408,6 +408,21 @@ interface SelectedFestival extends Festival {
 
 const FestivalsPage = () => {
     const [selectedFestival, setSelectedFestival] = useState<SelectedFestival | null>(null);
+    const [scrollY, setScrollY] = useState(0);
+    const heroRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const parallaxStyle = {
+        transform: `translate3d(0, ${scrollY * 0.4}px, 0)`,
+    };
+
 
     const handleFestivalClick = (festival: Festival, stateName: string) => {
         if (selectedFestival?.name === festival.name && selectedFestival?.state === stateName) {
@@ -437,17 +452,19 @@ const FestivalsPage = () => {
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
             
-            <section className="relative h-[50vh] w-full flex items-center justify-center text-center overflow-hidden">
-                <div className="absolute inset-0">
-                    <Image
-                        src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
-                        alt="Indian festival celebration"
-                        fill
-                        className="object-cover brightness-75"
-                        priority
-                        data-ai-hint="indian festival"
-                    />
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <section ref={heroRef} className="relative h-[60vh] w-full flex items-center justify-center text-center overflow-hidden">
+                <div className="absolute inset-0 z-[-1] overflow-hidden">
+                    <div style={parallaxStyle} className="absolute inset-[-10%] w-[120%] h-[120%]">
+                        <Image
+                            src="https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=1920&h=1080&auto=format&fit=crop"
+                            alt="Indian festival celebration"
+                            fill
+                            className="object-cover"
+                            priority
+                            data-ai-hint="indian festival"
+                        />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
                 </div>
                 <div className="relative z-10 flex flex-col items-center gap-6 p-4">
                     <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg">
