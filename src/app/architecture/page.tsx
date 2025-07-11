@@ -77,9 +77,9 @@ const materialsData = [
 ];
 
 const culturalElementsData = [
-    { name: 'Tulsi Vrindavan', location: 'Nationwide', relevance: 'A sacred basil plant in a decorated pot, usually placed in the courtyard for worship.', image: 'https://media.istockphoto.com/id/1321118118/photo/decorated-pot-with-a-tulsi-plant-in-front-of-a-house-in-india.webp?b=1&s=170667a&w=0&k=20&c=r5p-x8kGQuP0xM-W1oPZ0J4gK_RBr_E61sE-V3qD0uU=', hint: 'tulsi plant' },
-    { name: 'Aangan (Courtyard)', location: 'North India', relevance: 'An open central space for socializing, ceremonies, and household chores.', image: 'https://media.istockphoto.com/id/1498075342/photo/an-abandoned-haveli-in-a-village.webp?b=1&s=170667a&w=0&k=20&c=0eHl2D5i8JDW3F-a7a_65zR33T1qfEa2B2pY7xJ9m-Q=', hint: 'indian courtyard' },
-    { name: 'Mandana Wall Art', location: 'Rajasthan', relevance: 'Folk art painted on walls and floors to welcome gods and mark celebrations.', image: 'https://media.istockphoto.com/id/1360010931/photo/mandana-painting-on-the-wall-of-a-village-house-in-rajasthan.webp?b=1&s=170667a&w=0&k=20&c=g-w6t2-aLh1E4K04pGj8k_nL0cQ2k1q0z-Z0jZ4jZ_A=', hint: 'mandana art' },
+    { name: 'Tulsi Vrindavan', location: 'Nationwide', relevance: 'A sacred basil plant in a decorated pot, usually placed in the courtyard for worship.', image: 'https://media.istockphoto.com/id/959309262/photo/worshiping-of-holy-basil.webp?a=1&b=1&s=612x612&w=0&k=20&c=2JMNoMtvz4aLHnn0Wg2oorL8p7Fdmdod9uRkVSmk0T0=', hint: 'tulsi plant' },
+    { name: 'Aangan (Courtyard)', location: 'North India', relevance: 'An open central space for socializing, ceremonies, and household chores.', image: 'https://plus.unsplash.com/premium_photo-1726579710883-7040d0e6d379?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QWFuZ2FuJTIwKENvdXJ0eWFyZCl8ZW58MHx8MHx8fDA%3D', hint: 'indian courtyard' },
+    { name: 'Mandana Wall Art', location: 'Rajasthan', relevance: 'Folk art painted on walls and floors to welcome gods and mark celebrations.', image: 'https://media.istockphoto.com/id/976890988/photo/folk-art-of-bengal.webp?a=1&b=1&s=612x612&w=0&k=20&c=eoICMDg8Et81p9b76C2G8kfG9H6uxR5ZC4qznPKSPTw=', hint: 'mandana art' },
 ];
 
 const ArchitecturePage = () => {
@@ -225,5 +225,3 @@ const ArchitecturePage = () => {
 };
 
 export default ArchitecturePage;
-
-    
