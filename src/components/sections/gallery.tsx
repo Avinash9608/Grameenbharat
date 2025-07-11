@@ -17,8 +17,13 @@ const galleryItems = {
     { src: 'https://placehold.co/600x400.png', alt: 'Artisan at work video still', hint: 'artisan working' },
   ],
   Festivals: [
-    { src: 'https://placehold.co/600x400.png', alt: 'Diwali celebration', hint: 'diwali lights' },
-    { src: 'https://placehold.co/600x400.png', alt: 'Holi colors', hint: 'holi colors' },
+    { src: 'https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=600&auto=format&fit=crop', alt: 'Indian festival', hint: 'indian festival' },
+    { src: 'https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop', alt: 'Indian festival performers', hint: 'festival performers' },
+    { src: 'https://plus.unsplash.com/premium_photo-1698500035179-edd84b64f527?w=600&auto=format&fit=crop', alt: 'Diwali celebration', hint: 'diwali lights' },
+    { src: 'https://images.unsplash.com/photo-1731056994556-2f0660647908?w=600&auto=format&fit=crop', alt: 'Chhath Puja', hint: 'chhath puja' },
+    { src: 'https://images.unsplash.com/photo-1616074385287-67f6fb9e9eb8?w=600&auto=format&fit=crop', alt: 'Durga Puja', hint: 'durga puja' },
+    { src: 'https://media.istockphoto.com/id/1500853989/photo/happy-senior-punjabi-sikh-couple-wearing-colorful-cloths-standing-together-at-agriculture.webp?a=1&b=1&s=612x612&w=0&k=20&c=w6tLfkaKK7V3Ogu19X3exrkiKifG8QauXFSM_PsjzQg=', alt: 'Sikh couple', hint: 'sikh couple' },
+    { src: 'https://plus.unsplash.com/premium_photo-1697729460658-6a831a518d2a?w=600&auto=format&fit=crop', alt: 'Pushkar Camel Fair', hint: 'pushkar fair' },
   ],
   People: [
     { src: 'https://placehold.co/600x800.png', alt: 'Farmer smiling', hint: 'smiling farmer' },
