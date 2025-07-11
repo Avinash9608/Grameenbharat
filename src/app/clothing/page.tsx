@@ -63,7 +63,7 @@ const ClothingPage = () => {
                 <section className="relative h-[50vh] w-full flex items-center justify-center text-center overflow-hidden">
                     <div className="absolute inset-0">
                         <Image
-                            src="https://images.unsplash.com/photo-1594236941676-c6415a7a7a37?w=1920&h=1080&auto=format&fit=crop"
+                            src="https://plus.unsplash.com/premium_photo-1723809635838-d4c02e969f37?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjIxfHxJbmRpYSUyMERyYXBlZCUyMGluJTIwQ3VsdHVyZXxlbnwwfHwwfHx8MA%3D%3D"
                             alt="A journey through threads and traditions"
                             fill
                             className="object-cover brightness-75"
