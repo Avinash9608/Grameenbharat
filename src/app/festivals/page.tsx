@@ -10,16 +10,16 @@ import { Loader2, Sparkles } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { handleFetchFestivalInfo } from '@/app/actions';
-import { FestivalInfoOutput } from '@/ai/flows/festival-info-flow';
+import type { FestivalInfoOutput } from '@/ai/flows/festival-info-flow';
 
 const festivalsByState = {
     "Bihar": [
         { name: "Chhath Puja", image: "https://images.unsplash.com/photo-1731056994556-2f0660647908?w=600&auto=format&fit=crop", hint: "chhath puja" },
-        { name: "Sama Chakeva", image: "https://placehold.co/600x400.png", hint: "indian festival" },
+        { name: "Karam Festival", image: "https://placehold.co/600x400.png", hint: "karam festival" },
     ],
     "West Bengal": [
         { name: "Durga Puja", image: "https://images.unsplash.com/photo-1616074385287-67f6fb9e9eb8?w=600&auto=format&fit=crop", hint: "durga puja" },
-        { name: "Poila Boishakh", image: "https://placehold.co/600x400.png", hint: "bengali new year" },
+        { name: "Karam Festival", image: "https://placehold.co/600x400.png", hint: "karam festival" },
     ],
     "Maharashtra": [
         { name: "Ganesh Chaturthi", image: "https://images.unsplash.com/photo-1596423924829-544a83c5c9e2?w=600&auto=format&fit=crop", hint: "ganesh chaturthi" },
@@ -36,6 +36,37 @@ const festivalsByState = {
     "Kerala": [
         { name: "Onam", image: "https://images.unsplash.com/photo-1632839088691-3bc8c9629e46?w=600&auto=format&fit=crop", hint: "onam festival" },
         { name: "Vishu", image: "https://placehold.co/600x400.png", hint: "vishu festival" }
+    ],
+    "Uttarakhand": [
+        { name: "Ghughutiya", image: "https://placehold.co/600x400.png", hint: "indian festival" },
+        { name: "Bagwal Mela", image: "https://placehold.co/600x400.png", hint: "stone festival" },
+    ],
+    "Odisha": [
+        { name: "Boita Bandana", image: "https://placehold.co/600x400.png", hint: "boat festival" },
+        { name: "Karam Festival", image: "https://placehold.co/600x400.png", hint: "karam festival" },
+    ],
+    "Assam": [
+        { name: "Bohag Bihu", image: "https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop", hint: "bihu dance" },
+        { name: "Kherai Puja", image: "https://placehold.co/600x400.png", hint: "bodo tribe" },
+    ],
+    "Manipur": [
+        { name: "Yaosang", image: "https://placehold.co/600x400.png", hint: "manipur festival" },
+    ],
+    "Meghalaya": [
+        { name: "Wangala", image: "https://placehold.co/600x400.png", hint: "hundred drums" },
+    ],
+    "Nagaland": [
+        { name: "Tuluni", image: "https://placehold.co/600x400.png", hint: "naga tribe" },
+    ],
+    "Andhra Pradesh": [
+        { name: "Bani Festival", image: "https://placehold.co/600x400.png", hint: "stick fighting" },
+        { name: "Bonalu", image: "https://placehold.co/600x400.png", hint: "bonalu festival" },
+    ],
+    "Karnataka": [
+        { name: "Made Snana", image: "https://placehold.co/600x400.png", hint: "temple ritual" },
+    ],
+    "Gujarat": [
+        { name: "Uttarayan", image: "https://images.unsplash.com/photo-1550697943-463e26458155?w=600&auto=format&fit=crop", hint: "kite festival" },
     ]
 };
 
