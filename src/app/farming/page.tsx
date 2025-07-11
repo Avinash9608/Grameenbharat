@@ -93,7 +93,7 @@ const FarmingLifestylePage = () => {
                             data-ai-hint="tractor spraying field"
                         />
                     </div>
-                    <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white">
+                    <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white mt-12">
                         <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight drop-shadow-lg">
                             The Soul of India Lives in its Soil
                         </h1>
