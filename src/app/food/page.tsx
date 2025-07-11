@@ -67,12 +67,12 @@ const FoodPage = () => {
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
-                            src="https://images.unsplash.com/photo-1541557436894-328302355d04?q=80&w=1470&auto=format&fit=crop"
-                            alt="A village woman cooking on a traditional clay stove (chulha)"
+                            src="https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxmb29kJTIwaW5kaWFufGVufDB8fDB8fHww"
+                            alt="A spread of delicious Indian food"
                             fill
                             className="object-cover brightness-75"
                             priority
-                            data-ai-hint="village cooking"
+                            data-ai-hint="indian food"
                         />
                     </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4">
