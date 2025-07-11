@@ -103,7 +103,7 @@ const festivalData: { [state: string]: Festival[] } = {
     "Maharashtra": [
         {
             name: "Ganesh Chaturthi",
-            image: "https://images.unsplash.com/photo-1596423924829-544a83c5c9e2?w=600&auto=format&fit=crop",
+            image: "https://www.geedesk.com/blog/wp-content/uploads/2024/09/ganesh-chaturthi.jpg",
             hint: "ganesh chaturthi",
             details: {
                 description: "Ganesh Chaturthi is a vibrant festival celebrating the birth of Lord Ganesha, the god of new beginnings and wisdom.",
@@ -113,7 +113,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Gudi Padwa",
-            image: "https://placehold.co/600x400.png",
+            image: "https://i.pinimg.com/736x/0b/9f/38/0b9f38328e0a3609514b9e14fab5b165.jpg",
             hint: "gudi padwa",
             details: {
                 description: "Gudi Padwa marks the traditional New Year for Marathi and Konkani Hindus. It is celebrated on the first day of the Chaitra month.",

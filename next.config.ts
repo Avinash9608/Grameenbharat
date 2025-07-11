@@ -58,6 +58,18 @@ const nextConfig: NextConfig = {
         hostname: 'utsav.gov.in',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.geedesk.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pinimg.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
@@ -65,4 +77,5 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
+    
     
