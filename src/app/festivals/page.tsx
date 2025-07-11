@@ -157,7 +157,7 @@ const festivalData: { [state: string]: Festival[] } = {
         },
         {
             name: "Lohri",
-            image: "https://i.ndtvimg.com/i/2018-01/lohri_650x400_51515671621.jpg",
+            image: "https://img.jagranjosh.com/images/2025/January/1212025/images-lohri.jpg",
             hint: "lohri festival",
             details: {
                 description: "Lohri is a popular winter folk festival, celebrated primarily by Sikhs and Hindus from the Punjab region. It marks the end of winter and the passing of the winter solstice.",

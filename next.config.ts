@@ -148,6 +148,12 @@ const nextConfig: NextConfig = {
         hostname: 'imgk.timesnownews.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.jagranjosh.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
