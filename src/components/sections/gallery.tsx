@@ -32,6 +32,7 @@ const galleryItems = {
     { src: 'https://images.unsplash.com/photo-1646801696575-488269802fca?w=600&auto=format&fit=crop', alt: 'Elderly man', hint: 'elderly man' },
     { src: 'https://images.unsplash.com/photo-1711446731860-bf565f08e1d3?w=600&auto=format&fit=crop', alt: 'Woman in a field', hint: 'woman field' },
     { src: 'https://images.unsplash.com/photo-1631513497662-ea3733fda344?w=600&auto=format&fit=crop', alt: 'Group of people', hint: 'indian people' },
+    { src: 'https://images.unsplash.com/photo-1729012766607-16533c858292?w=600&auto=format&fit=crop', alt: 'Woman with child', hint: 'woman child' },
   ],
   Lifestyle: [
     { src: 'https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop', alt: 'Woman working in field', hint: 'village work' },
