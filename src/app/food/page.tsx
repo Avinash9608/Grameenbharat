@@ -51,9 +51,9 @@ const videoData = [
 ]
 
 const culturalPairings = [
-    { dish: 'Pitha', festival: 'Makar Sankranti', location: 'Assam', image: 'https://media.istockphoto.com/id/1364344464/photo/traditional-assamese-sweets-and-snacks.webp?s=612x612&w=is&k=20&c=3j5w8r_i8f_D3n-l5k_x_Y7p_Z2h_c2p_r9e_Y_x_f_Q=', hint: 'assamese food' },
-    { dish: 'Khichdi', festival: 'Pongal', location: 'Tamil Nadu', image: 'https://media.istockphoto.com/id/1299943615/photo/pongal.webp?s=612x612&w=is&k=20&c=4F1-vR8f_mR7P-z8_i3i_x_j_q5l_Z_gX-q4_h_v4c=', hint: 'pongal festival' },
-    { dish: 'Tilkut', festival: 'Makar Sankranti', location: 'Bihar', image: 'https://media.istockphoto.com/id/1454471536/photo/tilkut-a-sweet-made-of-sesame-seeds-and-jaggery-famous-in-bihar-jharkhand-in-india.webp?s=612x612&w=is&k=20&c=q5V8N_X_g8f_d8Z_l5k_x_Y7p_Z2h_c2p_r9e_Y_x_f_Q=', hint: 'bihar sweet' },
+    { dish: 'Pitha', festival: 'Makar Sankranti', location: 'Assam', image: 'https://media.istockphoto.com/id/2194526450/photo/pitha-pulli-is-a-traditional-bengali-dish-featuring-rice-flour-dumplings-stuffed-with-jaggery.webp?a=1&b=1&s=612x612&w=0&k=20&c=B4F2KfHGDavMJNeWFNRhyrTHEXA3p6rv-tcrH54yyHA=', hint: 'assamese food' },
+    { dish: 'Khichdi', festival: 'Pongal', location: 'Tamil Nadu', image: 'https://media.istockphoto.com/id/1331625898/photo/khichdi-or-khichadi-a-popular-indian-recipe-the-food-is-made-of-dal-or-lentils-and-rice.webp?a=1&b=1&s=612x612&w=0&k=20&c=fck73iQ9x1FPWoJvSi1sfjgq2NK1khZRJ9ZBo_N9VpU=', hint: 'pongal festival' },
+    { dish: 'Tilkut', festival: 'Makar Sankranti', location: 'Bihar', image: 'https://m.media-amazon.com/images/I/61mBttTbVwL._UF1000,1000_QL80_.jpg', hint: 'bihar sweet' },
 ]
 
 const FoodPage = () => {
@@ -312,5 +312,3 @@ const FoodPage = () => {
 };
 
 export default FoodPage;
-
-    
