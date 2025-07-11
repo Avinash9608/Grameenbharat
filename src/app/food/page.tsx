@@ -58,14 +58,14 @@ const culturalPairings = [
 
 const FoodPage = () => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-background">
             <Header />
 
             <main className="flex-1">
                 {/* 1. Hero Banner */}
                 <section className="relative h-[60vh] w-full flex items-center justify-center text-center">
                     <Image
-                        src="https://images.unsplash.com/photo-1742281258189-3b933879867a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA2fHxmb29kJTIwaW5kaWFufGVufDB8fDB8fHww"
+                        src="https://images.unsplash.com/photo-1742281257707-0c7f7e5ca9c6?q=80&w=2011&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="A spread of delicious Indian food"
                         fill
                         className="object-cover brightness-75 -z-10"
