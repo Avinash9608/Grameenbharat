@@ -34,8 +34,12 @@ const galleryItems = {
     { src: 'https://images.unsplash.com/photo-1631513497662-ea3733fda344?w=600&auto=format&fit=crop', alt: 'Group of people', hint: 'indian people' },
   ],
   Lifestyle: [
-    { src: 'https://placehold.co/600x400.png', alt: 'Cooking on open fire', hint: 'village cooking' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Carrying water pots', hint: 'village women' },
+    { src: 'https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop', alt: 'Woman working in field', hint: 'village work' },
+    { src: 'https://images.unsplash.com/photo-1583415303571-20185869c4bc?w=600&auto=format&fit=crop', alt: 'Man weaving', hint: 'village craft' },
+    { src: 'https://images.unsplash.com/photo-1573366461298-29cc79bf6345?w=600&auto=format&fit=crop', alt: 'Village road', hint: 'village road' },
+    { src: 'https://images.unsplash.com/photo-1723648722809-65f1e11e5060?w=600&auto=format&fit=crop', alt: 'Women in sarees', hint: 'village women' },
+    { src: 'https://plus.unsplash.com/premium_photo-1691030256235-47d75d5890b9?w=600&auto=format&fit=crop', alt: 'Farmer with bullocks', hint: 'farmer bullocks' },
+    { src: 'https://images.unsplash.com/photo-1634966697712-c3c0d3db3fdc?w=600&auto=format&fit=crop', alt: 'Woman with cow', hint: 'woman cow' },
   ],
 };
 
