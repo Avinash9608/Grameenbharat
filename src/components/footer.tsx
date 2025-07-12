@@ -10,6 +10,13 @@ const Footer = () => {
         { name: 'YouTube', href: '#', icon: <Youtube className="w-6 h-6" /> },
     ];
     
+    const projects = [
+        { name: '🎬 Telegram Bot', href: 'https://tpi.li/nXPuWjXk' },
+        { name: '🍿 Movie Website', href: 'https://cine-link-hub.vercel.app/' },
+        { name: '📝 Blogging Platform', href: 'https://studio--blogger-showcase.us-central1.hosted.app/' },
+        { name: '💍 ShaadiCraft Page', href: 'https://claude.ai/public/artifacts/ee187637-e5a4-454a-854a-baa0e59bd5e1' },
+    ];
+    
     return (
         <footer className="bg-primary/10 text-foreground border-t border-primary/20">
             <div className="container mx-auto px-4 md:px-6 py-12">
@@ -68,6 +75,38 @@ const Footer = () => {
                         </form>
                     </div>
                 </div>
+
+                <div className="rounded-lg border border-border p-5 mt-8">
+                    <h2 className="font-headline text-xl font-semibold mb-4">🌍 Explore Our Projects</h2>
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-sm">
+                            <thead className="border-b border-border">
+                                <tr>
+                                    <th className="p-2 text-left font-semibold text-muted-foreground">Project</th>
+                                    <th className="p-2 text-left font-semibold text-muted-foreground">Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {projects.map((project) => (
+                                    <tr key={project.name} className="border-b border-border/50 last:border-b-0">
+                                        <td className="p-2">{project.name}</td>
+                                        <td className="p-2">
+                                            <a 
+                                                href={project.href} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className="text-primary hover:underline truncate block"
+                                            >
+                                                {project.name.split(' ')[1]} Link
+                                            </a>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <div className="border-t border-primary/20 mt-12 pt-6 text-center text-sm text-muted-foreground">
                     <p>&copy; {new Date().getFullYear()} Grameen Bharat. All Rights Reserved. A tribute to the hands that feed the nation.</p>
                 </div>
