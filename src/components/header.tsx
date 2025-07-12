@@ -18,7 +18,7 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
-  const pagesWithDarkHero = ['/', '/food', '/occupations', '/architecture', '/farming'];
+  const pagesWithDarkHero = ['/', '/food', '/occupations', '/architecture', '/farming', '/contact'];
   const hasDarkHero = pagesWithDarkHero.includes(pathname);
 
   useEffect(() => {
@@ -71,8 +71,8 @@ const Header = () => {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-            <Button variant="secondary" className="hidden md:inline-flex">
-                Contact Us
+            <Button asChild variant="secondary" className="hidden md:inline-flex">
+                <Link href="/contact">Contact Us</Link>
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -101,8 +101,8 @@ const Header = () => {
                         </Link>
                         ))}
                     </nav>
-                    <Button variant="secondary" className="mt-4">
-                        Contact Us
+                    <Button asChild variant="secondary" className="mt-4">
+                        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
                     </Button>
                 </div>
               </SheetContent>
