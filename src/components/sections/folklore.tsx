@@ -27,7 +27,7 @@ const Folklore = () => {
       if (file.size > 10 * 1024 * 1024) { // 10MB limit
         setError('File size exceeds 10MB. Please upload a smaller audio file.');
         setAudioDataUri(null);
-        (event.target as HTMLInputElement).value = ''; // Clear the input
+        event.target.value = ''; // Clear the input
         return;
       }
       const reader = new FileReader();
@@ -41,6 +41,13 @@ const Folklore = () => {
       reader.readAsDataURL(file);
     }
   };
+  
+  const handleDialectChange = (value: string) => {
+    setLocalDialect(value);
+    if(error === 'Please upload an audio file and select a dialect.') {
+      setError(null);
+    }
+  }
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -112,7 +119,7 @@ const Folklore = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block mr-2 h-4 w-4"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m12 25 4-9 4.5 9"/><path d="M19.5 22h-5"/></svg>
                     Local Dialect
                   </Label>
-                  <Select onValueChange={setLocalDialect} value={localDialect}>
+                  <Select onValueChange={handleDialectChange} value={localDialect}>
                     <SelectTrigger id="dialect">
                       <SelectValue placeholder="Select a dialect" />
                     </SelectTrigger>
