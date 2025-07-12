@@ -76,34 +76,22 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="rounded-lg border border-border p-5 mt-8">
-                    <h2 className="font-headline text-xl font-semibold mb-4">🌍 Explore Our Projects</h2>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-sm">
-                            <thead className="border-b border-border">
-                                <tr>
-                                    <th className="p-2 text-left font-semibold text-muted-foreground">Project</th>
-                                    <th className="p-2 text-left font-semibold text-muted-foreground">Link</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {projects.map((project) => (
-                                    <tr key={project.name} className="border-b border-border/50 last:border-b-0">
-                                        <td className="p-2">{project.name}</td>
-                                        <td className="p-2">
-                                            <a 
-                                                href={project.href} 
-                                                target="_blank" 
-                                                rel="noopener noreferrer" 
-                                                className="text-primary hover:underline truncate block"
-                                            >
-                                                {project.name.split(' ')[1]} Link
-                                            </a>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                 <div className="bg-background/50 rounded-lg border border-border p-6 mt-10 shadow-sm">
+                    <h2 className="font-headline text-xl font-semibold mb-4 text-center sm:text-left">🌍 Explore Our Other Projects</h2>
+                    <div className="space-y-3">
+                        {projects.map((project) => (
+                            <div key={project.name} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 rounded-md hover:bg-primary/10 transition-colors">
+                                <span className="font-medium text-foreground">{project.name}</span>
+                                <a 
+                                    href={project.href} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="text-primary hover:underline text-sm font-semibold mt-1 sm:mt-0"
+                                >
+                                    Visit Project
+                                </a>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
