@@ -72,4 +72,12 @@ html {
   .dark body {
     @apply bg-background text-foreground;
   }
+
+  .animate-fade-in-up {
+    animation-fill-mode: forwards;
+    opacity: 0;
+    animation-name: fade-in-up;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
 }

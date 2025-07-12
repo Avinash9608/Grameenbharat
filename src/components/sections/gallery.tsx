@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -7,19 +6,13 @@ import Image from 'next/image';
 import { Play } from 'lucide-react';
 
 const galleryItems = {
-  Images: [
+  All: [
     { src: 'https://images.unsplash.com/photo-1717820775574-bc200d22ce40?w=600&auto=format&fit=crop', alt: 'Village portrait', hint: 'village portrait' },
     { src: 'https://images.unsplash.com/photo-1587535919292-301def3230a0?w=600&auto=format&fit=crop', alt: 'Marketplace', hint: 'village market' },
     { src: 'https://images.unsplash.com/photo-1669288985566-b9b58fde9f90?w=600&auto=format&fit=crop', alt: 'Children playing', hint: 'indian children' },
-    { src: 'https://images.unsplash.com/photo-1610730686196-1642e127e338?w=600&auto=format&fit=crop', alt: 'Elderly woman', hint: 'elderly indian' },
-    { src: 'https://images.unsplash.com/photo-1530878902700-5ad4f9e4c318?w=600&auto=format&fit=crop', alt: 'Handicrafts', hint: 'indian handicrafts' },
-    { src: 'https://images.unsplash.com/photo-1605272058466-5988743ff1db?w=600&auto=format&fit=crop', alt: 'Farmlands', hint: 'indian fields' },
-  ],
-  Videos: [
-    { videoId: 'oc_o5DZM3qc', alt: 'Village life in India', hint: 'village life' },
-    { videoId: 'CsBmy8oJiLM', alt: 'Rural India documentary', hint: 'rural documentary' },
-    { videoId: 'J_EukFvY3nw', alt: 'Indian village story', hint: 'village story' },
-    { videoId: 'F83stxxjnIw', alt: 'A day in a village', hint: 'village day' },
+    { src: 'https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop', alt: 'Indian festival performers', hint: 'festival performers' },
+    { src: 'https://plus.unsplash.com/premium_photo-1682092121090-5f3e89c7aa3c?w=600&auto=format&fit=crop', alt: 'Smiling man', hint: 'indian man' },
+     { src: 'https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop', alt: 'Woman working in field', hint: 'village work' },
   ],
   Festivals: [
     { src: 'https://images.unsplash.com/photo-1741877520432-6dafacb83656?w=600&auto=format&fit=crop', alt: 'Indian festival', hint: 'indian festival' },
@@ -47,6 +40,12 @@ const galleryItems = {
     { src: 'https://plus.unsplash.com/premium_photo-1691030256235-47d75d5890b9?w=600&auto=format&fit=crop', alt: 'Farmer with bullocks', hint: 'farmer bullocks' },
     { src: 'https://images.unsplash.com/photo-1634966697712-c3c0d3db3fdc?w=600&auto=format&fit=crop', alt: 'Woman with cow', hint: 'woman cow' },
   ],
+  Videos: [
+    { videoId: 'oc_o5DZM3qc', alt: 'Village life in India', hint: 'village life' },
+    { videoId: 'CsBmy8oJiLM', alt: 'Rural India documentary', hint: 'rural documentary' },
+    { videoId: 'J_EukFvY3nw', alt: 'Indian village story', hint: 'village story' },
+    { videoId: 'F83stxxjnIw', alt: 'A day in a village', hint: 'village day' },
+  ],
 };
 
 const Gallery = () => {
@@ -65,7 +64,7 @@ const Gallery = () => {
             A visual journey through the heart of rural India.
           </p>
         </div>
-        <Tabs defaultValue="Images" className="w-full" onValueChange={handleTabChange}>
+        <Tabs defaultValue="All" className="w-full" onValueChange={handleTabChange}>
           <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 mb-8">
             {Object.keys(galleryItems).map((category) => (
               <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
@@ -104,7 +103,7 @@ const Gallery = () => {
                   ))}
                 </div>
               ) : (
-                <div className="columns-2 md:columns-3 gap-4 space-y-4">
+                <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                   {items.map((item: any, index: number) => (
                     <div key={index} className="overflow-hidden rounded-lg shadow-lg break-inside-avoid group relative bg-black">
                       <Image

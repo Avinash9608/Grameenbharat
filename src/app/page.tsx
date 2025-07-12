@@ -7,7 +7,7 @@ import ExploreVillages from '@/components/sections/explore-villages';
 import ArtsCrafts from '@/components/sections/arts-crafts';
 import Folklore from '@/components/sections/folklore';
 import Footer from '@/components/footer';
-import FarmingLifestyle from './farming/page';
+import FarmingLifestyle from '@/components/sections/farming-lifestyle';
 
 export default function Home() {
   return (
@@ -18,6 +18,7 @@ export default function Home() {
         <Culture />
         <Gallery />
         <VideoStories />
+        <FarmingLifestyle />
         <ExploreVillages />
         <ArtsCrafts />
         <Folklore />

@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { CookingPot, Utensils, Shirt, Tent, Building2 } from 'lucide-react';
@@ -26,16 +25,16 @@ const Culture = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cultureItems.map((item) => {
             const cardContent = (
-              <Card className="overflow-hidden border-0 shadow-lg group h-full">
+              <Card className="overflow-hidden border-0 shadow-lg group h-full relative">
                 <CardHeader className="p-0">
                   <div className="relative h-64 w-full">
                     <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" data-ai-hint={item.hint} />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300" />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                      <div className="mb-4 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/90 transition-all duration-300" />
+                    <div className="absolute bottom-0 left-0 p-6 text-white w-full transition-transform duration-300 group-hover:-translate-y-2">
+                       <div className="mb-4 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-300 opacity-0 group-hover:opacity-100 -translate-y-4 group-hover:translate-y-0 delay-100">
                         {item.icon}
                       </div>
-                      <CardTitle className="font-headline text-2xl text-white drop-shadow-md">{item.title}</CardTitle>
+                      <CardTitle className="font-headline text-3xl text-white drop-shadow-md">{item.title}</CardTitle>
                     </div>
                   </div>
                 </CardHeader>
