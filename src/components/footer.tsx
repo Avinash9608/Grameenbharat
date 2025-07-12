@@ -1,11 +1,11 @@
-import { Leaf } from 'lucide-react';
+import { Leaf, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 
 const Footer = () => {
     const socialLinks = [
-        { name: 'Facebook', href: '#' },
-        { name: 'Instagram', href: '#' },
-        { name: 'Twitter', href: '#' },
-        { name: 'YouTube', href: '#' },
+        { name: 'Facebook', href: '#', icon: <Facebook className="w-6 h-6" /> },
+        { name: 'Instagram', href: '#', icon: <Instagram className="w-6 h-6" /> },
+        { name: 'Twitter', href: '#', icon: <Twitter className="w-6 h-6" /> },
+        { name: 'YouTube', href: '#', icon: <Youtube className="w-6 h-6" /> },
     ];
     
     return (
@@ -27,10 +27,10 @@ const Footer = () => {
                     <div>
                         <h3 className="font-headline font-semibold text-lg mb-4">Quick Links</h3>
                         <ul className="space-y-2">
-                            <li><a href="#culture" className="text-sm text-muted-foreground hover:text-primary transition-colors">Culture</a></li>
-                            <li><a href="#gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">Gallery</a></li>
-                            <li><a href="#stories" className="text-sm text-muted-foreground hover:text-primary transition-colors">Stories</a></li>
-                            <li><a href="#arts" className="text-sm text-muted-foreground hover:text-primary transition-colors">Arts &amp; Crafts</a></li>
+                            <li><a href="/#culture" className="text-sm text-muted-foreground hover:text-primary transition-colors">Culture</a></li>
+                            <li><a href="/#gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">Gallery</a></li>
+                            <li><a href="/#stories" className="text-sm text-muted-foreground hover:text-primary transition-colors">Stories</a></li>
+                            <li><a href="/#arts" className="text-sm text-muted-foreground hover:text-primary transition-colors">Arts &amp; Crafts</a></li>
                         </ul>
                     </div>
 
@@ -40,8 +40,7 @@ const Footer = () => {
                             {socialLinks.map(link => (
                                 <a key={link.name} href={link.href} className="text-muted-foreground hover:text-primary transition-colors">
                                     <span className="sr-only">{link.name}</span>
-                                    {/* Placeholder for actual icons */}
-                                    <div className="w-6 h-6 bg-muted rounded-full"></div>
+                                    {link.icon}
                                 </a>
                             ))}
                         </div>
