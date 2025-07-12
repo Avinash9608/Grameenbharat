@@ -58,6 +58,17 @@ async function toWav(
   });
 }
 
+const transcriptionPrompt = ai.definePrompt({
+    name: 'transcriptionPrompt',
+    input: { schema: TranslateFolkloreInputSchema },
+    output: { schema: z.object({ englishTranslation: z.string().describe('The English transcription of the audio.') }) },
+    prompt: `You are an expert linguist. Transcribe the following audio from the {{localDialect}} dialect into English text.
+
+Audio: {{media url=audioDataUri}}
+`,
+});
+
+
 const translateFolkloreFlow = ai.defineFlow(
   {
     name: 'translateFolkloreFlow',
@@ -68,28 +79,20 @@ const translateFolkloreFlow = ai.defineFlow(
     let englishTranslation: string | undefined = undefined;
     let audioDataUri: string | undefined = undefined;
 
-    // 1. Transcribe audio to text
+    // 1. Transcribe audio to text reliably
     try {
-      const transcriptionResponse = await ai.generate({
-          model: 'googleai/gemini-2.0-flash',
-          prompt: `You are an expert linguist. Transcribe the following audio from the {{localDialect}} dialect into English text.
-  
-  Audio: {{media url=audioDataUri}}
-  
-  English Transcription:`,
-          input: {
-              localDialect: input.localDialect,
-              audioDataUri: input.audioDataUri
-          }
-      });
-      englishTranslation = transcriptionResponse.text;
+      const { output } = await transcriptionPrompt(input);
+      if (output?.englishTranslation) {
+        englishTranslation = output.englishTranslation;
+      } else {
+         throw new Error("AI failed to transcribe the audio.");
+      }
     } catch (e) {
-      console.error("Error in transcription:", e);
-      // If transcription fails, we cannot proceed.
+      console.error("Error in transcription prompt:", e);
       throw new Error("Failed to transcribe the audio. Please check the file and try again.");
     }
     
-    // 2. If transcription is successful, generate audio from text
+    // 2. If transcription is successful, generate audio from the resulting text
     if (englishTranslation) {
         try {
             const ttsResponse = await ai.generate({
@@ -114,13 +117,13 @@ const translateFolkloreFlow = ai.defineFlow(
             }
         } catch(e) {
             console.error("Error in TTS generation:", e);
-            // If TTS fails, we can still return the text.
-            // We don't throw an error here, as partial success is acceptable.
+            // TTS failure is not critical. We can still return the text.
         }
     }
     
-    if (!englishTranslation && !audioDataUri) {
-        throw new Error("Failed to generate both text and audio translation.");
+    // Final check: if even the text is missing, something went very wrong.
+    if (!englishTranslation) {
+        throw new Error("Failed to generate translation. The transcription step was unsuccessful.");
     }
 
     return { englishTranslation, audioDataUri };
