@@ -76,7 +76,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                 <div className="bg-background/50 rounded-lg border border-border p-6 mt-10 shadow-sm">
+                <div className="bg-background/50 rounded-lg border border-border p-6 mt-10 shadow-sm">
                     <h2 className="font-headline text-xl font-semibold mb-4 text-center sm:text-left">🌍 Explore Our Other Projects</h2>
                     <div className="space-y-3">
                         {projects.map((project) => (
