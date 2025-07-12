@@ -24,10 +24,19 @@ const Folklore = () => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
+      if (file.size > 10 * 1024 * 1024) { // 10MB limit
+        setError('File size exceeds 10MB. Please upload a smaller audio file.');
+        setAudioDataUri(null);
+        (event.target as HTMLInputElement).value = ''; // Clear the input
+        return;
+      }
       const reader = new FileReader();
       reader.onload = (e) => {
         setAudioDataUri(e.target?.result as string);
         setError(null); // Clear previous errors
+      };
+      reader.onerror = () => {
+        setError('Failed to read the audio file.');
       };
       reader.readAsDataURL(file);
     }
@@ -86,7 +95,7 @@ const Folklore = () => {
                 Translate a Folk Tale
               </CardTitle>
               <CardDescription>
-                Upload an audio file of a story told by a village elder and our AI will transcribe and translate it into English.
+                Upload an audio file (max 10MB) of a story told by a village elder and our AI will transcribe and translate it into English.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -138,13 +147,21 @@ const Folklore = () => {
                             <Textarea id="translation-text" value={englishTranslation} readOnly rows={8} className="bg-background" />
                         </>
                     )}
-                    {englishAudioUri && (
+                    {englishAudioUri ? (
                         <div className="space-y-2">
                             <Label className="font-bold text-lg flex items-center gap-2"><Volume2/> Listen to the story</Label>
                             <audio controls src={englishAudioUri} className="w-full">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
+                    ) : (
+                      englishTranslation && (
+                         <Alert variant="default">
+                          <AlertCircle className="h-4 w-4" />
+                          <AlertTitle>Audio Not Available</AlertTitle>
+                          <AlertDescription>The text was translated successfully, but we couldn't generate the audio at this time.</AlertDescription>
+                        </Alert>
+                      )
                     )}
                 </div>
               )}

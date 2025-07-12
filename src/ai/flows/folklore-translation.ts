@@ -31,17 +31,6 @@ export async function translateFolklore(input: TranslateFolkloreInput): Promise<
   return translateFolkloreFlow(input);
 }
 
-const transcriptionPrompt = ai.definePrompt({
-    name: 'transcriptionPrompt',
-    input: { schema: TranslateFolkloreInputSchema },
-    output: { schema: z.string() },
-    prompt: `You are an expert linguist. Transcribe the following audio from the {{localDialect}} dialect into English text.
-  
-  Audio: {{media url=audioDataUri}}
-  
-  English Transcription:`,
-  });
-
 async function toWav(
   pcmData: Buffer,
   channels = 1,
@@ -79,17 +68,31 @@ const translateFolkloreFlow = ai.defineFlow(
     let englishTranslation: string | undefined = undefined;
     let audioDataUri: string | undefined = undefined;
 
+    // 1. Transcribe audio to text
     try {
-        const { output } = await transcriptionPrompt(input);
-        englishTranslation = output;
+      const transcriptionResponse = await ai.generate({
+          model: 'googleai/gemini-2.0-flash',
+          prompt: `You are an expert linguist. Transcribe the following audio from the {{localDialect}} dialect into English text.
+  
+  Audio: {{media url=audioDataUri}}
+  
+  English Transcription:`,
+          input: {
+              localDialect: input.localDialect,
+              audioDataUri: input.audioDataUri
+          }
+      });
+      englishTranslation = transcriptionResponse.text;
     } catch (e) {
-        console.error("Error in transcription:", e);
-        // Allow to continue to TTS if transcription fails but we have some text
+      console.error("Error in transcription:", e);
+      // If transcription fails, we cannot proceed.
+      throw new Error("Failed to transcribe the audio. Please check the file and try again.");
     }
-
+    
+    // 2. If transcription is successful, generate audio from text
     if (englishTranslation) {
         try {
-            const { media } = await ai.generate({
+            const ttsResponse = await ai.generate({
                 model: 'googleai/gemini-2.5-flash-preview-tts',
                 config: {
                     responseModalities: ['AUDIO'],
@@ -101,9 +104,10 @@ const translateFolkloreFlow = ai.defineFlow(
                 },
                 prompt: englishTranslation,
             });
-            if (media) {
+
+            if (ttsResponse.media) {
                 const audioBuffer = Buffer.from(
-                    media.url.substring(media.url.indexOf(',') + 1),
+                    ttsResponse.media.url.substring(ttsResponse.media.url.indexOf(',') + 1),
                     'base64'
                 );
                 audioDataUri = 'data:audio/wav;base64,' + (await toWav(audioBuffer));
@@ -111,6 +115,7 @@ const translateFolkloreFlow = ai.defineFlow(
         } catch(e) {
             console.error("Error in TTS generation:", e);
             // If TTS fails, we can still return the text.
+            // We don't throw an error here, as partial success is acceptable.
         }
     }
     
