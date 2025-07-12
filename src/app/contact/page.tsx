@@ -34,12 +34,12 @@ const ContactPage = () => {
                 <section className="relative h-[50vh] w-full flex items-center justify-center text-center">
                     <div className="absolute inset-0 z-[-1]">
                         <Image
-                            src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            src="https://images.unsplash.com/photo-1528747045269-390fe33c19f2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                             alt="Contact us background"
                             fill
                             className="object-cover brightness-75"
                             priority
-                            data-ai-hint="contact us"
+                            data-ai-hint="contact form"
                         />
                     </div>
                     <div className="relative z-10 flex flex-col items-center gap-6 p-4 text-white">
