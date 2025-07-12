@@ -1,4 +1,4 @@
-// 'use server';
+'use server';
 /**
  * @fileOverview This file contains a Genkit flow for translating folklore told by village elders from a local dialect into English.
  *
@@ -6,8 +6,6 @@
  * - TranslateFolkloreInput - The input type for the translateFolklore function.
  * - TranslateFolkloreOutput - The return type for the translateFolklore function.
  */
-
-'use server';
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
@@ -24,8 +22,8 @@ const TranslateFolkloreInputSchema = z.object({
 export type TranslateFolkloreInput = z.infer<typeof TranslateFolkloreInputSchema>;
 
 const TranslateFolkloreOutputSchema = z.object({
-  englishTranslation: z.string().describe('The English translation of the folklore.'),
-  audioDataUri: z.string().describe('The audio data URI of the folklore in English.'),
+  englishTranslation: z.string().optional().describe('The English translation of the folklore.'),
+  audioDataUri: z.string().optional().describe('The audio data URI of the folklore in English.'),
 });
 export type TranslateFolkloreOutput = z.infer<typeof TranslateFolkloreOutputSchema>;
 
@@ -33,29 +31,16 @@ export async function translateFolklore(input: TranslateFolkloreInput): Promise<
   return translateFolkloreFlow(input);
 }
 
-const translateFolklorePrompt = ai.definePrompt({
-  name: 'translateFolklorePrompt',
-  input: {schema: TranslateFolkloreInputSchema},
-  output: {schema: z.string()},
-  prompt: `You are an expert translator specializing in translating folklore from various local dialects into English.
-
-You will be provided with an audio recording of folklore told in the local dialect, along with the name of the dialect.
-Your task is to translate the folklore into English.
-
-Local Dialect: {{{localDialect}}}
-Folklore Audio: {{media url=audioDataUri}}
-
-Translation:`,
-});
-
-const ttsPrompt = ai.definePrompt({
-  name: 'ttsPrompt',
-  input: { schema: z.object({ text: z.string() }) },
-  output: { schema: z.any() },
-  prompt: `Convert the following text to speech:
-
-{{{text}}}`
-});
+const transcriptionPrompt = ai.definePrompt({
+    name: 'transcriptionPrompt',
+    input: { schema: TranslateFolkloreInputSchema },
+    output: { schema: z.string() },
+    prompt: `You are an expert linguist. Transcribe the following audio from the {{localDialect}} dialect into English text.
+  
+  Audio: {{media url=audioDataUri}}
+  
+  English Transcription:`,
+  });
 
 async function toWav(
   pcmData: Buffer,
@@ -91,34 +76,48 @@ const translateFolkloreFlow = ai.defineFlow(
     outputSchema: TranslateFolkloreOutputSchema,
   },
   async input => {
-    const {output: englishTranslation} = await translateFolklorePrompt(input);
+    let englishTranslation: string | undefined = undefined;
+    let audioDataUri: string | undefined = undefined;
 
-    const { media } = await ai.generate({
-      model: 'googleai/gemini-2.5-flash-preview-tts',
-      config: {
-        responseModalities: ['AUDIO'],
-        speechConfig: {
-          voiceConfig: {
-            prebuiltVoiceConfig: { voiceName: 'Algenib' },
-          },
-        },
-      },
-      prompt: englishTranslation,
-    });
-    if (!media) {
-      throw new Error('no media returned');
+    try {
+        const { output } = await transcriptionPrompt(input);
+        englishTranslation = output;
+    } catch (e) {
+        console.error("Error in transcription:", e);
+        // Allow to continue to TTS if transcription fails but we have some text
     }
-    const audioBuffer = Buffer.from(
-      media.url.substring(media.url.indexOf(',') + 1),
-      'base64'
-    );
-    const englishAudioDataUri = 'data:audio/wav;base64,' + (await toWav(audioBuffer));
 
-    return {
-      englishTranslation: englishTranslation!,
-      audioDataUri: englishAudioDataUri,
-    };
+    if (englishTranslation) {
+        try {
+            const { media } = await ai.generate({
+                model: 'googleai/gemini-2.5-flash-preview-tts',
+                config: {
+                    responseModalities: ['AUDIO'],
+                    speechConfig: {
+                        voiceConfig: {
+                            prebuiltVoiceConfig: { voiceName: 'Algenib' },
+                        },
+                    },
+                },
+                prompt: englishTranslation,
+            });
+            if (media) {
+                const audioBuffer = Buffer.from(
+                    media.url.substring(media.url.indexOf(',') + 1),
+                    'base64'
+                );
+                audioDataUri = 'data:audio/wav;base64,' + (await toWav(audioBuffer));
+            }
+        } catch(e) {
+            console.error("Error in TTS generation:", e);
+            // If TTS fails, we can still return the text.
+        }
+    }
+    
+    if (!englishTranslation && !audioDataUri) {
+        throw new Error("Failed to generate both text and audio translation.");
+    }
+
+    return { englishTranslation, audioDataUri };
   }
 );
-
-

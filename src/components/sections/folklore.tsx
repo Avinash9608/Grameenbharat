@@ -15,7 +15,7 @@ import { handleTranslateFolklore } from '@/app/actions';
 const Folklore = () => {
   const [audioDataUri, setAudioDataUri] = useState<string | null>(null);
   const [localDialect, setLocalDialect] = useState<string>('');
-  const [englishTranslation, setEnglishTranslation] = useState<string>('');
+  const [englishTranslation, setEnglishTranslation] = useState<string | null>(null);
   const [englishAudioUri, setEnglishAudioUri] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -42,13 +42,19 @@ const Folklore = () => {
 
     setIsLoading(true);
     setError(null);
-    setEnglishTranslation('');
+    setEnglishTranslation(null);
     setEnglishAudioUri(null);
 
     try {
       const result = await handleTranslateFolklore({ audioDataUri, localDialect });
-      setEnglishTranslation(result.englishTranslation);
-      setEnglishAudioUri(result.audioDataUri);
+      
+      if (!result.englishTranslation && !result.audioDataUri) {
+          throw new Error("The AI failed to produce a translation. Please try a different audio file.");
+      }
+
+      setEnglishTranslation(result.englishTranslation || "Translation text could not be generated.");
+      setEnglishAudioUri(result.audioDataUri || null);
+
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred.';
       setError(errorMessage);
@@ -124,10 +130,14 @@ const Folklore = () => {
                      <p className="text-muted-foreground font-semibold">Translating wisdom... this may take a moment.</p>
                   </div>
               )}
-              {!isLoading && englishTranslation && (
+              {!isLoading && (englishTranslation || englishAudioUri) && (
                 <div className="space-y-4 pt-4 border-t">
-                    <Label htmlFor="translation-text" className="font-bold text-lg">English Translation</Label>
-                    <Textarea id="translation-text" value={englishTranslation} readOnly rows={8} className="bg-background" />
+                    {englishTranslation && (
+                        <>
+                            <Label htmlFor="translation-text" className="font-bold text-lg">English Translation</Label>
+                            <Textarea id="translation-text" value={englishTranslation} readOnly rows={8} className="bg-background" />
+                        </>
+                    )}
                     {englishAudioUri && (
                         <div className="space-y-2">
                             <Label className="font-bold text-lg flex items-center gap-2"><Volume2/> Listen to the story</Label>
