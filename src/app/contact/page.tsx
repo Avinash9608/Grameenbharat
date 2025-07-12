@@ -73,7 +73,7 @@ const ContactPage = () => {
                                             <Mail className="h-8 w-8 text-primary mt-1"/>
                                             <div>
                                                 <h4 className="font-semibold">Email Us</h4>
-                                                <a href="mailto:stories@grameenbharat.com" className="text-muted-foreground hover:text-primary transition-colors">stories@grameenbharat.com</a>
+                                                <a href="mailto:grameenbharatstories@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">grameenbharatstories@gmail.com</a>
                                             </div>
                                         </div>
                                          <div className="flex items-start gap-4">
