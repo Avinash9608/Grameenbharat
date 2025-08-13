@@ -1,7 +1,7 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay";
@@ -34,8 +34,22 @@ const Hero = () => {
         Autoplay({ delay: 4000, stopOnInteraction: true })
     );
 
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const parallaxStyle = {
+        transform: `translate3d(0, ${scrollY * 0.4}px, 0)`,
+    };
+
     return (
-        <section className="h-screen w-full relative">
+        <section className="h-screen w-full relative overflow-hidden">
             <Carousel
                 plugins={[plugin.current]}
                 className="w-full h-full"
@@ -46,14 +60,16 @@ const Hero = () => {
                     {slides.map((slide, index) => (
                         <CarouselItem key={index}>
                             <div className="w-full h-screen relative">
-                                <Image
-                                    src={slide.image}
-                                    alt={slide.title}
-                                    fill
-                                    className="object-cover"
-                                    priority={index === 0}
-                                    data-ai-hint={slide.hint}
-                                />
+                                <div className="absolute inset-0 z-0" style={parallaxStyle}>
+                                    <Image
+                                        src={slide.image}
+                                        alt={slide.title}
+                                        fill
+                                        className="object-cover"
+                                        priority={index === 0}
+                                        data-ai-hint={slide.hint}
+                                    />
+                                </div>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
 
                                 <div className="absolute inset-0 flex items-center justify-center p-8">
