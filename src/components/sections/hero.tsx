@@ -34,35 +34,36 @@ const Hero = () => {
                     </div>
 
                     {/* Right Side: Image Frame */}
-                    <div className="relative h-[300px] md:h-[500px] w-full [animation-delay:800ms] animate-fade-in-up">
-                        <div className="absolute w-full h-full rounded-lg shadow-2xl bg-white/50 dark:bg-black/20 backdrop-blur-sm p-4">
-                            <div className="relative w-full h-full">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop"
-                                    alt="Woman working in a field"
-                                    fill
-                                    className="object-cover rounded-lg shadow-lg"
-                                    data-ai-hint="village work"
-                                />
-                                <div className="absolute -bottom-10 -left-16 w-48 h-32 hidden lg:block">
-                                    <Image
-                                        src="https://plus.unsplash.com/premium_photo-1682092121090-5f3e89c7aa3c?w=600&auto=format&fit=crop"
-                                        alt="Smiling man"
-                                        fill
-                                        className="object-cover rounded-lg shadow-xl border-4 border-background"
-                                        data-ai-hint="indian man"
-                                    />
-                                </div>
-                                <div className="absolute -top-10 -right-16 w-56 h-40 hidden lg:block">
-                                     <Image
-                                        src="https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop"
-                                        alt="Indian festival performers"
-                                        fill
-                                        className="object-cover rounded-lg shadow-xl border-4 border-background"
-                                        data-ai-hint="festival performers"
-                                    />
-                                </div>
-                            </div>
+                    <div className="relative h-[350px] md:h-[500px] w-full [animation-delay:800ms] animate-fade-in-up group">
+                        {/* Image 1 - Back */}
+                        <div className="absolute top-1/2 left-1/2 w-[70%] h-[80%] -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:rotate-[-6deg]">
+                             <Image
+                                src="https://images.unsplash.com/photo-1620563202672-36d713a79f8d?w=600&auto=format&fit=crop"
+                                alt="Woman working in a field"
+                                fill
+                                className="object-cover"
+                                data-ai-hint="village work"
+                            />
+                        </div>
+                         {/* Image 2 - Middle */}
+                        <div className="absolute top-1/4 left-1/4 w-48 h-64 rounded-xl overflow-hidden shadow-2xl border-4 border-background transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]">
+                            <Image
+                                src="https://plus.unsplash.com/premium_photo-1682092121090-5f3e89c7aa3c?w=600&auto=format&fit=crop"
+                                alt="Smiling man"
+                                fill
+                                className="object-cover"
+                                data-ai-hint="indian man"
+                            />
+                        </div>
+                         {/* Image 3 - Front */}
+                        <div className="absolute bottom-1/4 right-1/4 w-40 h-52 rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl border-4 border-background transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-12deg]">
+                             <Image
+                                src="https://images.unsplash.com/photo-1629649213060-4874f8f6bce3?w=600&auto=format&fit=crop"
+                                alt="Indian festival performers"
+                                fill
+                                className="object-cover"
+                                data-ai-hint="festival performers"
+                            />
                         </div>
                     </div>
                 </div>
