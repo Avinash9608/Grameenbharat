@@ -1,32 +1,42 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { ChevronRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center text-center text-white overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1648876565196-a5e5460848c6?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Village scenery at sunset"
-          fill
-          className="object-cover brightness-50"
-          priority
-        />
-      </div>
-      <div className="relative z-10 flex flex-col items-center gap-6 p-4 animate-fade-in-up">
-        <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg [animation-delay:200ms] animate-fade-in-up">
-          Experience the Soul of Rural India
-        </h1>
-        <p className="max-w-3xl text-lg md:text-xl lg:text-2xl text-stone-100 drop-shadow-md [animation-delay:400ms] animate-fade-in-up">
-          Traditions, Culture, Lifestyle, and Stories from the Heart of the Village
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-4 [animation-delay:600ms] animate-fade-in-up">
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 text-lg">
-            <a href="#culture">Explore Culture</a>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 font-bold px-8 py-6 text-lg bg-black/20 backdrop-blur-sm">
-            <a href="#stories">Watch Stories</a>
-          </Button>
+    <section className="bg-background">
+      <div className="container mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 items-center min-h-screen pt-20 md:pt-0">
+        {/* Left Column: Text Content */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left animate-fade-in-up">
+          <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
+            The Unseen Heartbeat of <span className="text-primary">Rural India</span>
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-muted-foreground [animation-delay:200ms] animate-fade-in-up">
+            Journey into a world where tradition breathes, culture flourishes, and life is painted with the simple joys of the earth.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-8 [animation-delay:400ms] animate-fade-in-up">
+            <Button asChild size="lg" className="px-8 py-6 text-lg">
+              <a href="#culture">
+                Start Exploring
+                <ChevronRight className="ml-2" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="ghost" className="px-8 py-6 text-lg">
+              <a href="#stories">Watch Stories</a>
+            </Button>
+          </div>
+        </div>
+        
+        {/* Right Column: Image */}
+        <div className="relative h-80 md:h-[60vh] w-full [animation-delay:200ms] animate-fade-in-up">
+           <Image
+              src="https://images.unsplash.com/photo-1631513497662-ea3733fda344?w=600&auto=format&fit=crop&q=60"
+              alt="A group of vibrant women in a village in India"
+              fill
+              className="object-cover rounded-2xl shadow-2xl"
+              priority
+              data-ai-hint="indian women village"
+            />
         </div>
       </div>
     </section>
