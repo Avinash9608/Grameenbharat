@@ -16,11 +16,7 @@ import Link from 'next/link';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
   
-  const pagesWithDarkHero = ['/', '/food', '/occupations', '/architecture', '/farming', '/contact'];
-  const hasDarkHero = pagesWithDarkHero.includes(pathname);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -40,9 +36,8 @@ const Header = () => {
     { name: 'Folklore', href: '/#folklore' },
   ];
 
-  const useLightTextColor = hasDarkHero && !isScrolled;
-  const headerTextColor = useLightTextColor ? 'text-white' : 'text-foreground';
-  const navLinkColor = useLightTextColor ? 'text-stone-200 hover:text-white' : 'text-foreground/80 hover:text-foreground';
+  const headerTextColor = 'text-foreground';
+  const navLinkColor = 'text-foreground/80 hover:text-foreground';
 
 
   return (
