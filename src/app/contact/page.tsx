@@ -35,24 +35,63 @@ const ContactPage = () => {
         }
     };
 
+    const readFileAsDataURL = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result as string);
+            reader.onerror = (error) => reject(error);
+            reader.readAsDataURL(file);
+        });
+    }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
 
-        const formData = new FormData(e.currentTarget);
-        
-        const result = await handleContactSubmit(formData);
+        const form = e.currentTarget;
+        const formData = new FormData();
+        formData.append('name', (form.elements.namedItem('name') as HTMLInputElement).value);
+        formData.append('email', (form.elements.namedItem('email') as HTMLInputElement).value);
+        formData.append('subject', (form.elements.namedItem('subject') as HTMLInputElement).value);
+        formData.append('message', (form.elements.namedItem('message') as HTMLTextAreaElement).value);
 
-        setIsLoading(false);
-        if (result.success) {
-            setFormSubmitted(true);
-        } else {
-            toast({
+        const fileInput = form.elements.namedItem('file') as HTMLInputElement;
+        const file = fileInput.files?.[0];
+
+        try {
+            if (file && file.size > 0) {
+                 if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                    toast({
+                        variant: 'destructive',
+                        title: 'File Too Large',
+                        description: 'Please upload a file smaller than 5MB.',
+                    });
+                    setIsLoading(false);
+                    return;
+                }
+                const dataUrl = await readFileAsDataURL(file);
+                formData.append('fileDataUrl', dataUrl);
+            }
+            
+            const result = await handleContactSubmit(formData);
+
+            if (result.success) {
+                setFormSubmitted(true);
+            } else {
+                toast({
+                    variant: 'destructive',
+                    title: 'Submission Failed',
+                    description: result.error || 'An unknown error occurred.',
+                });
+            }
+        } catch (error) {
+             toast({
                 variant: 'destructive',
-                title: 'Submission Failed',
-                description: result.error || 'An unknown error occurred.',
+                title: 'Submission Error',
+                description: 'Could not process the form. Please try again.',
             });
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -154,9 +193,9 @@ const ContactPage = () => {
                                                 <div className="space-y-2">
                                                     <Label htmlFor="file">
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
-                                                        Attach a file (optional, max 5MB)
+                                                        Attach a file (optional, up to 5MB)
                                                     </Label>
-                                                    <Input id="file" name="file" type="file" onChange={handleFileChange} />
+                                                    <Input id="file" name="file" type="file" />
                                                 </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
