@@ -35,38 +35,14 @@ const ContactPage = () => {
         }
     };
 
-    const readFileAsDataURL = (file: File): Promise<string> => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result as string);
-            reader.onerror = (error) => reject(error);
-            reader.readAsDataURL(file);
-        });
-    }
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
 
-        const form = e.currentTarget;
-        const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-        const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-        const subject = (form.elements.namedItem('subject') as HTMLInputElement).value;
-        const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-
+        const formData = new FormData(e.currentTarget);
+        
         try {
-            let fileDataUrl: string | null = null;
-            if (selectedFile) {
-                fileDataUrl = await readFileAsDataURL(selectedFile);
-            }
-
-            const result = await handleContactSubmit({
-                name,
-                email,
-                subject,
-                message,
-                fileDataUrl,
-            });
+            const result = await handleContactSubmit(formData);
 
             if (result.success) {
                 setFormSubmitted(true);
@@ -221,3 +197,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
