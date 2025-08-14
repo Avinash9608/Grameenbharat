@@ -12,68 +12,47 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Mail, Phone, MapPin, Send, Loader2, FileUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactSubmit, type ContactFormData } from '@/app/actions';
+import { handleContactSubmit } from '@/app/actions';
 
 const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const { toast } = useToast();
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0] || null;
+        if (file && file.size > 5 * 1024 * 1024) { // 5MB limit
+            toast({
+                variant: 'destructive',
+                title: 'File Too Large',
+                description: 'Please upload a file smaller than 5MB.',
+            });
+            e.target.value = ''; // Reset file input
+            setSelectedFile(null);
+        } else {
+            setSelectedFile(file);
+        }
+    };
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
 
         const formData = new FormData(e.currentTarget);
-        const data: Partial<ContactFormData> = {
-            name: formData.get('name') as string,
-            email: formData.get('email') as string,
-            subject: formData.get('subject') as string,
-            message: formData.get('message') as string,
-        };
+        
+        // No need to convert to data URI, we send the form data directly
+        const result = await handleContactSubmit(formData);
 
-        const file = formData.get('file') as File;
-
-        if (file && file.size > 0) {
-            if (file.size > 1 * 1024 * 1024) { // 1MB limit
-                toast({
-                    variant: 'destructive',
-                    title: 'File Too Large',
-                    description: 'Please upload a file smaller than 1MB.',
-                });
-                setIsLoading(false);
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = async () => {
-                const fileDataUri = reader.result as string;
-                const result = await handleContactSubmit({ ...data, file: fileDataUri } as ContactFormData);
-                handleFormResult(result);
-            };
-            reader.onerror = () => {
-                 toast({
-                    variant: 'destructive',
-                    title: 'File Read Error',
-                    description: 'There was an error processing your file.',
-                });
-                setIsLoading(false);
-            }
-        } else {
-            const result = await handleContactSubmit(data as ContactFormData);
-            handleFormResult(result);
-        }
-    }
-
-    const handleFormResult = (result: { success: boolean; error?: string }) => {
-         setIsLoading(false);
+        setIsLoading(false);
         if (result.success) {
             setFormSubmitted(true);
         } else {
             toast({
                 variant: 'destructive',
                 title: 'Submission Failed',
-                description: result.error,
+                description: result.error || 'An unknown error occurred.',
             });
         }
     }
@@ -176,9 +155,9 @@ const ContactPage = () => {
                                                 <div className="space-y-2">
                                                     <Label htmlFor="file">
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
-                                                        Attach a file (optional, max 1MB)
+                                                        Attach a file (optional, max 5MB)
                                                     </Label>
-                                                    <Input id="file" name="file" type="file" accept="image/*,application/pdf" />
+                                                    <Input id="file" name="file" type="file" accept="image/*,application/pdf" onChange={handleFileChange} />
                                                 </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
@@ -209,7 +188,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-    
-
-    
