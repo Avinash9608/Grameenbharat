@@ -1,9 +1,8 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const MapComponentWithNoSSR = dynamic(() => import('@/components/MapComponent'), {
   ssr: false,
@@ -11,12 +10,6 @@ const MapComponentWithNoSSR = dynamic(() => import('@/components/MapComponent'),
 });
 
 const MapSection = () => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   return (
     <section id="map-section" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
@@ -27,7 +20,7 @@ const MapSection = () => {
           </p>
         </div>
         <div className="h-[500px] w-full rounded-lg overflow-hidden shadow-xl border">
-          {isMounted ? <MapComponentWithNoSSR /> : <Skeleton className="h-full w-full bg-muted" />}
+          <MapComponentWithNoSSR />
         </div>
       </div>
     </section>
