@@ -9,8 +9,6 @@ import 'leaflet-defaulticon-compatibility';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
 
 const villagePoints = [
   { 
@@ -51,16 +49,7 @@ const villagePoints = [
 ];
 
 const MapComponent = () => {
-    const [isMounted, setIsMounted] = useState(false);
     const indiaCenter: LatLngExpression = [22.5726, 82.9739];
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    if (!isMounted) {
-        return <Skeleton className="w-full h-full bg-muted" />;
-    }
 
     return (
         <MapContainer 
@@ -68,7 +57,6 @@ const MapComponent = () => {
             zoom={5} 
             scrollWheelZoom={false} 
             className="h-full w-full"
-            key={String(isMounted)} // Force re-render with a new key when mounted
         >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
