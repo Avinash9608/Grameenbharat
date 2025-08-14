@@ -3,12 +3,13 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const MapSection = () => {
   const MapComponent = useMemo(() => dynamic(
     () => import('@/components/MapComponent'),
     { 
-      loading: () => <div className="w-full h-full bg-muted flex items-center justify-center"><p>A map is loading...</p></div>,
+      loading: () => <Skeleton className="w-full h-full bg-muted" />,
       ssr: false 
     }
   ), []);
