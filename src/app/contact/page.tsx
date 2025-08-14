@@ -22,11 +22,11 @@ const ContactPage = () => {
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0] || null;
-        if (file && file.size > 5 * 1024 * 1024) { // 5MB limit
+        if (file && file.size > 1 * 1024 * 1024) { // 1MB limit
             toast({
                 variant: 'destructive',
                 title: 'File Too Large',
-                description: 'Please upload a file smaller than 5MB.',
+                description: 'Please upload a file smaller than 1MB.',
             });
             e.target.value = ''; // Reset file input
             setSelectedFile(null);
@@ -164,7 +164,7 @@ const ContactPage = () => {
                                                 <div className="space-y-2">
                                                     <Label htmlFor="file">
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
-                                                        Attach a file (optional, up to 5MB)
+                                                        Attach a file (optional, up to 1MB)
                                                     </Label>
                                                     <Input id="file" name="file" type="file" onChange={handleFileChange} />
                                                 </div>
