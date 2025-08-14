@@ -11,6 +11,7 @@ export interface ContactFormData {
     email: string;
     subject: string;
     message: string;
+    file?: string; // Optional: file as a data URI string
 }
 
 export async function handleContactSubmit(formData: ContactFormData) {
@@ -52,6 +53,3 @@ export async function handleNewsletterSubscribe(email: string) {
         return { success: false, error: "Failed to subscribe. Please try again." };
     }
 }
-    
-
-

@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, FileUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { handleContactSubmit, type ContactFormData } from '@/app/actions';
 
@@ -24,16 +24,49 @@ const ContactPage = () => {
         setIsLoading(true);
 
         const formData = new FormData(e.currentTarget);
-        const data: ContactFormData = {
+        const data: Partial<ContactFormData> = {
             name: formData.get('name') as string,
             email: formData.get('email') as string,
             subject: formData.get('subject') as string,
             message: formData.get('message') as string,
         };
 
-        const result = await handleContactSubmit(data);
+        const file = formData.get('file') as File;
 
-        setIsLoading(false);
+        if (file && file.size > 0) {
+            if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                toast({
+                    variant: 'destructive',
+                    title: 'File Too Large',
+                    description: 'Please upload a file smaller than 5MB.',
+                });
+                setIsLoading(false);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = async () => {
+                const fileDataUri = reader.result as string;
+                const result = await handleContactSubmit({ ...data, file: fileDataUri } as ContactFormData);
+                handleFormResult(result);
+            };
+            reader.onerror = () => {
+                 toast({
+                    variant: 'destructive',
+                    title: 'File Read Error',
+                    description: 'There was an error processing your file.',
+                });
+                setIsLoading(false);
+            }
+        } else {
+            const result = await handleContactSubmit(data as ContactFormData);
+            handleFormResult(result);
+        }
+    }
+
+    const handleFormResult = (result: { success: boolean; error?: string }) => {
+         setIsLoading(false);
         if (result.success) {
             setFormSubmitted(true);
         } else {
@@ -140,6 +173,13 @@ const ContactPage = () => {
                                                     <Label htmlFor="message">Your Message</Label>
                                                     <Textarea id="message" name="message" placeholder="Share your story or question here..." rows={6} required />
                                                 </div>
+                                                <div className="space-y-2">
+                                                    <Label htmlFor="file">
+                                                        <FileUp className="inline-block mr-2 h-4 w-4" />
+                                                        Attach a file (optional, max 5MB)
+                                                    </Label>
+                                                    <Input id="file" name="file" type="file" accept="image/*,application/pdf" />
+                                                </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
                                                         <>
@@ -169,5 +209,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-    
