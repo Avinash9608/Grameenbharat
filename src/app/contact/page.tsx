@@ -42,7 +42,6 @@ const ContactPage = () => {
 
         const formData = new FormData(e.currentTarget);
         
-        // No need to convert to data URI, we send the form data directly
         const result = await handleContactSubmit(formData);
 
         setIsLoading(false);
