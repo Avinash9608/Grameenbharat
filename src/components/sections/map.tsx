@@ -6,7 +6,7 @@ import { useMemo } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const MapSection = () => {
-  const MapComponent = useMemo(() => dynamic(
+  const Map = useMemo(() => dynamic(
     () => import('@/components/MapComponent'),
     { 
       loading: () => <Skeleton className="w-full h-full bg-muted" />,
@@ -24,7 +24,7 @@ const MapSection = () => {
                 </p>
             </div>
             <div className="w-full max-w-6xl mx-auto aspect-video rounded-xl overflow-hidden shadow-xl border">
-                <MapComponent />
+                <Map />
             </div>
         </div>
     </section>
