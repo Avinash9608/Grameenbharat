@@ -80,7 +80,7 @@ const CultureCarousel = () => {
                 trackElement.removeEventListener("touchend", handleTouchEnd);
             }
         };
-    }, [currentIndex]);
+    }, [currentIndex, isAnimating]);
     
     return (
         <section id="culture" className="py-16 md:py-24 bg-background overflow-hidden">
@@ -106,8 +106,11 @@ const CultureCarousel = () => {
                         else cardClass += "hidden";
 
                         return (
-                            <Link href={item.href} key={i} className={cardClass} onClick={() => offset !== 0 && updateCarousel(i)}>
+                            <Link href={item.href} key={i} className={cardClass} onClick={(e) => { if(offset !== 0) { e.preventDefault(); updateCarousel(i); }}}>
                                 <Image src={item.image} alt={item.name} fill quality={80} sizes="(max-width: 768px) 200px, 280px" />
+                                <div className="card-overlay">
+                                    <h3 className="card-title">{item.name}</h3>
+                                </div>
                             </Link>
                         );
                     })}

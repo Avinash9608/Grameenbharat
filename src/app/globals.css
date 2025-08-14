@@ -139,6 +139,34 @@ html {
 	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.card .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.card.center .card-overlay,
+.card.left-1 .card-overlay,
+.card.right-1 .card-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.card .card-title {
+    font-family: var(--font-headline);
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+
 .card.center {
 	z-index: 10;
 	transform: scale(1.1) translateZ(0);
