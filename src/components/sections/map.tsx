@@ -8,7 +8,7 @@ const MapSection = () => {
   const MapComponent = useMemo(() => dynamic(
     () => import('@/components/MapComponent'),
     { 
-      loading: () => <p>A map is loading...</p>,
+      loading: () => <div className="w-full h-full bg-muted flex items-center justify-center"><p>A map is loading...</p></div>,
       ssr: false 
     }
   ), []);
