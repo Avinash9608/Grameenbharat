@@ -12,7 +12,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Mail, Phone, MapPin, Send, Loader2, FileUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactSubmit } from '@/app/actions';
+import { handleContactSubmit, type ContactFormData } from '@/app/actions';
 
 const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -49,30 +49,25 @@ const ContactPage = () => {
         setIsLoading(true);
 
         const form = e.currentTarget;
-        const formData = new FormData();
-        formData.append('name', (form.elements.namedItem('name') as HTMLInputElement).value);
-        formData.append('email', (form.elements.namedItem('email') as HTMLInputElement).value);
-        formData.append('subject', (form.elements.namedItem('subject') as HTMLInputElement).value);
-        formData.append('message', (form.elements.namedItem('message') as HTMLTextAreaElement).value);
-
-        const fileInput = form.elements.namedItem('file') as HTMLInputElement;
-        const file = fileInput.files?.[0];
+        const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+        const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+        const subject = (form.elements.namedItem('subject') as HTMLInputElement).value;
+        const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
 
         try {
-            if (file && file.size > 0) {
-                 if (file.size > 5 * 1024 * 1024) { // 5MB limit
-                    toast({
-                        variant: 'destructive',
-                        title: 'File Too Large',
-                        description: 'Please upload a file smaller than 5MB.',
-                    });
-                    setIsLoading(false);
-                    return;
-                }
-                const dataUrl = await readFileAsDataURL(file);
-                formData.append('fileDataUrl', dataUrl);
+            let fileDataUrl: string | null = null;
+            if (selectedFile) {
+                fileDataUrl = await readFileAsDataURL(selectedFile);
             }
-            
+
+            const formData: Omit<ContactFormData, 'fileUrl'> & { fileDataUrl: string | null } = {
+                name,
+                email,
+                subject,
+                message,
+                fileDataUrl,
+            };
+
             const result = await handleContactSubmit(formData);
 
             if (result.success) {
@@ -85,10 +80,11 @@ const ContactPage = () => {
                 });
             }
         } catch (error) {
+             const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
              toast({
                 variant: 'destructive',
                 title: 'Submission Error',
-                description: 'Could not process the form. Please try again.',
+                description: errorMessage,
             });
         } finally {
             setIsLoading(false);
@@ -195,7 +191,7 @@ const ContactPage = () => {
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
                                                         Attach a file (optional, up to 5MB)
                                                     </Label>
-                                                    <Input id="file" name="file" type="file" />
+                                                    <Input id="file" name="file" type="file" onChange={handleFileChange} />
                                                 </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (

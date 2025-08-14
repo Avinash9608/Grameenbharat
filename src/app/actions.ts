@@ -1,3 +1,4 @@
+
 'use server';
 
 import { translateFolklore, type TranslateFolkloreInput, type TranslateFolkloreOutput } from "@/ai/flows/folklore-translation";
@@ -11,24 +12,19 @@ export interface ContactFormData {
     email: string;
     subject: string;
     message: string;
-    fileUrl?: string; // We'll store the public URL of the file
+    fileUrl?: string;
 }
 
-export async function handleContactSubmit(formData: FormData) {
+export async function handleContactSubmit(data: Omit<ContactFormData, 'fileUrl'> & { fileDataUrl: string | null }) {
     try {
-        const name = formData.get('name') as string;
-        const email = formData.get('email') as string;
-        const subject = formData.get('subject') as string;
-        const message = formData.get('message') as string;
-        const fileDataUrl = formData.get('fileDataUrl') as string | null;
-
+        const { name, email, subject, message, fileDataUrl } = data;
         const dataToSave: ContactFormData = { name, email, subject, message };
 
         if (fileDataUrl) {
             // Create a storage reference
-            const storageRef = ref(storage, `contact-uploads/${Date.now()}`);
+            const storageRef = ref(storage, `contact-uploads/${Date.now()}-${name.replace(/\s+/g, '-')}`);
             
-            // Upload the file
+            // Upload the file data URL
             const snapshot = await uploadString(storageRef, fileDataUrl, 'data_url');
             
             // Get the public URL
