@@ -11,19 +11,38 @@ import Image from 'next/image';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import { handleContactSubmit, type ContactFormData } from '@/app/actions';
 
 const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
+    const { toast } = useToast();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
-        // Simulate API call
-        setTimeout(() => {
-            setIsLoading(false);
+
+        const formData = new FormData(e.currentTarget);
+        const data: ContactFormData = {
+            name: formData.get('name') as string,
+            email: formData.get('email') as string,
+            subject: formData.get('subject') as string,
+            message: formData.get('message') as string,
+        };
+
+        const result = await handleContactSubmit(data);
+
+        setIsLoading(false);
+        if (result.success) {
             setFormSubmitted(true);
-        }, 1500);
+        } else {
+            toast({
+                variant: 'destructive',
+                title: 'Submission Failed',
+                description: result.error,
+            });
+        }
     }
 
     return (
@@ -106,20 +125,20 @@ const ContactPage = () => {
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                                     <div className="space-y-2">
                                                         <Label htmlFor="name">Your Name</Label>
-                                                        <Input id="name" placeholder="Ramesh Kumar" required />
+                                                        <Input id="name" name="name" placeholder="Ramesh Kumar" required />
                                                     </div>
                                                     <div className="space-y-2">
                                                         <Label htmlFor="email">Your Email</Label>
-                                                        <Input id="email" type="email" placeholder="ramesh@example.com" required />
+                                                        <Input id="email" name="email" type="email" placeholder="ramesh@example.com" required />
                                                     </div>
                                                 </div>
                                                  <div className="space-y-2">
                                                     <Label htmlFor="subject">Subject</Label>
-                                                    <Input id="subject" placeholder="A story about my village festival" required />
+                                                    <Input id="subject" name="subject" placeholder="A story about my village festival" required />
                                                 </div>
                                                 <div className="space-y-2">
                                                     <Label htmlFor="message">Your Message</Label>
-                                                    <Textarea id="message" placeholder="Share your story or question here..." rows={6} required />
+                                                    <Textarea id="message" name="message" placeholder="Share your story or question here..." rows={6} required />
                                                 </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
