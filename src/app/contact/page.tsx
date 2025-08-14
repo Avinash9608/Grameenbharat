@@ -34,11 +34,11 @@ const ContactPage = () => {
         const file = formData.get('file') as File;
 
         if (file && file.size > 0) {
-            if (file.size > 5 * 1024 * 1024) { // 5MB limit
+            if (file.size > 1 * 1024 * 1024) { // 1MB limit
                 toast({
                     variant: 'destructive',
                     title: 'File Too Large',
-                    description: 'Please upload a file smaller than 5MB.',
+                    description: 'Please upload a file smaller than 1MB.',
                 });
                 setIsLoading(false);
                 return;
@@ -176,7 +176,7 @@ const ContactPage = () => {
                                                 <div className="space-y-2">
                                                     <Label htmlFor="file">
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
-                                                        Attach a file (optional, max 5MB)
+                                                        Attach a file (optional, max 1MB)
                                                     </Label>
                                                     <Input id="file" name="file" type="file" accept="image/*,application/pdf" />
                                                 </div>
@@ -209,5 +209,7 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
+    
 
     
