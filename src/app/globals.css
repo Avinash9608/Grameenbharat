@@ -87,6 +87,16 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+
+  .scroll-progress-bar {
+    height: 4px;
+    background: hsl(var(--primary));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
 }
 
 @keyframes fade-in-up {
