@@ -63,7 +63,13 @@ const MapComponent = () => {
     }
 
     return (
-        <MapContainer center={indiaCenter} zoom={5} scrollWheelZoom={false} className="h-full w-full">
+        <MapContainer 
+            center={indiaCenter} 
+            zoom={5} 
+            scrollWheelZoom={false} 
+            className="h-full w-full"
+            key={String(isMounted)} // Force re-render with a new key when mounted
+        >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -73,13 +79,19 @@ const MapComponent = () => {
                     <Popup>
                         <div className="w-60">
                             <div className="relative h-28 w-full mb-2 rounded-md overflow-hidden">
-                                <Image src={village.image} alt={village.name} fill className="object-cover" data-ai-hint={village.hint} />
+                                <Image 
+                                    src={village.image} 
+                                    alt={village.name} 
+                                    fill 
+                                    className="object-cover" 
+                                    data-ai-hint={village.hint} 
+                                />
                             </div>
                             <h3 className="font-bold font-headline text-lg">{village.name}</h3>
                             <p className="text-sm text-muted-foreground mb-2">{village.description}</p>
-                                <Button asChild size="sm" className="w-full">
+                            <Button asChild size="sm" className="w-full">
                                 <a 
-                                    href={`https://www.google.com/maps/search/?api=1&query=${village.position[0]},${village.position[1]}`} 
+                                    href={`https://www.google.com/maps/search/?api=1&query=${village.position[0]},${village.position[1]}`}
                                     target="_blank" 
                                     rel="noopener noreferrer"
                                 >
