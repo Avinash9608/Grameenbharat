@@ -23,9 +23,10 @@ export async function handleContactSubmit(data: { name: string; email: string; s
         if (fileDataUrl) {
             const storageRef = ref(storage, `contact-uploads/${Date.now()}-${name.replace(/\s+/g, '-')}`);
             
-            // The data URL needs to be parsed. uploadString expects just the Base64 content.
+            // The data URL needs to be parsed to get only the Base64 content.
             const base64Data = fileDataUrl.split(',')[1];
             
+            // Correctly call uploadString with the 'base64' format specified.
             const snapshot = await uploadString(storageRef, base64Data, 'base64');
             
             const downloadURL = await getDownloadURL(snapshot.ref);
