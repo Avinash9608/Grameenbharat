@@ -21,13 +21,13 @@ export async function handleContactSubmit(data: Omit<ContactFormData, 'fileUrl'>
         const dataToSave: ContactFormData = { name, email, subject, message };
 
         if (fileDataUrl) {
-            // Create a storage reference
             const storageRef = ref(storage, `contact-uploads/${Date.now()}-${name.replace(/\s+/g, '-')}`);
             
-            // Upload the file data URL
-            const snapshot = await uploadString(storageRef, fileDataUrl, 'data_url');
+            // The data URL needs to be parsed. uploadString expects just the Base64 content.
+            const base64Data = fileDataUrl.split(',')[1];
             
-            // Get the public URL
+            const snapshot = await uploadString(storageRef, base64Data, 'base64');
+            
             const downloadURL = await getDownloadURL(snapshot.ref);
             dataToSave.fileUrl = downloadURL;
         }
