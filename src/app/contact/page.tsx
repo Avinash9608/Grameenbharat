@@ -12,7 +12,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Mail, Phone, MapPin, Send, Loader2, FileUp } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { handleContactSubmit, type ContactFormData } from '@/app/actions';
+import { handleContactSubmit } from '@/app/actions';
 
 const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -60,15 +60,13 @@ const ContactPage = () => {
                 fileDataUrl = await readFileAsDataURL(selectedFile);
             }
 
-            const formData: Omit<ContactFormData, 'fileUrl'> & { fileDataUrl: string | null } = {
+            const result = await handleContactSubmit({
                 name,
                 email,
                 subject,
                 message,
                 fileDataUrl,
-            };
-
-            const result = await handleContactSubmit(formData);
+            });
 
             if (result.success) {
                 setFormSubmitted(true);

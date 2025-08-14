@@ -15,7 +15,7 @@ export interface ContactFormData {
     fileUrl?: string;
 }
 
-export async function handleContactSubmit(data: Omit<ContactFormData, 'fileUrl'> & { fileDataUrl: string | null }) {
+export async function handleContactSubmit(data: { name: string; email: string; subject: string; message: string; fileDataUrl: string | null; }) {
     try {
         const { name, email, subject, message, fileDataUrl } = data;
         const dataToSave: ContactFormData = { name, email, subject, message };
