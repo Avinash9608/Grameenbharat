@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import Image from 'next/image';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Mail, Phone, MapPin, Send, Loader2, FileUp } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { handleContactSubmit } from '@/app/actions';
 
@@ -18,22 +18,6 @@ const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formSubmitted, setFormSubmitted] = useState(false);
     const { toast } = useToast();
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0] || null;
-        if (file && file.size > 1 * 1024 * 1024) { // 1MB limit
-            toast({
-                variant: 'destructive',
-                title: 'File Too Large',
-                description: 'Please upload a file smaller than 1MB.',
-            });
-            e.target.value = ''; // Reset file input
-            setSelectedFile(null);
-        } else {
-            setSelectedFile(file);
-        }
-    };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -161,13 +145,6 @@ const ContactPage = () => {
                                                     <Label htmlFor="message">Your Message</Label>
                                                     <Textarea id="message" name="message" placeholder="Share your story or question here..." rows={6} required />
                                                 </div>
-                                                <div className="space-y-2">
-                                                    <Label htmlFor="file">
-                                                        <FileUp className="inline-block mr-2 h-4 w-4" />
-                                                        Attach a file (optional, up to 1MB)
-                                                    </Label>
-                                                    <Input id="file" name="file" type="file" onChange={handleFileChange} />
-                                                </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
                                                         <>
@@ -197,4 +174,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-

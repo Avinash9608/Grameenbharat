@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShoppingBasket, Construction, SwatchBook, Info, Target, Fish, Hexagon } from 'lucide-react';
+import { PlayCircle, Wheat, Hammer, Sprout, PawPrint, ShoppingBasket, Construction, SwatchBook, Info, Target, Fish, Hexagon, Leaf } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
@@ -108,7 +108,7 @@ const occupationsData: Occupation[] = [
         image: 'https://images.unsplash.com/photo-1604464543433-149fe779b779?q=80&w=626&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         hint: 'pottery wheel',
         region: 'West Bengal, Rajasthan',
-        icon: <Sprout className="h-8 w-8 text-primary" />,
+        icon: <Leaf className="h-8 w-8 text-primary" />,
         details: {
             title: 'Shaping Earth: The Potter\'s Wheel',
             description: "The potter's wheel has been spinning in India for millennia. With practiced hands, a potter transforms a simple lump of clay into functional pots for storing water, decorative diyas for festivals, and artistic terracotta idols. This eco-friendly craft is deeply connected to the earth and the daily needs of the community.",
@@ -368,5 +368,3 @@ const OccupationsPage = () => {
 };
 
 export default OccupationsPage;
-
-    
