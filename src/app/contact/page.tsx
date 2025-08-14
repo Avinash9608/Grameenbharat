@@ -78,6 +78,7 @@ const ContactPage = () => {
                 });
             }
         } catch (error) {
+             console.error("Submission Error:", error);
              const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
              toast({
                 variant: 'destructive',
