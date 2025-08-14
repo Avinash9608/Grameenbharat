@@ -157,7 +157,7 @@ const ContactPage = () => {
                                                         <FileUp className="inline-block mr-2 h-4 w-4" />
                                                         Attach a file (optional, max 5MB)
                                                     </Label>
-                                                    <Input id="file" name="file" type="file" accept="image/*,application/pdf" onChange={handleFileChange} />
+                                                    <Input id="file" name="file" type="file" onChange={handleFileChange} />
                                                 </div>
                                                 <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isLoading}>
                                                     {isLoading ? (
