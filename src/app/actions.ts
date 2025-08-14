@@ -37,5 +37,21 @@ export async function handleTranslateFolklore(input: TranslateFolkloreInput): Pr
     }
 }
 
+export async function handleNewsletterSubscribe(email: string) {
+    if (!email) {
+        return { success: false, error: "Email is required." };
+    }
+    try {
+        await addDoc(collection(db, "newsletter"), {
+            email: email,
+            subscribedAt: serverTimestamp(),
+        });
+        return { success: true };
+    } catch (error) {
+        console.error("Error adding to newsletter: ", error);
+        return { success: false, error: "Failed to subscribe. Please try again." };
+    }
+}
     
+
 

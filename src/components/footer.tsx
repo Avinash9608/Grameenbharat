@@ -1,9 +1,17 @@
 
-import { Leaf, Facebook, Instagram, Twitter, Youtube, Send } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Leaf, Facebook, Instagram, Twitter, Youtube, Send, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { handleNewsletterSubscribe } from '@/app/actions';
+import { useToast } from '@/hooks/use-toast';
 
 const Footer = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const { toast } = useToast();
+
     const socialLinks = [
         { name: 'Facebook', href: '#', icon: <Facebook className="w-6 h-6" /> },
         { name: 'Instagram', href: '#', icon: <Instagram className="w-6 h-6" /> },
@@ -17,6 +25,31 @@ const Footer = () => {
         { name: '📝 Blogging Platform', href: 'https://studio--blogger-showcase.us-central1.hosted.app/' },
         { name: '💍 ShaadiCraft Page', href: 'https://claude.ai/public/artifacts/ee187637-e5a4-454a-854a-baa0e59bd5e1' },
     ];
+    
+    const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsLoading(true);
+
+        const formData = new FormData(e.currentTarget);
+        const email = formData.get('email') as string;
+
+        const result = await handleNewsletterSubscribe(email);
+
+        setIsLoading(false);
+        if (result.success) {
+            toast({
+                title: 'Subscribed!',
+                description: 'Thank you for subscribing to our newsletter.',
+            });
+            (e.target as HTMLFormElement).reset();
+        } else {
+            toast({
+                variant: 'destructive',
+                title: 'Subscription Failed',
+                description: result.error,
+            });
+        }
+    }
     
     return (
         <footer className="bg-primary/10 text-foreground border-t border-primary/20">
@@ -71,11 +104,20 @@ const Footer = () => {
                         <p className="text-sm text-muted-foreground mb-4">
                             Get the latest stories and updates from the villages directly in your inbox.
                         </p>
-                        <form className="flex flex-col sm:flex-row gap-2">
-                            <Input type="email" placeholder="Your email address" className="bg-background/80" />
-                            <Button type="submit" variant="secondary" className="shrink-0">
-                                <Send className="w-4 h-4 mr-2" />
-                                Subscribe
+                        <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
+                            <Input type="email" name="email" placeholder="Your email address" className="bg-background/80" required />
+                            <Button type="submit" variant="secondary" className="shrink-0" disabled={isLoading}>
+                                {isLoading ? (
+                                    <>
+                                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                        Subscribing...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="w-4 h-4 mr-2" />
+                                        Subscribe
+                                    </>
+                                )}
                             </Button>
                         </form>
                     </div>
