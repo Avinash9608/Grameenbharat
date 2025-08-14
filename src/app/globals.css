@@ -33,6 +33,7 @@ html {
     --chart-4: 120 40% 50%;
     --chart-5: 110 30% 55%;
     --radius: 0.5rem;
+    --dark-background: 222 84% 5%;
   }
   .dark {
     --background: 120 10% 5%;
@@ -59,6 +60,7 @@ html {
     --chart-3: 130 50% 55%;
     --chart-4: 120 40% 50%;
     --chart-5: 110 30% 55%;
+    --dark-background: 222 84% 5%;
   }
 }
 

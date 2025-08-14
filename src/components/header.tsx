@@ -41,14 +41,12 @@ const Header = () => {
     { name: 'Folklore', href: '/#folklore' },
   ];
 
-  const headerTextColor = 'text-foreground';
-  const navLinkColor = 'text-foreground/80 hover:text-foreground';
-
+  const headerTextColor = 'text-white';
+  const navLinkColor = 'text-slate-300 hover:text-white';
 
   return (
     <header className={cn(
-      "fixed top-0 z-50 w-full transition-all duration-300",
-      isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
+      "fixed top-0 z-50 w-full transition-all duration-300 bg-dark-background/80 backdrop-blur-sm shadow-md"
     )}>
        <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
@@ -77,7 +75,7 @@ const Header = () => {
             </Button>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className={cn("md:hidden", headerTextColor)}>
+                <Button variant="outline" size="icon" className={cn("md:hidden border-slate-500", headerTextColor)}>
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Open menu</span>
                 </Button>
